@@ -2,3 +2,7 @@ body {
   background-image: url('./img/background.png');
   background-size: cover;
 }
+
+h1{
+  color: white;
+}
