@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Chef = function() {
+const MenuBurger = () => {
     return (
         <div>
-            Cocina
+            Hamburgesas
         </div>
     )
 }
 
-export default Chef
+export default MenuBurger

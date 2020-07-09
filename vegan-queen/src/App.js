@@ -14,6 +14,13 @@ import {
 import './App.css';
 import Main from './components/Main';
 import Waiter from './components/Waiter';
+import Role from './components/Role';
+import Menu from './components/Menu';
+import MenuBreakfast from './components/MenuBreakfast'
+import MenuBurger from './components/MenuBurger'
+import Chef from './components/Chef';
+import Orders from './components/Orders';
+
 
 function App() {
   return (
@@ -23,33 +30,51 @@ function App() {
           <Link to = '/' className= 'btn btn-dark'>
             Main
           </Link>
-          <NavLink to = '/rol' className= 'btn btn-dark' activeClassName='active'>
-            M & C
-          </NavLink>
+          <Link to = '/role' className= 'btn btn-dark' activeClassName='active'>
+          {/* <NavLink to = '/role' className= 'btn btn-dark' activeClassName='active'> */}
+            M o C
+          </Link>
+          <Link to = '/menu' className= 'btn btn-dark'>
+            Menú
+          </Link>
+          <Link to = '/menu-breakfast' className= 'btn btn-dark'>
+            Desayuno
+          </Link>
+          <Link to = '/menu-burger' className= 'btn btn-dark'>
+            Burger
+          </Link>
+          <Link to = '/waiter' className= 'btn btn-dark'>
+            Mesero
+          </Link>
+          <Link to = '/chef' className= 'btn btn-dark'>
+            Cocinero
+          </Link>
+          <Link to = '/orders' className= 'btn btn-dark'>
+            Órdenes
+          </Link>
         </div>
-        <h1>Elementos permanentes (navbar o quizá los iconos)</h1>
         <hr />
           <Switch>
-            <Route path = "/rol">
-              Escoge entre mesero o cocinero
+            <Route path = "/role">
+              <Role />
             </Route>
             <Route path = "/waiter">
               <Waiter />
             </Route>
             <Route path = "/menu">
-              Pantalla menu: desayuno y burger
+              <Menu />
             </Route>
             <Route path = "/menu-breakfast">
-              Pantalla breakfast
+              <MenuBreakfast />
             </Route>
             <Route path = "/menu-burger">
-              Pantalla burger
+              <MenuBurger />
             </Route>
             <Route path = "/chef">
-              pantalla chef
+              <Chef />
             </Route>
             <Route path = "/orders">
-              Pantalla comandas, aqui van los componentes
+              <Orders />
             </Route>
             <Route path = "/">
               {/* Aqui se llaman los componentes */}

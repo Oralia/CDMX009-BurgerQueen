@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Chef = function() {
+const Role = () => {
     return (
         <div>
-            Cocina
+            Mesero o cocinero
         </div>
     )
 }
 
-export default Chef
+export default Role

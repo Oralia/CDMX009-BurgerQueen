@@ -1,9 +1,12 @@
 import React from 'react'
+import logo from '../img/logo_vegan.png'
+import chef from '../img/chef-animate (1).svg'
 
 const Main = () => {
     return (
         <div>
-            <h1>Pantalla principal: main</h1>
+            <img src={chef} alt=""/>
+            <img src={logo} alt=""/>
         </div>
     )
 }
