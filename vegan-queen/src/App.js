@@ -1,17 +1,9 @@
 import React from 'react';
 //Router
-import {
-  BrowserRouter as Router,
-  //Con switch se crea el contenido dinámico, adentro va el route 
-  Switch,
-  Route,
-  //Link es un ancla
-  Link,
-  NavLink
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
-import './App.css';
+import './asset/styles/styles.css';
 import Main from './components/Main';
 import Waiter from './components/Waiter';
 import Role from './components/Role';
@@ -20,6 +12,8 @@ import MenuBreakfast from './components/MenuBreakfast'
 import MenuBurger from './components/MenuBurger'
 import Chef from './components/Chef';
 import Orders from './components/Orders';
+import exit from './asset/img/salir.svg'
+import waiterOrChef from './asset/img/m-c.svg'
 
 
 function App() {
@@ -27,12 +21,11 @@ function App() {
     <Router>
       <div className="container mt-5">
         <div className='btn-group'>
-          <Link to = '/' className= 'btn btn-dark'>
-            Main
+          <Link to = '/'>
+            <img src={ exit } alt=""/>
           </Link>
-          <Link to = '/role' className= 'btn btn-dark' activeClassName='active'>
-          {/* <NavLink to = '/role' className= 'btn btn-dark' activeClassName='active'> */}
-            M o C
+          <Link to = '/role'>
+            <img src={ waiterOrChef} alt=""/>
           </Link>
           <Link to = '/menu' className= 'btn btn-dark'>
             Menú
@@ -53,7 +46,6 @@ function App() {
             Órdenes
           </Link>
         </div>
-        <hr />
           <Switch>
             <Route path = "/role">
               <Role />
@@ -77,7 +69,7 @@ function App() {
               <Orders />
             </Route>
             <Route path = "/">
-              {/* Aqui se llaman los componentes */}
+
               <Main />
             </Route>
           </Switch>
