@@ -1,7 +1,12 @@
 import React from 'react'
 import menuBurger from '../asset/img/02-menu-burger.svg'
+import Contador from './Contador'
 
 const MenuBurger = () => {
+
+    const sendOrder = () => {
+        console.log('Probando el click')
+    }
     return (
         <div>
             <img src={ menuBurger } alt="Menú desayuno"/>
@@ -10,9 +15,10 @@ const MenuBurger = () => {
             <p>Número de mesa</p>
             <input type="text" name="" id="2" placeholder='número de mesa'/>
             <p>Presione según corresponda para aumentar o disminuir el número de productos</p>
-            <button>+</button>
-            <button>-</button>
-            <button>Enviar pedido a cocina</button>
+            <Contador />
+            
+            {/* <button onClick={ sendOrder }>Enviar pedido a cocina</button> */}
+            <button onClick={ () => sendOrder() }>Enviar pedido a cocina</button>
             <input type="text" name="" id="3" placeholder='Total'/>
             <button>Icono regresar</button>
         </div>

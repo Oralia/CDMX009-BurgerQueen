@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //Router
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -17,6 +17,17 @@ import waiterOrChef from './asset/img/m-c.svg'
 
 
 function App() {
+  
+  //
+  const [ order, setOrder] = useState({
+    waiter:'',
+    chef:'',
+    products:[],
+    
+
+
+  })
+
   return (
     <Router>
       <div className="container mt-5">
@@ -25,7 +36,7 @@ function App() {
             <img src={ exit } alt=""/>
           </Link>
           <Link to = '/role'>
-            <img src={ waiterOrChef} alt=""/>
+            <img src={ waiterOrChef } alt=""/>
           </Link>
           <Link to = '/menu' className= 'btn btn-dark'>
             Menú
