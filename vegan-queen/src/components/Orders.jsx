@@ -1,11 +1,23 @@
-import React from 'react'
+import React from "react";
+import Boton from "../components/Boton";
+import exit from "../img/salir.svg";
+import mc from "../img/m-c.svg";
+import menucocina from "../img/01-menu-cocina.svg";
 
 const Orders = () => {
-    return (
-        <div>
-            Órdenes
-        </div>
-    )
-}
+  return (
+    <div>
+      <Boton image={exit} adress="/" />
+      <div>
+        <Boton image={mc} adress="/Role" />
+      </div>
+      <div>
+        <Boton image={menucocina} adress="/orders" />
+      </div>
 
-export default Orders
+      <div>Aqui van las Órdenes</div>
+    </div>
+  );
+};
+
+export default Orders;
