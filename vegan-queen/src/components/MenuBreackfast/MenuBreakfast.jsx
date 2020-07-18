@@ -1,7 +1,8 @@
 import React from 'react'
-import menuBreakfast from '../asset/img/02-menu-desayuno.svg'
+import menuBreakfast from '../../asset/img/02-menu-desayuno.svg'
+import Item from './Item'
 
-const MenuBreakfast = () => {
+const MenuBreakfast = ({Data}) => {
     return (
         <div>
             <img src={ menuBreakfast } alt="Menú desayuno"/>
@@ -10,8 +11,11 @@ const MenuBreakfast = () => {
             <p>Número de mesa</p>
             <input type="text" name="" id="2" placeholder='número de mesa'/>
             <p>Presione según corresponda para aumentar o disminuir el número de productos</p>
-            <button>+</button>
-            <button>-</button>
+            {Data.map(product=>
+                <Item
+                key={product.id}
+                product={product} />
+                )}
             <button>Enviar pedido a cocina</button>
             <input type="text" name="" id="3" placeholder='Total'/>
             <button>Icono regresar</button>

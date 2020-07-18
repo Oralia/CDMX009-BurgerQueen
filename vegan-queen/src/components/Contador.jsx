@@ -12,6 +12,8 @@ const Contador = () => {
         //Evitar número negativos, esto quizá se podría hacer con un ternario, si apreietas este botón aumentas, si aprietas este otro disminuyes
         setCount (count - 1)
     }
+
+
     /* const reset = () => {
 
     } */

@@ -1,4 +1,4 @@
-/* import React from 'react'
+import React from 'react'
 import { Link } from "react-router-dom"
 import exit from '../asset/img/salir.svg'
 import waiterOrChef from '../asset/img/m-c.svg'
@@ -16,4 +16,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar */
+export default Navbar

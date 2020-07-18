@@ -6,18 +6,18 @@ import { Link } from "react-router-dom"
 import Boton from './utils/Boton'
 
 const Main = () => {
-    let handleImprimir =()=>{
+    /* let handleImprimir =()=>{
         console.log(3+3)
     }
     let handleBorrar =(elemento)=>{
         elemento?
         console.log("Borrar",elemento):
         console.log("no se puede borrar porque no pasas ningun elemento")
-    }
+    } */
     return (
         <Fragment>
-            <Boton texto="Algo" estilo="negro" funcion={handleImprimir} />
-            <Boton texto="lindo mundo de colores" estilo="rosa" funcion={handleBorrar}/>
+            {/* <Boton texto="Algo" estilo="negro" funcion={handleImprimir} />
+            <Boton texto="lindo mundo de colores" estilo="rosa" funcion={handleBorrar}/> */}
             <div>
                 <img src={ chef } alt="logotipo vegan burger"/>
             </div>
