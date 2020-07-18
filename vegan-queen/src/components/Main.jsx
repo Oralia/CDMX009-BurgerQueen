@@ -1,20 +1,19 @@
-import React, { Fragment } from 'react'
-import logo from '../img/logo_vegan.png'
-import chef from '../img/chef-animate (1).svg'
-import { Link } from "react-router-dom"
+import React, { Fragment } from "react";
+import logo from "../img/logo_vegan.png";
+import chef from "../img/chef-animate (1).svg";
+import Boton from "./Boton";
 //import '../App.css';
 
 const Main = () => {
-    return (
-        <Fragment>
-            <div>
-                <img src={ chef } alt="logotipo vegan burger"/>
-            </div>
-            <Link to = '/role'>
-                <img id='logo' src={ logo } alt=""/>
-            </Link>
-        </Fragment>
-    )
-}
+  return (
+    <Fragment>
+      <div>
+        <img src={chef} alt="logotipo vegan burger" />
+      </div>
 
-export default Main
+      <Boton image={logo} adress="/Role" />
+    </Fragment>
+  );
+};
+
+export default Main;

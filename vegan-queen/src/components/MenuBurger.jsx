@@ -1,11 +1,25 @@
-import React from 'react'
+import React from "react";
+
+import Boton from "../components/Boton";
+import exit from "../img/salir.svg";
+import mc from "../img/m-c.svg";
+import mburger from "../img/02-menu-burger.svg";
 
 const MenuBurger = () => {
-    return (
-        <div>
-            Hamburgesas
-        </div>
-    )
-}
+  return (
+    <div>
+      <Boton image={exit} adress="/" />
+      <div>
+        <Boton image={mc} adress="/Role" />
+      </div>
 
-export default MenuBurger
+      <div>
+        <Boton image={mburger} adress="/menu-burger" />
+      </div>
+
+      <div>Aqui se debe mostrar el menu de Hamburgesas</div>
+    </div>
+  );
+};
+
+export default MenuBurger;

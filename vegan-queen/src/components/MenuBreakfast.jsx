@@ -1,11 +1,24 @@
-import React from 'react'
+import React from "react";
+import Boton from "../components/Boton";
+import exit from "../img/salir.svg";
+import mc from "../img/m-c.svg";
+import mbreakfast from "../img/02-menu-desayuno.svg";
 
 const MenuBreakfast = () => {
-    return (
-        <div>
-            Desayuno
-        </div>
-    )
-}
+  return (
+    <div>
+      <Boton image={exit} adress="/" />
+      <div>
+        <Boton image={mc} adress="/Role" />
+      </div>
 
-export default MenuBreakfast
+      <div>
+        <Boton image={mbreakfast} adress="/menu-breakfast" />
+      </div>
+
+      <div>Aqui se debe mostrar el menu para el desayuno</div>
+    </div>
+  );
+};
+
+export default MenuBreakfast;
