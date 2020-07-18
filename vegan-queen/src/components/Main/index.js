@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/img/logo_vegan.png";
 import chefAnimate from "../assets/img/chef-animate (1).svg";
+import Container from 'react-bootstrap/Container'
 import Boton from "../utils/ButtonLink";
 //import '../App.css';
 //import Boton from './utils/Boton'
