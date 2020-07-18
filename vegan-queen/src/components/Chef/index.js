@@ -1,5 +1,5 @@
 import React from "react";
-import Boton from "../components/Boton";
+import Boton from "../utils/ButtonLink/Boton";
 import exit from "../img/salir.svg";
 import mc from "../img/m-c.svg";
 import menucocina from "../img/01-menu-cocina.svg";
