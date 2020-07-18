@@ -1,28 +1,25 @@
-import React from 'react'
-import menuBurger from '../asset/img/02-menu-burger.svg'
-import Contador from './Contador'
+import React from "react";
+
+import Boton from "../components/Boton";
+import exit from "../img/salir.svg";
+import mc from "../img/m-c.svg";
+import mburger from "../img/02-menu-burger.svg";
 
 const MenuBurger = () => {
+  return (
+    <div>
+      <Boton image={exit} adress="/" />
+      <div>
+        <Boton image={mc} adress="/Role" />
+      </div>
 
-    const sendOrder = () => {
-        console.log('Probando el click')
-    }
-    return (
-        <div>
-            <img src={ menuBurger } alt="Menú desayuno"/>
-            <p>Nombre cliente</p>
-            <input type="text" name="" id="1" placeholder='nombre cliente'/>
-            <p>Número de mesa</p>
-            <input type="text" name="" id="2" placeholder='número de mesa'/>
-            <p>Presione según corresponda para aumentar o disminuir el número de productos</p>
-            <Contador />
-            
-            {/* <button onClick={ sendOrder }>Enviar pedido a cocina</button> */}
-            <button onClick={ () => sendOrder() }>Enviar pedido a cocina</button>
-            <input type="text" name="" id="3" placeholder='Total'/>
-            <button>Icono regresar</button>
-        </div>
-    )
-}
+      <div>
+        <Boton image={mburger} adress="/menu-burger" />
+      </div>
 
-export default MenuBurger
+      <div>Aqui se debe mostrar el menu de Hamburgesas</div>
+    </div>
+  );
+};
+
+export default MenuBurger;

@@ -1,21 +1,23 @@
-import React, { Fragment } from 'react'
-import { Link } from "react-router-dom"
-import chef from '../asset/img/01-menu-cocina.svg'
-import waiter from '../asset/img/01-menu-mesero.svg'
-
+import React, { Fragment } from "react";
+import Boton from "../components/Boton";
+import exit from "../img/salir.svg";
+import menucocina from "../img/01-menu-cocina.svg";
+import menumesero from "../img/01-menu-mesero.svg";
 
 const Role = () => {
-    return (
-        <Fragment>
-            <Link to = '/Waiter'>
-                <img src={ waiter } 
-                alt="Pantalla"/>
-            </Link>
-            <Link to = '/Chef'>
-                <img src={ chef } alt="Menú mesero"/>
-            </Link>
-        </Fragment>
-    )
-}
+  return (
+    <div>
+      <Boton image={exit} adress="/" />
 
-export default Role
+      <div>
+        <Boton image={menumesero} adress="/waiter" />
+      </div>
+
+      <div>
+        <Boton image={menucocina} adress="/chef" />
+      </div>
+    </div>
+  );
+};
+
+export default Role;
