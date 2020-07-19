@@ -1,16 +1,12 @@
 import React from "react";
-import Boton from "../utils/ButtonLink/Boton";
-import exit from "../img/salir.svg";
-import mc from "../img/m-c.svg";
-import menucocina from "../img/01-menu-cocina.svg";
+import Boton from "../utils/ButtonLink";
+import Navbar from '../Navbar'
+import menucocina from "../assets/img/01-menu-cocina.svg";
 
 const Chef = function () {
   return (
     <div>
-      <Boton image={exit} adress="/" />
-      <div>
-        <Boton image={mc} adress="/Role" />
-      </div>
+      <Navbar />
       <div>
         <Boton image={menucocina} adress="/chef" />
       </div>

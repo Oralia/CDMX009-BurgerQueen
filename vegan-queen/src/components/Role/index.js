@@ -1,14 +1,13 @@
-import React, { Fragment } from "react";
-import Boton from "../utils/ButtonLink/Boton";
-import exit from "../img/salir.svg";
-import menucocina from "../img/01-menu-cocina.svg";
-import menumesero from "../img/01-menu-mesero.svg";
+import React from "react";
+import Boton from "../utils/ButtonLink";
+import menucocina from "../assets/img/01-menu-cocina.svg";
+import menumesero from "../assets/img/01-menu-mesero.svg";
+import Navbar from '../Navbar'
 
 const Role = () => {
   return (
     <div>
-      <Boton image={exit} adress="/" />
-
+      <Navbar />
       <div>
         <Boton image={menumesero} adress="/waiter" />
       </div>

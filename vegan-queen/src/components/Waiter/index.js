@@ -1,16 +1,12 @@
 import React from "react";
-import Boton from "../utils/ButtonLink/Boton";
-import exit from "../img/salir.svg";
-import mc from "../img/m-c.svg";
-import menumesero from "../img/01-menu-mesero.svg";
+import Boton from "../utils/ButtonLink";
+import menumesero from "../assets/img/01-menu-mesero.svg";
+import Navbar from '../Navbar'
 
 const Waiter = () => {
   return (
     <div>
-      <Boton image={exit} adress="/" />
-      <div>
-        <Boton image={mc} adress="/Role" />
-      </div>
+      <Navbar />
       <div>
         <Boton image={menumesero} />
       </div>

@@ -1,17 +1,12 @@
 import React from "react";
-import Boton from "../utils/ButtonLink/Boton";
-import exit from "../img/salir.svg";
-import mc from "../img/m-c.svg";
-import mbreakfast from "../img/02-menu-desayuno.svg";
+import Boton from "../utils/ButtonLink";
+import mbreakfast from "../assets/img/02-menu-desayuno.svg";
+import Navbar from '../Navbar'
 
 const MenuBreakfast = () => {
   return (
     <div>
-      <Boton image={exit} adress="/" />
-      <div>
-        <Boton image={mc} adress="/Role" />
-      </div>
-
+      <Navbar />
       <div>
         <Boton image={mbreakfast} adress="/menu-breakfast" />
       </div>

@@ -1,19 +1,17 @@
-import React from 'react'
-import { Link } from "react-router-dom"
-import exit from '../asset/img/salir.svg'
-import waiterOrChef from '../asset/img/m-c.svg'
+import React from "react";
+import Boton from "../utils/ButtonLink";
+import exit from "../assets/img/salir.svg";
+import mc from "../assets/img/m-c.svg";
 
 const Navbar = () => {
-    return (
-        <div>
-            <Link to = '/'>
-            <img src={ exit } alt=""/>
-            </Link>
-            <Link to = '/role'>
-            <img src={ waiterOrChef} alt=""/>
-            </Link>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Boton image={exit} adress="/"/>
+      <div>
+        <Boton image={mc} adress="/Role"/>
+      </div>
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -8,20 +8,20 @@ import {
 
 import "./components/utils/styles.css";
 import Main from "./components/Main";
-/* import Role from "./components/Role";
+import Role from "./components/Role";
 import Waiter from "./components/Waiter";
 import Chef from "./components/Chef";
 import Menu from "./components/Menu";
 import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
-import Orders from "./components/Orders"; */
+import Orders from "./components/Orders"; 
 
 function App() {
   return (
     <Router>
       <div>
         <Switch>
-          {/* <Route path="/role">
+          <Route path="/role">
             <Role />
           </Route>
           <Route path="/waiter">
@@ -41,7 +41,7 @@ function App() {
           </Route>
           <Route path="/orders">
             <Orders />
-          </Route> */}
+          </Route> 
           <Route path="/">
             <Main />
           </Route>
