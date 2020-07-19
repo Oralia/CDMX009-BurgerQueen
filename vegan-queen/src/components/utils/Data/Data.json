@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "product": "Hamburguesa doble",
+        "image": "https://img.pngio.com/follow-us-on-instagram-logo-de-instagram-png-redondo-logo-de-instagram-png-840_792.png",
+        "cost": 20
+    },
+    {
+        "id":1,
+        "product": "Hamburguesa doble",
+        "image": "https://img.pngio.com/follow-us-on-instagram-logo-de-instagram-png-redondo-logo-de-instagram-png-840_792.png",
+        "cost": 20
+    },
+    {
+        "id":1,
+        "product": "Hamburguesa doble",
+        "image": "https://img.pngio.com/follow-us-on-instagram-logo-de-instagram-png-redondo-logo-de-instagram-png-840_792.png",
+        "cost": 20
+    },
+    {
+        "id":1,
+        "product": "Hamburguesa doble",
+        "image": "https://img.pngio.com/follow-us-on-instagram-logo-de-instagram-png-redondo-logo-de-instagram-png-840_792.png",
+        "cost": 20
+    }
+]
