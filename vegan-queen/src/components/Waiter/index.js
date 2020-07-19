@@ -8,7 +8,7 @@ const Waiter = () => {
     <div>
       <Navbar />
       <div>
-        <Boton image={menumesero} />
+        <Boton image={menumesero} adress="/waiter"/>
       </div>
       <div>Aqui pone sus datos el mesero</div>
       <div>

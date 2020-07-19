@@ -5,15 +5,18 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Container'
 import Column from 'react-bootstrap/Container'
 import Boton from "../utils/ButtonLink";
+import styles from './styles.modules.css'
 
 const Main = () => {
   return (
-    
     <Container>
       <Row className = 'justify-content-md-center'>
         <Column>
-          <img src={ chefAnimate } alt="Chef amarillo animado" />
-          <Boton image={ logo } adress="/Role"/>
+          <img src={ chefAnimate } alt="Chef amarillo animado" className = {styles.logo}/>
+          <Boton 
+            image={ logo } 
+            adress="/Role"
+          />
         </Column>
       </Row>
     </Container>
