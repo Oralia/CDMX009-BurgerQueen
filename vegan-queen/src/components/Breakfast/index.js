@@ -2,7 +2,7 @@ import React from "react";
 import Boton from "../utils/ButtonLink";
 import mbreakfast from "../assets/img/02-menu-desayuno.svg";
 import Navbar from '../Navbar'
-import Item from "./Item"
+import Item from "../utils/Item"
 
 const MenuBreakfast = ({Data}) => {
   return (

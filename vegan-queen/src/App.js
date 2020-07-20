@@ -46,7 +46,9 @@ function App() {
             />
           </Route>
           <Route path="/menu-burger">
-            <MenuBurger />
+            <MenuBurger
+              Data = {Data} 
+            />
           </Route>
           <Route path="/orders">
             <Orders />

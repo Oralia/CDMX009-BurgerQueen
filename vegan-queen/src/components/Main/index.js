@@ -15,7 +15,7 @@ const Main = () => {
       <Row className = 'justify-content-md-center'>
         <Col>
           {/* <Button variant="outline-primary">Primary</Button>{' '} */}
-          <img src={ chefAnimate } alt="Chef amarillo animado" className = {styles.logo}/>
+          <img src={ chefAnimate } alt="Chef amarillo animado"/>
           <Boton 
             image={ logo } 
             adress="/Role"
