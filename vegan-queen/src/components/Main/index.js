@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 //import Button from 'react-bootstrap/Button'
 import Boton from "../utils/ButtonLink";
-import styles from './styles.modules.css'
+import styles from './styles.module.css'
 //import "bootstrap/dist/css/bootstrap.min.css";
 
 const Main = () => {
