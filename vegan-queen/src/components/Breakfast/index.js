@@ -2,8 +2,9 @@ import React from "react";
 import Boton from "../utils/ButtonLink";
 import mbreakfast from "../assets/img/02-menu-desayuno.svg";
 import Navbar from '../Navbar'
+import Item from "./Item"
 
-const MenuBreakfast = () => {
+const MenuBreakfast = ({Data}) => {
   return (
     <div>
       <Navbar />
@@ -12,6 +13,15 @@ const MenuBreakfast = () => {
       </div>
 
       <div>Aqui se debe mostrar el menu para el desayuno</div>
+
+      <div>
+        {Data.map(product =>
+          <Item
+          key = {product.id}
+          product = {product}/>
+          )}
+      </div>
+
     </div>
   );
 };

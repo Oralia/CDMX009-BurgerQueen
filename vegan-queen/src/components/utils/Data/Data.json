@@ -1,26 +1,168 @@
 [
     {
         "id":1,
+        "product": "Sandwitch de hummus",
+        "kind": "Breakfast",
+        "image": "./components/assets/img/01-menu-cocina.svg",
+        "cost": 70
+    },
+    {
+        "id":2,
+        "product": "Té chai",
+        "kind": "Breakfast",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 60
+    },
+    {
+        "id":3,
+        "product": "Café americano",
+        "kind": "Breakfast",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 40
+    },
+    {
+        "id":4,
+        "product": "Jugo natural",
+        "kind": "Breakfast",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 35
+    },
+    {
+        "id":5,
+        "product": "Hamburguesa sencilla",
+        "kind": "Burger",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 80
+    },
+    {
+        "id":6,
         "product": "Hamburguesa doble",
-        "image": "https://img.pngio.com/follow-us-on-instagram-logo-de-instagram-png-redondo-logo-de-instagram-png-840_792.png",
+        "kind": "Burger",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 130
+    },
+    {
+        "id":7,
+        "product": "Ingrediente portobello",
+        "kind": "Burger",
+        "image":"http://lorempixel.com/80/80"
+    },
+    {
+        "id":8,
+        "product": "Ingrediente soya",
+        "kind": "Burger",
+        "image":"http://lorempixel.com/80/80"
+    },
+    {
+        "id":9,
+        "product": "Ingrediente granos",
+        "kind": "Burger",
+        "image":"http://lorempixel.com/80/80"
+    },
+    {
+        "id":10,
+        "product": "Guacamole",
+        "kind": "Burger",
+        "image":"http://lorempixel.com/80/80",
+        "cost": 50
+    },
+    {
+        "id":11,
+        "product": "Veganesa",
+        "kind": "Burger",
+        "image": "http://lorempixel.com/80/80",
         "cost": 20
     },
     {
-        "id":1,
-        "product": "Hamburguesa doble",
-        "image": "https://img.pngio.com/follow-us-on-instagram-logo-de-instagram-png-redondo-logo-de-instagram-png-840_792.png",
+        "id":12,
+        "product": "Tapioca",
+        "kind": "Bebidas",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 80
+    },
+    {
+        "id":13,
+        "product": "Agua del día",
+        "kind": "Bebidas",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 30
+    },
+    {
+        "id":14,
+        "product": "Leche de coco",
+        "kind": "Bebidas",
+        "image": "http://lorempixel.com/80/80",
         "cost": 20
     },
     {
-        "id":1,
-        "product": "Hamburguesa doble",
-        "image": "https://img.pngio.com/follow-us-on-instagram-logo-de-instagram-png-redondo-logo-de-instagram-png-840_792.png",
-        "cost": 20
+        "id":15,
+        "product": "Té chai",
+        "kind": "Bebidas",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 60
     },
     {
-        "id":1,
-        "product": "Hamburguesa doble",
-        "image": "https://img.pngio.com/follow-us-on-instagram-logo-de-instagram-png-redondo-logo-de-instagram-png-840_792.png",
-        "cost": 20
+        "id":16,
+        "product": "Hummus",
+        "kind": "Acompañamientos",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 50
+    },
+    {
+        "id":17,
+        "product": "Papas",
+        "kind": "Acompañamientos",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 5
+    },
+    {
+        "id":18,
+        "product": "Ensalada",
+        "kind": "Acompañamientos",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 70
+    },
+    {
+        "id":19,
+        "product": "Hamburguesa sencilla con portobello",
+        "kind": "Burger",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 80
+    },
+    {
+        "id":20,
+        "product": "Hamburguesa sencilla con soya",
+        "kind": "Burger",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 80
+    },
+    {
+        "id":21,
+        "product": "Hamburguesa sencilla con granos",
+        "kind": "Burger",
+        "image":"http://lorempixel.com/80/80",
+        "cost": 80
+    },
+    {
+        "id":22,
+        "product": "Hamburguesa doble con portobello",
+        "kind": "Burger",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 80
+    },
+    {
+        "id":23,
+        "product": "Hamburguesa doble con soya",
+        "kind": "Burger",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 80
+    },
+    {
+        "id":24,
+        "product": "Hamburguesa doble con granos",
+        "kind": "Burger",
+        "image": "http://lorempixel.com/80/80",
+        "cost": 80
     }
+    
 ]

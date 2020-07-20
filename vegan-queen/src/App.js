@@ -1,4 +1,5 @@
 import React from "react";
+
 //Router
 import {
   BrowserRouter as Router,
@@ -6,7 +7,10 @@ import {
   Route,
 } from "react-router-dom";
 
+//Styles
 import "./components/utils/styles.css";
+
+//Components
 import Main from "./components/Main";
 import Role from "./components/Role";
 import Waiter from "./components/Waiter";
@@ -15,6 +19,9 @@ import Menu from "./components/Menu";
 import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders"; 
+
+//JSON
+import Data from './components/utils/Data/Data.json'
 
 function App() {
   return (
@@ -34,7 +41,9 @@ function App() {
             <Menu />
           </Route>
           <Route path="/menu-breakfast">
-            <MenuBreakfast />
+            <MenuBreakfast 
+              Data = {Data}
+            />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger />
