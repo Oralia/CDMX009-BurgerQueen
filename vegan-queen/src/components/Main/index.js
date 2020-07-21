@@ -1,23 +1,25 @@
 import React from "react";
 import logo from "../assets/img/logo_vegan.png";
 import chefAnimate from "../assets/img/chef-animate (1).svg";
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Container'
-import Column from 'react-bootstrap/Container'
+
+import Column from "react-bootstrap/Col";
 import Boton from "../utils/ButtonLink";
-import styles from './styles.modules.css'
+import styles from "./styles.module.css";
+
+import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/Row";
 
 const Main = () => {
   return (
     <Container>
-      <Row className = 'justify-content-md-center'>
+      <Row className="d-flex justify-content-center">
         <Column>
-          <img src={ chefAnimate } alt="Chef amarillo animado" className = {styles.logo}/>
-          <Boton 
-            image={ logo } 
-            adress="/Role"
-          />
+          <img src={chefAnimate} alt="Chef amarillo animado" />
         </Column>
+      </Row>
+
+      <Row className="d-flex justify-content-center">
+        <Boton image={logo} adress="/Role" className={styles.logo} />
       </Row>
     </Container>
   );
