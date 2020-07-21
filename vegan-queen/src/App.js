@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //Router
 import {
@@ -23,7 +23,34 @@ import Orders from "./components/Orders";
 //JSON
 import Data from './components/utils/Data/Data.json'
 
+
+
 function App() {
+
+  /* const [order, setOrder] = useState([])
+
+  const addingProduct = () => {
+    //console.log('click');
+    setOrder([
+      ...order,
+      {product} 
+    ])
+  }
+
+  const deleteProduct = () => {
+    //onsole.log('click');
+    setOrder([
+      ...order,
+      {product} 
+    ])
+  }
+  Esto va dentro de return
+  <button onClick={()=> addingProduct()}>Agregar  </button>
+  <button onClick={()=> deleteProduct()}>Agregar  </button> */
+  const dateAndTime = new Date().toLocaleString()
+  const date = new Date().toLocaleDateString()
+  //const time = new Date().toLocaleTimeString()
+
   return (
     <Router>
       <div>
@@ -32,10 +59,14 @@ function App() {
             <Role />
           </Route>
           <Route path="/waiter">
-            <Waiter />
+            <Waiter 
+              date = {date}
+            />
           </Route>
           <Route path="/chef">
-            <Chef />
+            <Chef 
+              date = {date}
+            />
           </Route>
           <Route path="/menu">
             <Menu />
@@ -51,10 +82,13 @@ function App() {
             />
           </Route>
           <Route path="/orders">
-            <Orders />
+            <Orders 
+              dateAndTime = {dateAndTime}
+            />
           </Route> 
           <Route path="/">
-            <Main />
+            <Main 
+            />
           </Route>
         </Switch>
       </div>

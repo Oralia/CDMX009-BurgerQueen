@@ -4,7 +4,9 @@ import mbreakfast from "../assets/img/02-menu-desayuno.svg";
 import Navbar from '../Navbar'
 import Item from "../utils/Item"
 
+
 const MenuBreakfast = ({Data}) => {
+
   return (
     <div>
       <Navbar />
