@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 //Router
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Styles
-import "./components/utils/styles.css";
+//import "./components/utils/styles.css";
 
 //Components
+import "./components/utils/styles.module.css";
 import Main from "./components/Main";
 import Role from "./components/Role";
 import Waiter from "./components/Waiter";
@@ -18,7 +15,7 @@ import Chef from "./components/Chef";
 import Menu from "./components/Menu";
 import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
-import Orders from "./components/Orders"; 
+import Orders from "./components/Orders";
 
 //JSON
 import Data from './components/utils/Data/Data.json'

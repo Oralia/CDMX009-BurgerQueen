@@ -1,19 +1,21 @@
 import React from "react";
 import menucocina from "../assets/img/01-menu-cocina.svg";
 import Boton from "../utils/ButtonLink";
-import Navbar from '../Navbar'
+import Navbar from "../Navbar";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/esm/Container";
 
 const Orders = ({dateAndTime}) => {
   return (
-    <div>
+    <Container>
       <Navbar />
-      <div>
+      <Row className="d-flex justify-content-center">
         <Boton image={menucocina} adress="/orders" />
-      </div>
-  <p>Fecha y hora: {dateAndTime}</p>
+          <p>Fecha y hora: {dateAndTime}</p>
+      </Row>
 
       <div>Aqui van las Órdenes</div>
-    </div>
+    </Container>
   );
 };
 

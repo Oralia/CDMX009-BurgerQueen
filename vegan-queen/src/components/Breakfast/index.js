@@ -1,18 +1,26 @@
 import React from "react";
 import Boton from "../utils/ButtonLink";
 import mbreakfast from "../assets/img/02-menu-desayuno.svg";
-import Navbar from '../Navbar'
 import Item from "../utils/Item"
-
+import back from "../assets/img/flecha-atras.svg";
+import Navbar from "../Navbar";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/esm/Container";
+import styles from "./styles.module.css";
 
 const MenuBreakfast = ({Data}) => {
 
   return (
-    <div>
+    <Container>
       <Navbar />
+
       <div>
-        <Boton image={mbreakfast} adress="/menu-breakfast" />
+        <Boton image={back} adress="/menu" className={styles.arrow} />
       </div>
+
+      <Row className="d-flex justify-content-center">
+        <Boton image={mbreakfast} adress="/menu-breakfast" />
+      </Row>
 
       <div>Aqui se debe mostrar el menu para el desayuno</div>
 
@@ -23,8 +31,7 @@ const MenuBreakfast = ({Data}) => {
           product = {product}/>
           )}
       </div>
-
-    </div>
+    </Container>
   );
 };
 

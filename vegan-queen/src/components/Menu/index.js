@@ -2,19 +2,22 @@ import React from "react";
 import Boton from "../utils/ButtonLink";
 import mbreakfast from "../assets/img/02-menu-desayuno.svg";
 import mburger from "../assets/img/02-menu-burger.svg";
-import Navbar from '../Navbar'
+import Navbar from "../Navbar";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 const Menu = () => {
   return (
-    <div>
+    <Container>
       <Navbar />
-      <div>
+      <Row className="d-flex justify-content-center">
         <Boton image={mbreakfast} adress="/menu-breakfast" />
-      </div>
-      <div>
+      </Row>
+
+      <Row className="d-flex justify-content-center">
         <Boton image={mburger} adress="/menu-burger" />
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
 
