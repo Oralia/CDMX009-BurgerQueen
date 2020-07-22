@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Components
 import "./components/utils/styles.module.css";
+
 import Main from "./components/Main";
 import Role from "./components/Role";
 import Waiter from "./components/Waiter";
