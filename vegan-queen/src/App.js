@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //Router
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -23,31 +23,33 @@ import Data from './components/utils/Data/Data.json'
 
 function App() {
 
-  /* const [order, setOrder] = useState([])
+  const [order, setOrder] = useState([])
 
-  const addingProduct = () => {
+  const addingProduct = (product) => {
     //console.log('click');
     setOrder([
       ...order,
-      {product} 
+      product
     ])
   }
 
-  const deleteProduct = () => {
+  /* const deleteProduct = () => {
     //onsole.log('click');
     setOrder([
       ...order,
       {product} 
     ])
-  }
-  Esto va dentro de return
-  <button onClick={()=> addingProduct()}>Agregar  </button>
-  <button onClick={()=> deleteProduct()}>Agregar  </button> */
+  } */
+  
+
+
+ 
   const dateAndTime = new Date().toLocaleString()
   const date = new Date().toLocaleDateString()
   //const time = new Date().toLocaleTimeString()
 
   return (
+
     <Router>
       <div>
         <Switch>
@@ -70,6 +72,8 @@ function App() {
           <Route path="/menu-breakfast">
             <MenuBreakfast 
               Data = {Data.breakfast}
+              order = {order}
+              addingProduct = {addingProduct}
             />
           </Route>
           <Route path="/menu-burger">

@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container";
 import styles from "./styles.module.css";
 
-const MenuBreakfast = ({Data}) => {
+const MenuBreakfast = ({Data, order, addingProduct}) => {
 
   return (
     <Container>
@@ -28,7 +28,10 @@ const MenuBreakfast = ({Data}) => {
         {Data.map(product =>
           <Item
           key = {product.id}
-          product = {product}/>
+          product = {product}
+          order = {order}
+          addingProduct = {addingProduct}
+          />
           )}
       </div>
     </Container>
