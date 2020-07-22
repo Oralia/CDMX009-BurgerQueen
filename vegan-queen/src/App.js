@@ -71,12 +71,12 @@ function App() {
           </Route>
           <Route path="/menu-breakfast">
             <MenuBreakfast 
-              Data = {Data}
+              Data = {Data.breakfast}
             />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
-              Data = {Data} 
+              Data = {Data.burger} 
             />
           </Route>
           <Route path="/orders">
@@ -87,6 +87,7 @@ function App() {
           <Route path="/">
             <Main 
             />
+
           </Route>
         </Switch>
       </div>
