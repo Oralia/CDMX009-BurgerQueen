@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Boton = ({adress, image}) => {
+const Boton = ({ adress, image, className }) => {
   return (
-    <Link to = {adress}>
-      <img src = {image} />
+    <Link to={adress}>
+      <img src={image} alt="logo" className={className} />
     </Link>
   );
 };
