@@ -5,12 +5,13 @@ import Navbar from "../Navbar";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container";
 
-const Orders = () => {
+const Orders = ({dateAndTime}) => {
   return (
     <Container>
       <Navbar />
       <Row className="d-flex justify-content-center">
         <Boton image={menucocina} adress="/orders" />
+          <p>Fecha y hora: {dateAndTime}</p>
       </Row>
 
       <div>Aqui van las Órdenes</div>

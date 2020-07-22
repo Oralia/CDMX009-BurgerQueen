@@ -7,7 +7,7 @@ import Container from "react-bootstrap/esm/Container";
 import next from "../assets/img/flecha-derecha.svg";
 import styles from "./styles.module.css";
 
-const Waiter = () => {
+const Waiter = ({date}) => {
   return (
     <Container>
       <Navbar />
@@ -15,6 +15,7 @@ const Waiter = () => {
         <Boton image={menumesero} adress="/waiter" />
       </Row>
       <div>Aqui pone sus datos el mesero</div>
+      <p>Fecha: {date}</p>
       <div>
         <Boton image={next} adress="/Menu" className={styles.arrow} />
       </div>

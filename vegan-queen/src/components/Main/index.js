@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../assets/img/logo_vegan.png";
 import chefAnimate from "../assets/img/chef-animate (1).svg";
-
 import Column from "react-bootstrap/Col";
 import Boton from "../utils/ButtonLink";
 import styles from "./styles.module.css";

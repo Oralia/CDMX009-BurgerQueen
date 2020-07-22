@@ -9,12 +9,13 @@ import next from "../assets/img/flecha-derecha.svg";
 
 console.log("HOla soy el styles", style);
 
-const Chef = function () {
+const Chef = function ({date}) {
   return (
     <Container>
       <Navbar />
       <Row className="d-flex justify-content-center">
         <Boton image={menucocina} adress="/chef" />
+      <p>Fecha: {date}</p>
       </Row>
       <div>Aqui van pone sus datos el chef</div>
       <Boton image={next} adress="/orders" className={style.arrow} />
