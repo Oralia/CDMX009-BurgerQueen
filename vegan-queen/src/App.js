@@ -4,11 +4,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Styles
-//import "./components/utils/styles.css";
+import "./components/utils/styles.css";
 
 //Components
-import "./components/utils/styles.module.css";
-
 import Main from "./components/Main";
 import Role from "./components/Role";
 import Waiter from "./components/Waiter";
@@ -71,12 +69,12 @@ function App() {
           </Route>
           <Route path="/menu-breakfast">
             <MenuBreakfast 
-              Data = {Data}
+              Data = {Data.breakfast}
             />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
-              Data = {Data} 
+              Data = {Data.burger} 
             />
           </Route>
           <Route path="/orders">
@@ -87,6 +85,7 @@ function App() {
           <Route path="/">
             <Main 
             />
+
           </Route>
         </Switch>
       </div>

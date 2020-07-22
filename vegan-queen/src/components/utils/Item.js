@@ -28,9 +28,8 @@ const Item = ({product}) => {
             <h5>{product.productName}</h5>
             <h6>${product.cost}</h6>
             <h6>{product.kind}</h6>
-            
-            
             <button>eliminar</button>
+            button
         
         </div>
     )
