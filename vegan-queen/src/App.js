@@ -15,41 +15,33 @@ import Menu from "./components/Menu";
 import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
+import Order from "./components/Order";
 
 //JSON
-import Data from './components/utils/Data/Data.json'
-
-
+import Data from "./components/utils/Data/Data.json";
 
 function App() {
-
-  const [order, setOrder] = useState([])
+  const [order, setOrder] = useState([]);
 
   const addingProduct = (product) => {
-    //console.log('click');
-    setOrder([
-      ...order,
-      product
-    ])
-  }
+    //console.log("click");
+    setOrder([...order, product]);
+    console.log("Producto agregado", product);
+  };
 
-  /* const deleteProduct = () => {
-    //onsole.log('click');
-    setOrder([
+  const deletingProduct = (product) => {
+    console.log("delete");
+    /*setOrder([
       ...order,
       {product} 
-    ])
-  } */
-  
+    ])*/
+  };
 
-
- 
-  const dateAndTime = new Date().toLocaleString()
-  const date = new Date().toLocaleDateString()
+  const dateAndTime = new Date().toLocaleString();
+  const date = new Date().toLocaleDateString();
   //const time = new Date().toLocaleTimeString()
 
   return (
-
     <Router>
       <div>
         <Switch>
@@ -57,39 +49,36 @@ function App() {
             <Role />
           </Route>
           <Route path="/waiter">
-            <Waiter 
-              date = {date}
-            />
+            <Waiter date={date} />
           </Route>
           <Route path="/chef">
-            <Chef 
-              date = {date}
-            />
+            <Chef date={date} />
           </Route>
           <Route path="/menu">
             <Menu />
           </Route>
           <Route path="/menu-breakfast">
-            <MenuBreakfast 
-              Data = {Data.breakfast}
-              order = {order}
-              addingProduct = {addingProduct}
+            <MenuBreakfast
+              Data={Data.breakfast}
+              order={order}
+              addingProduct={addingProduct}
+              deletingProduct={deletingProduct}
             />
+            <Order />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
-              Data = {Data.burger} 
+              Data={Data.burger}
+              order={order}
+              addingProduct={addingProduct}
+              deletingProduct={deletingProduct}
             />
           </Route>
           <Route path="/orders">
-            <Orders 
-              dateAndTime = {dateAndTime}
-            />
-          </Route> 
+            <Orders dateAndTime={dateAndTime} />
+          </Route>
           <Route path="/">
-            <Main 
-            />
-
+            <Main />
           </Route>
         </Switch>
       </div>
