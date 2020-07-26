@@ -2,13 +2,13 @@ import React from "react";
 import Boton from "../utils/ButtonLink";
 import Navbar from "../Navbar";
 import mburger from "../assets/img/02-menu-burger.svg";
-import Item from "../utils/Item"
+import Item from "../utils/Item";
 import back from "../assets/img/flecha-atras.svg";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import styles from "./styles.module.css";
 
-const MenuBurger = ({Data}) => {
+const MenuBurger = ({ Data, order, addingProduct, deletingProduct }) => {
   return (
     <Container>
       <Navbar />
@@ -20,14 +20,16 @@ const MenuBurger = ({Data}) => {
         <Boton image={mburger} adress="/menu-burger" />
       </Row>
 
-      <div>Aqui se debe mostrar el menu de Hamburgesas</div>
-
       <div>
-        {Data.map(product =>
+        {Data.map((product) => (
           <Item
-          key = {product.id}
-          product = {product}/>
-          )}
+            key={product.id}
+            product={product}
+            order={order}
+            addingProduct={addingProduct}
+            deletingProduct={deletingProduct}
+          />
+        ))}
       </div>
     </Container>
   );
