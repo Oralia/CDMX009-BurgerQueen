@@ -21,15 +21,19 @@ const images = {
   hummus: require("../assets/img/06-hummus.svg"),
 };
 
-const Item = ({ product, order, addingProduct, deletingProduct }) => {
+const Item = ({ product, order, addingProduct, deletingProduct, Data }) => {
   return (
     <div>
       <img src={images[product.image]} alt="" />
       <h5>{product.productName}</h5>
       <h6>${product.cost}</h6>
 
-      <button onClick={() => deletingProduct(product)}>eliminar</button>
-      <button onClick={() => addingProduct(product)}>Agregar</button>
+      <button type="button" onClick={() => deletingProduct(product.id)}>
+        -
+      </button>
+      <button type="button" onClick={() => addingProduct(product)}>
+        +
+      </button>
     </div>
   );
 };
