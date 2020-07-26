@@ -15,7 +15,6 @@ import Menu from "./components/Menu";
 import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
-import Order from "./components/Order";
 
 //JSON
 import Data from "./components/utils/Data/Data.json";
@@ -31,10 +30,6 @@ function App() {
 
   const deletingProduct = (product) => {
     console.log("delete");
-    /*setOrder([
-      ...order,
-      {product} 
-    ])*/
   };
 
   const dateAndTime = new Date().toLocaleString();
@@ -64,7 +59,6 @@ function App() {
               addingProduct={addingProduct}
               deletingProduct={deletingProduct}
             />
-            <Order />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
