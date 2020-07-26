@@ -7,33 +7,35 @@ import Navbar from "../Navbar";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container";
 import styles from "./styles.module.css";
-import Order from "./Order/Order";
 
-const MenuBreakfast = ({ Data, order, addingProduct, deletingProduct }) => {
+const MenuBreakfast = ({
+  Data,
+  order,
+  addingProduct,
+  deletingProduct,
+  setOrder,
+}) => {
   return (
     <Container>
       <Navbar />
-
       <div>
         <Boton image={back} adress="/menu" className={styles.arrow} />
       </div>
-
       <Row className="d-flex justify-content-center">
         <Boton image={mbreakfast} adress="/menu-breakfast" />
       </Row>
-
       <div>
         {Data.map((product) => (
           <Item
             key={product.id}
             product={product}
             order={order}
+            setOrder={setOrder}
             addingProduct={addingProduct}
             deletingProduct={deletingProduct}
           />
         ))}
       </div>
-      <Order />
     </Container>
   );
 };

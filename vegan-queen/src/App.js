@@ -15,6 +15,7 @@ import Menu from "./components/Menu";
 import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
+import Order from "./components/Order/Order.js";
 
 //JSON
 import Data from "./components/utils/Data/Data.json";
@@ -23,12 +24,14 @@ function App() {
   const [order, setOrder] = useState([]);
 
   const addingProduct = (product) => {
+    //const product = Data.breakfast.filter((product) => product.id === id)[0];
     //console.log("click");
+    //setOrder([...order, id]);
     setOrder([...order, product]);
-    console.log("Producto agregado", product);
   };
 
-  const deletingProduct = (product) => {
+  const deletingProduct = (id) => {
+    //const delProduct = order.filter((product) => product.id !== id);
     console.log("delete");
   };
 
@@ -59,6 +62,7 @@ function App() {
               addingProduct={addingProduct}
               deletingProduct={deletingProduct}
             />
+            <Order order={order} />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
