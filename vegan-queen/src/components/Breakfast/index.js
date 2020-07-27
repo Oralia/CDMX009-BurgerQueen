@@ -11,7 +11,7 @@ import styles from "./styles.module.css";
 const MenuBreakfast = ({
   Data,
   order,
-  addingProduct,
+  addingProductToOrder,
   deletingProduct,
   setOrder,
 }) => {
@@ -31,7 +31,7 @@ const MenuBreakfast = ({
             product={product}
             order={order}
             setOrder={setOrder}
-            addingProduct={addingProduct}
+            addingProductToOrder={addingProductToOrder}
             deletingProduct={deletingProduct}
           />
         ))}

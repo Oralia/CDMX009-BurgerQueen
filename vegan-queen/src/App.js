@@ -24,18 +24,20 @@ import Order from "./components/Order/Order.js";
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
+//donde va quantity?
 function App() {
   const [order, setOrder] = useState({
-    cliente: "",
+    client: "",
     total: 0,
     items: [],
+
   });
 
   const addingProductToOrder = (product) => {
     //const product = Data.breakfast.filter((product) => product.id === id)[0];
     //console.log("click");
-    //setOrder([...order, id]);
-    setOrder({ ...order, items: [...order.items, product] });
+    //setOrder([...order, product]);
+   setOrder({ ...order, items: [...order.items, product]});
   };
 
   const deletingProduct = (id) => {

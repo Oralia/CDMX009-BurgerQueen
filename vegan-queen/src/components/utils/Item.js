@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const images = {
   "sandwich-hummus": require("../assets/img/03-sandwich-hummus.svg"),
@@ -24,7 +24,7 @@ const images = {
 const Item = ({
   product,
   order,
-  aaddingProductToOrder,
+  addingProductToOrder,
   deletingProduct,
   Data,
 }) => {

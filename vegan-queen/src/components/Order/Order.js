@@ -9,10 +9,10 @@ const Order = ({ order }) => {
     <Container>
       <div className="order">Tu orden</div>
 
-      {order.length === 0 ? (
+      {order.items.length === 0 ? (
         <p>Aun no hay pedidos</p>
       ) : (
-        order.map((product) => (
+        order.items.map((product) => (
           <Item key={product.id} product={product} order={order} />
         ))
       )}
