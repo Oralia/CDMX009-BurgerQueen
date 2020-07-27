@@ -17,17 +17,25 @@ import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
 
+//Recordar que usamos arreglos
+//SI ya existe enonces a quantity agrega 1
+//Si NO existe entonces crea uno nuevo
+
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
 function App() {
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState({
+    cliente: "",
+    total: 0,
+    items: [],
+  });
 
-  const addingProduct = (product) => {
+  const addingProductToOrder = (product) => {
     //const product = Data.breakfast.filter((product) => product.id === id)[0];
     //console.log("click");
     //setOrder([...order, id]);
-    setOrder([...order, product]);
+    setOrder({ ...order, items: [...order.items, product] });
   };
 
   const deletingProduct = (id) => {
@@ -59,7 +67,7 @@ function App() {
             <MenuBreakfast
               Data={Data.breakfast}
               order={order}
-              addingProduct={addingProduct}
+              addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
             />
             <Order order={order} />
@@ -68,7 +76,7 @@ function App() {
             <MenuBurger
               Data={Data.burger}
               order={order}
-              addingProduct={addingProduct}
+              addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
             />
           </Route>
