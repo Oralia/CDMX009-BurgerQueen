@@ -29,8 +29,7 @@ function App() {
   const [order, setOrder] = useState({
     client: "",
     total: 0,
-    items: [],
-
+    items: []
   });
 
   const addingProductToOrder = (product) => {
@@ -41,9 +40,14 @@ function App() {
   };
 
   const deletingProduct = (id) => {
-    //const delProduct = order.filter((product) => product.id !== id);
+    const arrayProduct = order.items.filter((product) => product.id !== id);
+    setOrder(arrayProduct)
     console.log("delete");
   };
+
+  /* const increasingQuantity = () => {
+
+  }; */
 
   const dateAndTime = new Date().toLocaleString();
   const date = new Date().toLocaleDateString();

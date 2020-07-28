@@ -7,19 +7,19 @@ const images = {
   "natural-juice": require("../assets/img/03-jugo-natural.svg"),
   "simple-burger": require("../assets/img/04a-hamburguesa-sencilla.svg"),
   "double-burger": require("../assets/img/04a-hamburguesa-doble.svg"),
-  portobello: require("../assets/img/04b-portobello.svg"),
-  soya: require("../assets/img/04b-soya.svg"),
-  grains: require("../assets/img/04b-granos.svg"),
-  guacamole: require("../assets/img/04c-guacamole.svg"),
-  vaganessa: require("../assets/img/04c-veganesa.svg"),
-  tapioca: require("../assets/img/05-tapioca.svg"),
-  water: require("../assets/img/05-agua-del-dia.svg"),
+  "portobello": require("../assets/img/04b-portobello.svg"),
+  "soya": require("../assets/img/04b-soya.svg"),
+  "grains": require("../assets/img/04b-granos.svg"),
+  "guacamole": require("../assets/img/04c-guacamole.svg"),
+  "vaganessa": require("../assets/img/04c-veganesa.svg"),
+  "tapioca": require("../assets/img/05-tapioca.svg"),
+  "water": require("../assets/img/05-agua-del-dia.svg"),
   "milk-coconut": require("../assets/img/05-leche-coco.svg"),
   "te-chai-burger": require("../assets/img/05-te-chai.svg"),
-  fries: require("../assets/img/06-papas.svg"),
-  salad: require("../assets/img/06-ensalada.svg"),
-  hummus: require("../assets/img/06-hummus.svg"),
-};
+  "fries": require("../assets/img/06-papas.svg"),
+  "salad": require("../assets/img/06-ensalada.svg"),
+  "hummus": require("../assets/img/06-hummus.svg"),
+}
 
 const Item = ({
   product,
@@ -37,9 +37,23 @@ const Item = ({
       <button type="button" onClick={() => deletingProduct(product.id)}>
         -
       </button>
+
+      <h6>{product.quantity}</h6>
+
+      
+
       <button type="button" onClick={() => addingProductToOrder(product)}>
         +
       </button>
+
+      {/* Comdicional
+      
+      Tengo que acceder a la propiedad quality y modificarlo, contador +1 y eso pintarlo.Cuando yo doy click si ese producto ya está le agrego uno a quality, si no está lo agrego
+
+      */}
+
+
+
     </div>
   );
 };

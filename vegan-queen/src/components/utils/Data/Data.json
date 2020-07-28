@@ -6,6 +6,7 @@
             "kind": "Breakfast",
             "image": "sandwich-hummus",
             "cost": 70
+            
         },
         {
             "id":2,
@@ -13,6 +14,7 @@
             "kind": "Breakfast",
             "image": "te-chai-breakfast",
             "cost": 60
+            
         },
         {
             "id":3,
@@ -20,6 +22,7 @@
             "kind": "Breakfast",
             "image": "american-coffee",
             "cost": 40
+            
         },
         {
             "id":4,
@@ -27,6 +30,7 @@
             "kind": "Breakfast",
             "image": "natural-juice",
             "cost": 35
+            
         }
     ],
     "burger":[

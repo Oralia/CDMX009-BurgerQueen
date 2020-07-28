@@ -13,7 +13,10 @@ const Order = ({ order }) => {
         <p>Aun no hay pedidos</p>
       ) : (
         order.items.map((product) => (
-          <Item key={product.id} product={product} order={order} />
+          
+          <Item key={product.id} 
+            product={product} 
+            order={order} />
         ))
       )}
     </Container>
