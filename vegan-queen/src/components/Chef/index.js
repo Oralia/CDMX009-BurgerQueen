@@ -1,5 +1,5 @@
 import React from "react";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import menucocina from "../assets/img/01-menu-cocina.svg";
 import style from "./style.module.css";
@@ -12,7 +12,9 @@ const Chef = function ({ date }) {
     <Container>
       <Navbar />
       <Row className="d-flex justify-content-center">
-        <Boton image={menucocina} adress="/chef" />
+        <Boton 
+        image={menucocina} 
+        adress="/chef" />
       </Row>
       <div>Aqui van pone sus datos el chef</div>
       <p>Fecha: {date}</p>

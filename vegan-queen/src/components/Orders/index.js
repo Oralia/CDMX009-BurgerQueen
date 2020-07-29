@@ -1,6 +1,6 @@
 import React from "react";
 import menucocina from "../assets/img/01-menu-cocina.svg";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container";

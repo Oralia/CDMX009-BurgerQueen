@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import mbreakfast from "../assets/img/02-menu-desayuno.svg";
 import mburger from "../assets/img/02-menu-burger.svg";
 import Navbar from "../Navbar";

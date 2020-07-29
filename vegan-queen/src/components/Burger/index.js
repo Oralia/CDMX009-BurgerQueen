@@ -1,5 +1,5 @@
 import React from "react";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import mburger from "../assets/img/02-menu-burger.svg";
 import Item from "../utils/Item";

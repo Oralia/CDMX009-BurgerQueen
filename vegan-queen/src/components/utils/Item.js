@@ -1,4 +1,5 @@
 import React from "react";
+import styles from '../utils/Buton/style.module.css'
 
 const images = {
   "sandwich-hummus": require("../assets/img/03-sandwich-hummus.svg"),
@@ -30,27 +31,19 @@ const Item = ({
 }) => {
   return (
     <div>
-      <img src={images[product.image]} alt="" />
-      <h5>{product.productName}</h5>
-      <h6>${product.cost}</h6>
-
+      <img src={images[product.image]} className={styles.btnNav} alt="" onClick={() => addingProductToOrder(product)}/>
+      {/* <h5>{product.productName}</h5>
+      <h6>${product.cost}</h6> */}
+        <p>0</p>
       <button type="button" onClick={() => deletingProduct(product.id)}>
-        -
+        eliminar
       </button>
 
-      <h6>{product.quantity}</h6>
-
-      
-
-      <button type="button" onClick={() => addingProductToOrder(product)}>
+      {/* <button type="button" onClick={() => addingProductToOrder(product)}>
         +
-      </button>
+      </button> */}
 
-      {/* Comdicional
       
-      Tengo que acceder a la propiedad quality y modificarlo, contador +1 y eso pintarlo.Cuando yo doy click si ese producto ya está le agrego uno a quality, si no está lo agrego
-
-      */}
 
 
 

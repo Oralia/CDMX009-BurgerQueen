@@ -1,5 +1,5 @@
 import React from "react";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import exit from "../assets/img/salir.svg";
 import mc from "../assets/img/m-c.svg";
 import Row from "react-bootstrap/Row";

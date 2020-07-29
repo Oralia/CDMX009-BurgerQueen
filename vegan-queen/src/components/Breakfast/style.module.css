@@ -1,0 +1,19 @@
+/* .arrow {
+  width: 5px;
+} */
+
+.container {
+  /* height: 90vh;
+  width: 100vw; */
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  justify-content: space-around
+  /* align-items: center; */
+}
+
+.logoUp{
+  display: flex;
+  justify-content: center;
+}

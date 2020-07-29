@@ -1,5 +1,5 @@
 import React from "react";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import menumesero from "../assets/img/01-menu-mesero.svg";
 import Navbar from "../Navbar";
 import Row from "react-bootstrap/Row";

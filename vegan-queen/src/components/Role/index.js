@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import exit from "../assets/img/salir.svg";
 import menuCocina from "../assets/img/01-menu-cocina.svg";
 import menuMesero from "../assets/img/01-menu-mesero.svg";
