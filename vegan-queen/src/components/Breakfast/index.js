@@ -7,11 +7,10 @@ import Navbar from "../Navbar";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container";
 import styles from "./styles.module.css";
-
 const MenuBreakfast = ({
   Data,
   order,
-  addingProduct,
+  addingProductToOrder,
   deletingProduct,
   setOrder,
 }) => {
@@ -31,7 +30,7 @@ const MenuBreakfast = ({
             product={product}
             order={order}
             setOrder={setOrder}
-            addingProduct={addingProduct}
+            addingProductToOrder={addingProductToOrder}
             deletingProduct={deletingProduct}
           />
         ))}

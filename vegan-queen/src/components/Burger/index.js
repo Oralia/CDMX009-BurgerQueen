@@ -8,7 +8,13 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import styles from "./styles.module.css";
 
-const MenuBurger = ({ Data, order, addingProduct, deletingProduct }) => {
+const MenuBurger = ({
+  Data,
+  order,
+  addingProductToOrder,
+  deletingProduct,
+  setOrder,
+}) => {
   return (
     <Container>
       <Navbar />
@@ -26,7 +32,8 @@ const MenuBurger = ({ Data, order, addingProduct, deletingProduct }) => {
             key={product.id}
             product={product}
             order={order}
-            addingProduct={addingProduct}
+            setOrder={setOrder}
+            addingProductToOrder={addingProductToOrder}
             deletingProduct={deletingProduct}
           />
         ))}

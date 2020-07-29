@@ -12,9 +12,7 @@ const Order = ({ order }) => {
       {order.length === 0 ? (
         <p>Aun no hay pedidos</p>
       ) : (
-        order.map((product) => (
-          <Item key={product.id} product={product} order={order} />
-        ))
+        order.map((product) => <Item key={product.id} product={product} />)
       )}
     </Container>
   );
@@ -22,4 +20,4 @@ const Order = ({ order }) => {
 
 export default Order;
 
-/**/
+/*order={order} */

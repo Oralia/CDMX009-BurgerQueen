@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const images = {
   "sandwich-hummus": require("../assets/img/03-sandwich-hummus.svg"),
@@ -24,7 +24,7 @@ const images = {
 const Item = ({
   product,
   order,
-  aaddingProductToOrder,
+  addingProductToOrder,
   deletingProduct,
   Data,
 }) => {
@@ -32,11 +32,13 @@ const Item = ({
     <div>
       <img src={images[product.image]} alt="" />
       <h5>{product.productName}</h5>
+
       <h6>${product.cost}</h6>
 
       <button type="button" onClick={() => deletingProduct(product.id)}>
         -
       </button>
+      <h7>{product.quantity}</h7>
       <button type="button" onClick={() => addingProductToOrder(product)}>
         +
       </button>

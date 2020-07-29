@@ -17,25 +17,36 @@ import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
 
-//Recordar que usamos arreglos
-//SI ya existe enonces a quantity agrega 1
-//Si NO existe entonces crea uno nuevo
-
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
 function App() {
-  const [order, setOrder] = useState({
-    cliente: "",
-    total: 0,
-    items: [],
-  });
+  const [order, setOrder] = useState([]);
 
   const addingProductToOrder = (product) => {
-    //const product = Data.breakfast.filter((product) => product.id === id)[0];
-    //console.log("click");
-    //setOrder([...order, id]);
-    setOrder({ ...order, items: [...order.items, product] });
+    let newOrder = [...order];
+    // if existe producto en orden
+    if (order.find((item) => item.name === product.productName)) {
+      // entonces incrementar uno a la cantidad
+      newOrder = newOrder.map((i) => {
+        if (i.name === product.productName) {
+          return {
+            ...i,
+            quantity: i.quantity + 1,
+          };
+        } else {
+          return i;
+        }
+      });
+    } else {
+      newOrder.push({
+        name: product.productName,
+        quantity: 1,
+        cost: product.cost,
+      });
+    }
+
+    setOrder(newOrder);
   };
 
   const deletingProduct = (id) => {
@@ -79,6 +90,7 @@ function App() {
               addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
             />
+            <Order order={order} />
           </Route>
           <Route path="/orders">
             <Orders dateAndTime={dateAndTime} />
