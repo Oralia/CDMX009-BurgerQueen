@@ -20,7 +20,9 @@ const MenuBreakfast = ({
     <Fragment>
        <Navbar />
        <div className={styles.logoUp}>
-         <Boton image={mbreakfast} adress="/menu-breakfast"/>
+         <Boton 
+          image={mbreakfast} 
+          adress="/menu-breakfast"/>
         </div>
         <div>
           <p>Nombre del cliente</p>
@@ -41,7 +43,7 @@ const MenuBreakfast = ({
                   key={product.id}
                   product={product}
                   order={order}
-                  setOrder={setOrder}
+                  /* setOrder={setOrder} */
                   addingProductToOrder={addingProductToOrder}
                   deletingProduct={deletingProduct}
                 />
