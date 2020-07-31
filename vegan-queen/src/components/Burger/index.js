@@ -10,7 +10,11 @@ import styles from "./style.module.css";
 import ButtonNext from "../utils/ButtonNext";
 
 const MenuBurger = ({ 
-  Data, 
+  dataHamburger,
+  dataIngredients,
+  dataExtras,
+  dataDrinks,
+  dataAccompaniments,
   order, 
   addingProduct, 
   deletingProduct 
@@ -33,15 +37,63 @@ const MenuBurger = ({
         </div>
         <p>Presiona el número de veces necesarias para agregar el producto o aumentar la cantidad</p>
         <section className={styles.container}>
-          {Data.map((product) => (
-            <Item
-              key={product.id}
-              product={product}
-              /* order={order} */
-              addingProduct={addingProduct}
-              deletingProduct={deletingProduct}
-            />
-          ))}
+          <div>
+            {dataHamburger.map((product) => (
+              <Item
+                key={product.id}
+                product={product}
+                /* order={order} */
+                addingProduct={addingProduct}
+                deletingProduct={deletingProduct}
+              />
+            ))}
+          </div>
+          <div>
+            {dataIngredients.map((product) => (
+              <Item
+                key={product.id}
+                product={product}
+                /* order={order} */
+                addingProduct={addingProduct}
+                deletingProduct={deletingProduct}
+              />
+            ))}
+          </div>
+          <div>
+            {dataExtras.map((product) => (
+              <Item
+                key={product.id}
+                product={product}
+                /* order={order} */
+                addingProduct={addingProduct}
+                deletingProduct={deletingProduct}
+              />
+            ))}
+          </div>
+          <div>
+            {dataDrinks.map((product) => (
+              <Item
+                key={product.id}
+                product={product}
+                /* order={order} */
+                addingProduct={addingProduct}
+                deletingProduct={deletingProduct}
+              />
+            ))}
+          </div>
+          <div>
+            {dataAccompaniments.map((product) => (
+              <Item
+                key={product.id}
+                product={product}
+                /* order={order} */
+                addingProduct={addingProduct}
+                deletingProduct={deletingProduct}
+              />
+            ))}
+          </div>
+         
+    
         </section>
         <ButtonNext />
         <div>

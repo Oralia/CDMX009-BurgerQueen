@@ -80,8 +80,12 @@ function App() {
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
-              Data={Data.burger}
-              /* order={order} */
+              /* Data={Data.burger} */
+              dataHamburger ={Data.hamburger}
+              dataIngredients ={Data.ingredients}
+              dataExtras ={Data.extras}
+              dataDrinks ={Data.drinks}
+              dataAccompaniments ={Data.accompaniments}
               addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
               

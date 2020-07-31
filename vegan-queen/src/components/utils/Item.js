@@ -2,7 +2,7 @@ import React from "react";
 import styles from '../utils/Buton/style.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import style from './styles.css'
+
 
 const images = {
   "sandwich-hummus": require("../assets/img/03-sandwich-hummus.svg"),
@@ -32,16 +32,25 @@ const Item = ({
 }) => {
   return (
     <div>
-      <img src={images[product.image]} className={styles.btnNav} alt="" onClick={() => addingProductToOrder(product)}/>
+      <div>
+    <img 
+      src={images[product.image]} 
+      className={styles.btnNav} alt="" 
+      onClick={() => addingProductToOrder(product)}/>
       {/* <h5>{product.productName}</h5>
       <h6>${product.cost}</h6> */}
-    <div className = {style.iconDelete}>
-      <FontAwesomeIcon 
+    </div>
+     <div>
+     <FontAwesomeIcon 
         icon = { faTimesCircle }
         color='#F5C6C6'
         onClick={() => deletingProduct(product.id)}
+        cursor= 'pointer'
       />
-    </div>
+     </div>
+
+    
+    
        
 
       {/* <button type="button" onClick={() => deletingProduct(product.id)}>

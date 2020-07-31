@@ -6,9 +6,10 @@
   margin-right: 100px;
   display: flex;
   flex-wrap: wrap;
-  background-color: #ffffff;
+  background-color: rgba(255,255,255,0.15);
   border-radius: 20px;
   padding: 20px;
+
   
 
   /* justify-content: space-around;

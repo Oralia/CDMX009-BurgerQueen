@@ -33,7 +33,7 @@
             
         }
     ],
-    "burger":[
+    "hamburger":[
         {
             "id":5,
             "productName": "Hamburguesa sencilla",
@@ -47,7 +47,9 @@
             "kind": "burger",
             "image": "double-burger",
             "cost": 130
-        },
+        }
+    ],
+    "ingredients":[
         {
             "id":7,
             "productName": "Ingrediente portobello",
@@ -65,7 +67,9 @@
             "productName": "Ingrediente granos",
             "kind": "ingredient",
             "image":"grains"
-        },
+        }
+    ],
+    "extras":[
         {
             "id":10,
             "productName": "Guacamole",
@@ -79,7 +83,9 @@
             "kind": "extras",
             "image": "veganessa",
             "cost": 20
-        },
+        }
+    ],
+    "drinks":[
         {
             "id":12,
             "productName": "Tapioca",
@@ -114,7 +120,9 @@
             "kind": "accompaniment",
             "image": "hummus",
             "cost": 50
-        },
+        }
+    ],
+    "accompaniments":[
         {
             "id":17,
             "productName": "Papas",
