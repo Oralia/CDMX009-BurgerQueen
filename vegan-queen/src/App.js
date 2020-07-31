@@ -81,7 +81,6 @@ function App() {
               addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
             />
-            <Order order={order} />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
@@ -90,7 +89,9 @@ function App() {
               addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
             />
-            <Order order={order} />
+          </Route>
+          <Route path="/order">
+            <Order />
           </Route>
           <Route path="/orders">
             <Orders dateAndTime={dateAndTime} />

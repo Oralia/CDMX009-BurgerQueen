@@ -7,17 +7,17 @@ import Container from "react-bootstrap/esm/Container";
 const Order = ({ order }) => {
   return (
     <Container>
-      <div className="order">Tu orden</div>
-
-      {order.length === 0 ? (
-        <p>Aun no hay pedidos</p>
-      ) : (
-        order.map((product) => <Item key={product.id} product={product} />)
-      )}
+      {order.map((product) => (
+        <Item key={product.id} product={product} />
+      ))}
     </Container>
   );
 };
 
 export default Order;
 
-/*order={order} */
+/*{order.length === 0 ? (
+        <p>Aun no hay pedidos</p>
+      ) : (
+        order.map((product) => <Item key={product.id} product={product} />)
+      )} */

@@ -38,7 +38,7 @@ const Item = ({
       <button type="button" onClick={() => deletingProduct(product.id)}>
         -
       </button>
-      <h7>{product.quantity}</h7>
+      <p>{product.quantity}</p>
       <button type="button" onClick={() => addingProductToOrder(product)}>
         +
       </button>
