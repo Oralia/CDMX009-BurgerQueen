@@ -72,7 +72,7 @@ function App() {
           <Route path="/menu-breakfast">
             <MenuBreakfast
               Data={Data.breakfast}
-              order={order}
+              /* order={order} */
               addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
             />
@@ -81,9 +81,10 @@ function App() {
           <Route path="/menu-burger">
             <MenuBurger
               Data={Data.burger}
-              order={order}
+              /* order={order} */
               addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
+              
             />
           </Route>
           <Route path="/orders">

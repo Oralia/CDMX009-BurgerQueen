@@ -31,16 +31,13 @@ const MenuBurger = ({
           <p>Nümero de mesa</p>
           <input type="text" placeholder='mesa'/>
         </div>
-        <div className={styles.container}>
-          <p>Presiona el número de veces necesarias para agregar el producto o aumentar la cantidad</p>
-        </div>
-
+        <p>Presiona el número de veces necesarias para agregar el producto o aumentar la cantidad</p>
         <section className={styles.container}>
           {Data.map((product) => (
             <Item
               key={product.id}
               product={product}
-              order={order}
+              /* order={order} */
               addingProduct={addingProduct}
               deletingProduct={deletingProduct}
             />
@@ -52,27 +49,6 @@ const MenuBurger = ({
           <input type="text" placeholder='Money money'/>
         </div>
     </Fragment>
-
-   /*  <Container>
-      <Navbar />
-      
-
-      <Row className="d-flex justify-content-center">
-        <Boton image={mburger} adress="/menu-burger" />
-      </Row>
-
-      <div>
-        {Data.map((product) => (
-          <Item
-            key={product.id}
-            product={product}
-            order={order}
-            addingProduct={addingProduct}
-            deletingProduct={deletingProduct}
-          />
-        ))}
-      </div>
-    </Container> */
   );
 };
 

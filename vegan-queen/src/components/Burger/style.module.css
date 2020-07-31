@@ -5,8 +5,14 @@
   margin-left: 100px;
   margin-right: 100px;
   display: flex;
-  justify-content: space-around
-  /* align-items: center; */
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  
+
+  /* justify-content: space-around;
+  align-items: center; */
 }
 
 .logoUp{

@@ -37,14 +37,14 @@
         {
             "id":5,
             "productName": "Hamburguesa sencilla",
-            "kind": "Burger",
+            "kind": "burger",
             "image": "simple-burger",
             "cost": 80
         },
         {
             "id":6,
             "productName": "Hamburguesa doble",
-            "kind": "Burger",
+            "kind": "burger",
             "image": "double-burger",
             "cost": 130
         },

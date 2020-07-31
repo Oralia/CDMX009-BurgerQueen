@@ -12,44 +12,33 @@ const images = {
   "soya": require("../assets/img/04b-soya.svg"),
   "grains": require("../assets/img/04b-granos.svg"),
   "guacamole": require("../assets/img/04c-guacamole.svg"),
-  "vaganessa": require("../assets/img/04c-veganesa.svg"),
-  "tapioca": require("../assets/img/05-tapioca.svg"),
-  "water": require("../assets/img/05-agua-del-dia.svg"),
-  "milk-coconut": require("../assets/img/05-leche-coco.svg"),
-  "te-chai-burger": require("../assets/img/05-te-chai.svg"),
+  "veganessa": require("../assets/img/04c-veganesa.svg"),
   "fries": require("../assets/img/06-papas.svg"),
   "salad": require("../assets/img/06-ensalada.svg"),
   "hummus": require("../assets/img/06-hummus.svg"),
+  "tapioca": require("../assets/img/05-tapioca.svg"),
+  "water": require("../assets/img/05-agua-del-dia.svg"),
+  "milk-coconut": require("../assets/img/05-leche-coco.svg"),
+  "te-chai-burger": require("../assets/img/05-te-chai.svg")
 }
 
 const Item = ({
   product,
-  order,
   addingProductToOrder,
   deletingProduct,
-  Data,
 }) => {
   return (
     <div>
       <img src={images[product.image]} className={styles.btnNav} alt="" onClick={() => addingProductToOrder(product)}/>
       {/* <h5>{product.productName}</h5>
       <h6>${product.cost}</h6> */}
-        <p>0</p>
       <button type="button" onClick={() => deletingProduct(product.id)}>
-        eliminar
+      <i class="far fa-trash-alt"></i>
       </button>
-
-      {/* <button type="button" onClick={() => addingProductToOrder(product)}>
-        +
-      </button> */}
-
-      
-
-
-
+     
     </div>
   );
 };
 
 export default Item;
-//<h6>{product.kind}</h6>
+
