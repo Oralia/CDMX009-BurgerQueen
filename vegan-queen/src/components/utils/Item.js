@@ -1,5 +1,8 @@
 import React from "react";
 import styles from '../utils/Buton/style.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import style from './styles.css'
 
 const images = {
   "sandwich-hummus": require("../assets/img/03-sandwich-hummus.svg"),
@@ -32,9 +35,21 @@ const Item = ({
       <img src={images[product.image]} className={styles.btnNav} alt="" onClick={() => addingProductToOrder(product)}/>
       {/* <h5>{product.productName}</h5>
       <h6>${product.cost}</h6> */}
-      <button type="button" onClick={() => deletingProduct(product.id)}>
-      <i class="far fa-trash-alt"></i>
-      </button>
+    <div className = {style.iconDelete}>
+      <FontAwesomeIcon 
+        icon = { faTimesCircle }
+        color='#F5C6C6'
+        onClick={() => deletingProduct(product.id)}
+      />
+    </div>
+       
+
+      {/* <button type="button" onClick={() => deletingProduct(product.id)}>
+        <FontAwesomeIcon 
+        icon = { faTimesCircle }
+        color='#F5C6C6'
+         />
+      </button> */}
      
     </div>
   );

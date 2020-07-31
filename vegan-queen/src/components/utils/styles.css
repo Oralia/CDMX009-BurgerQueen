@@ -6,4 +6,14 @@ body {
     /* background-repeat: no-repeat; */
 
   }
+  
+  .iconDelete{
+    text-align: center;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  .iconDelete:hover{
+    text-align: center;
+  }
 
