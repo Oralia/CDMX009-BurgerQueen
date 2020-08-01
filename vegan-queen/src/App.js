@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 //Router
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Styles
-//import "./components/utils/styles.css";
+import "./components/utils/styles.css";
 
 //Components
-import "./components/utils/styles.module.css";
-
 import Main from "./components/Main";
 import Role from "./components/Role";
 import Waiter from "./components/Waiter";
@@ -17,36 +15,42 @@ import Menu from "./components/Menu";
 import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
+import Order from "./components/Order/Order.js";
+
+//Recordar que usamos arreglos
+//SI ya existe enonces a quantity agrega 1
+//Si NO existe entonces crea uno nuevo
 
 //JSON
-import Data from './components/utils/Data/Data.json'
+import Data from "./components/utils/Data/Data.json";
 
-
-
+//donde va quantity?
 function App() {
+  const [order, setOrder] = useState({
+    client: "",
+    total: 0,
+    items: []
+  });
 
-  /* const [order, setOrder] = useState([])
+  const addingProductToOrder = (product) => {
+    //const product = Data.breakfast.filter((product) => product.id === id)[0];
+    //console.log("click");
+    //setOrder([...order, product]);
+   setOrder({ ...order, items: [...order.items, product]});
+  };
 
-  const addingProduct = () => {
-    //console.log('click');
-    setOrder([
-      ...order,
-      {product} 
-    ])
-  }
+  const deletingProduct = (id) => {
+    const arrayProduct = order.items.filter((product) => product.id !== id);
+    setOrder(arrayProduct)
+    console.log("delete");
+  };
 
-  const deleteProduct = () => {
-    //onsole.log('click');
-    setOrder([
-      ...order,
-      {product} 
-    ])
-  }
-  Esto va dentro de return
-  <button onClick={()=> addingProduct()}>Agregar  </button>
-  <button onClick={()=> deleteProduct()}>Agregar  </button> */
-  const dateAndTime = new Date().toLocaleString()
-  const date = new Date().toLocaleDateString()
+  /* const increasingQuantity = () => {
+
+  }; */
+
+  const dateAndTime = new Date().toLocaleString();
+  const date = new Date().toLocaleDateString();
   //const time = new Date().toLocaleTimeString()
 
   return (
@@ -57,36 +61,41 @@ function App() {
             <Role />
           </Route>
           <Route path="/waiter">
-            <Waiter 
-              date = {date}
-            />
+            <Waiter date={date} />
           </Route>
           <Route path="/chef">
-            <Chef 
-              date = {date}
-            />
+            <Chef date={date} />
           </Route>
           <Route path="/menu">
             <Menu />
           </Route>
           <Route path="/menu-breakfast">
-            <MenuBreakfast 
-              Data = {Data}
+            <MenuBreakfast
+              Data={Data.breakfast}
+              /* order={order} */
+              addingProductToOrder={addingProductToOrder}
+              deletingProduct={deletingProduct}
             />
+            <Order order={order} />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
-              Data = {Data} 
+              /* Data={Data.burger} */
+              dataHamburger ={Data.hamburger}
+              dataIngredients ={Data.ingredients}
+              dataExtras ={Data.extras}
+              dataDrinks ={Data.drinks}
+              dataAccompaniments ={Data.accompaniments}
+              addingProductToOrder={addingProductToOrder}
+              deletingProduct={deletingProduct}
+              
             />
           </Route>
           <Route path="/orders">
-            <Orders 
-              dateAndTime = {dateAndTime}
-            />
-          </Route> 
+            <Orders dateAndTime={dateAndTime} />
+          </Route>
           <Route path="/">
-            <Main 
-            />
+            <Main />
           </Route>
         </Switch>
       </div>

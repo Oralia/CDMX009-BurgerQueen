@@ -1,11 +1,11 @@
 import React from "react";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import menumesero from "../assets/img/01-menu-mesero.svg";
 import Navbar from "../Navbar";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container";
-import next from "../assets/img/flecha-derecha.svg";
-import styles from "./styles.module.css";
+import styles from "./style.module.css";
+import ButtonNext from "../utils/ButtonNext";
 
 const Waiter = ({date}) => {
   return (
@@ -15,9 +15,13 @@ const Waiter = ({date}) => {
         <Boton image={menumesero} adress="/waiter" />
       </Row>
       <div>Aqui pone sus datos el mesero</div>
-      <p>Fecha: {date}</p>
       <div>
-        <Boton image={next} adress="/Menu" className={styles.arrow} />
+        <p>Fecha: {date}</p>
+      </div>
+      
+      <div>
+      <ButtonNext />
+       {/*  <Boton image={next} adress="/Menu" className={styles.arrow} /> */}
       </div>
     </Container>
   );

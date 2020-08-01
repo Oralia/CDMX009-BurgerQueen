@@ -1,23 +1,28 @@
-import React from "react";
-import Boton from "../utils/ButtonLink";
+import React, { Fragment } from "react";
+import Boton from "../utils/Buton";
 import mbreakfast from "../assets/img/02-menu-desayuno.svg";
 import mburger from "../assets/img/02-menu-burger.svg";
 import Navbar from "../Navbar";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+/* import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container"; */
+import styles from './style.module.css'
 
 const Menu = () => {
   return (
-    <Container>
+    <Fragment>
       <Navbar />
-      <Row className="d-flex justify-content-center">
-        <Boton image={mbreakfast} adress="/menu-breakfast" />
-      </Row>
-
-      <Row className="d-flex justify-content-center">
-        <Boton image={mburger} adress="/menu-burger" />
-      </Row>
-    </Container>
+        <section className={styles.container}>
+            <div>
+              <div>
+                <Boton image={mbreakfast} adress="/menu-breakfast" />
+              </div>
+              <br/>
+              <div>
+                <Boton image={mburger} adress="/menu-burger" />
+              </div>
+            </div>
+    </section>
+    </Fragment>
   );
 };
 
