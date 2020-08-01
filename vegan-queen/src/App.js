@@ -49,9 +49,10 @@ function App() {
     setOrder(newOrder);
   };
 
-  const deletingProduct = (id) => {
-    //const delProduct = order.filter((product) => product.id !== id);
-    console.log("delete");
+  const deletingProductToOrder = (product) => {
+    let newOrder = [...order];
+
+    console.log("delete", newOrder);
   };
 
   const dateAndTime = new Date().toLocaleString();
@@ -79,7 +80,7 @@ function App() {
               Data={Data.breakfast}
               order={order}
               addingProductToOrder={addingProductToOrder}
-              deletingProduct={deletingProduct}
+              deletingProductToOrder={deletingProductToOrder}
             />
           </Route>
           <Route path="/menu-burger">
@@ -87,7 +88,7 @@ function App() {
               Data={Data.burger}
               order={order}
               addingProductToOrder={addingProductToOrder}
-              deletingProduct={deletingProduct}
+              ddeletingProductToOrder={deletingProductToOrder}
             />
           </Route>
           <Route path="/order">

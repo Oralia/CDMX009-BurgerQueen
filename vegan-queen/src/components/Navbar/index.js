@@ -4,6 +4,7 @@ import exit from "../assets/img/salir.svg";
 import mc from "../assets/img/m-c.svg";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container";
+
 const Navbar = () => {
   return (
     <Container>

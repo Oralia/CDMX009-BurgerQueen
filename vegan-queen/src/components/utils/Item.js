@@ -25,7 +25,7 @@ const Item = ({
   product,
   order,
   addingProductToOrder,
-  deletingProduct,
+  deletingProductToOrder,
   Data,
 }) => {
   return (
@@ -35,7 +35,7 @@ const Item = ({
 
       <h6>${product.cost}</h6>
 
-      <button type="button" onClick={() => deletingProduct(product.id)}>
+      <button type="button" onClick={() => deletingProductToOrder(product)}>
         -
       </button>
       <p>{product.quantity}</p>

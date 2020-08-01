@@ -16,7 +16,7 @@ const MenuBreakfast = ({
   Data,
   order,
   addingProductToOrder,
-  deletingProduct,
+  deletingProductToOrder,
   setOrder,
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -37,7 +37,7 @@ const MenuBreakfast = ({
             order={order}
             setOrder={setOrder}
             addingProductToOrder={addingProductToOrder}
-            deletingProduct={deletingProduct}
+            deletingProductToOrder={deletingProductToOrder}
           />
         ))}
       </div>
