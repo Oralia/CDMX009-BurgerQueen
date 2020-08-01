@@ -17,23 +17,37 @@ import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
 
+//Recordar que usamos arreglos
+//SI ya existe enonces a quantity agrega 1
+//Si NO existe entonces crea uno nuevo
+
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
+//donde va quantity?
 function App() {
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState({
+    client: "",
+    total: 0,
+    items: []
+  });
 
-  const addingProduct = (product) => {
+  const addingProductToOrder = (product) => {
     //const product = Data.breakfast.filter((product) => product.id === id)[0];
     //console.log("click");
-    //setOrder([...order, id]);
-    setOrder([...order, product]);
+    //setOrder([...order, product]);
+   setOrder({ ...order, items: [...order.items, product]});
   };
 
   const deletingProduct = (id) => {
-    //const delProduct = order.filter((product) => product.id !== id);
+    const arrayProduct = order.items.filter((product) => product.id !== id);
+    setOrder(arrayProduct)
     console.log("delete");
   };
+
+  /* const increasingQuantity = () => {
+
+  }; */
 
   const dateAndTime = new Date().toLocaleString();
   const date = new Date().toLocaleDateString();
@@ -58,18 +72,23 @@ function App() {
           <Route path="/menu-breakfast">
             <MenuBreakfast
               Data={Data.breakfast}
-              order={order}
-              addingProduct={addingProduct}
+              /* order={order} */
+              addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
             />
             <Order order={order} />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
-              Data={Data.burger}
-              order={order}
-              addingProduct={addingProduct}
+              /* Data={Data.burger} */
+              dataHamburger ={Data.hamburger}
+              dataIngredients ={Data.ingredients}
+              dataExtras ={Data.extras}
+              dataDrinks ={Data.drinks}
+              dataAccompaniments ={Data.accompaniments}
+              addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
+              
             />
           </Route>
           <Route path="/orders">

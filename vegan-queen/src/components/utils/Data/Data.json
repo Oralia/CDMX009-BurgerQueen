@@ -6,6 +6,7 @@
             "kind": "Breakfast",
             "image": "sandwich-hummus",
             "cost": 70
+            
         },
         {
             "id":2,
@@ -13,6 +14,7 @@
             "kind": "Breakfast",
             "image": "te-chai-breakfast",
             "cost": 60
+            
         },
         {
             "id":3,
@@ -20,6 +22,7 @@
             "kind": "Breakfast",
             "image": "american-coffee",
             "cost": 40
+            
         },
         {
             "id":4,
@@ -27,23 +30,26 @@
             "kind": "Breakfast",
             "image": "natural-juice",
             "cost": 35
+            
         }
     ],
-    "burger":[
+    "hamburger":[
         {
             "id":5,
             "productName": "Hamburguesa sencilla",
-            "kind": "Burger",
+            "kind": "burger",
             "image": "simple-burger",
             "cost": 80
         },
         {
             "id":6,
             "productName": "Hamburguesa doble",
-            "kind": "Burger",
+            "kind": "burger",
             "image": "double-burger",
             "cost": 130
-        },
+        }
+    ],
+    "ingredients":[
         {
             "id":7,
             "productName": "Ingrediente portobello",
@@ -61,7 +67,9 @@
             "productName": "Ingrediente granos",
             "kind": "ingredient",
             "image":"grains"
-        },
+        }
+    ],
+    "extras":[
         {
             "id":10,
             "productName": "Guacamole",
@@ -75,7 +83,9 @@
             "kind": "extras",
             "image": "veganessa",
             "cost": 20
-        },
+        }
+    ],
+    "drinks":[
         {
             "id":12,
             "productName": "Tapioca",
@@ -103,7 +113,9 @@
             "kind": "drinks",
             "image": "te-chai-burger",
             "cost": 60
-        },
+        }
+    ],
+    "accompaniments":[
         {
             "id":16,
             "productName": "Hummus",
