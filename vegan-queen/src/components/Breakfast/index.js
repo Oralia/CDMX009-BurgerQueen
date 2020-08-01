@@ -8,6 +8,8 @@ import Navbar from "../Navbar";
 import Container from "react-bootstrap/esm/Container"; */
 import styles from "./style.module.css";
 import ButtonNext from "../utils/ButtonNext"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
 const MenuBreakfast = ({
   Data,
@@ -32,7 +34,7 @@ const MenuBreakfast = ({
           <p>Nümero de mesa</p>
           <input type="text" placeholder='mesa'/>
         </div>
-        <div className={styles.container}>
+        <div>
           <p>Presiona el número de veces necesarias para agregar el producto o aumentar la cantidad</p>
         </div>
         
@@ -54,6 +56,10 @@ const MenuBreakfast = ({
           <p>Total</p>
           <input type="text" placeholder='Money money'/>
         </div>
+        <FontAwesomeIcon 
+        icon = { faArrowCircleLeft }
+        className={styles.iconProduct}
+        />
     </Fragment>
 
 

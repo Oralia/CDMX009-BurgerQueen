@@ -8,6 +8,8 @@ import Item from "../utils/Item";
 // import Row from "react-bootstrap/Row";
 import styles from "./style.module.css";
 import ButtonNext from "../utils/ButtonNext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
 const MenuBurger = ({ 
   dataHamburger,
@@ -37,7 +39,9 @@ const MenuBurger = ({
         </div>
         <p>Presiona el número de veces necesarias para agregar el producto o aumentar la cantidad</p>
         <section className={styles.container}>
-          <div>
+          <p>HAMBURGUESAS</p>
+          <div className={styles.containerHamburguer}>
+            <p>1.Tipo</p>
             {dataHamburger.map((product) => (
               <Item
                 key={product.id}
@@ -48,7 +52,8 @@ const MenuBurger = ({
               />
             ))}
           </div>
-          <div>
+          <div className={styles.containerIngredients}>
+          <p>2.Ingrediente</p>
             {dataIngredients.map((product) => (
               <Item
                 key={product.id}
@@ -59,7 +64,8 @@ const MenuBurger = ({
               />
             ))}
           </div>
-          <div>
+          <div className={styles.containerExtras}>
+          <p>3.Extra</p>
             {dataExtras.map((product) => (
               <Item
                 key={product.id}
@@ -70,7 +76,8 @@ const MenuBurger = ({
               />
             ))}
           </div>
-          <div>
+          <div className={styles.containerDrinks}>
+          <p>BEBIDAS</p>
             {dataDrinks.map((product) => (
               <Item
                 key={product.id}
@@ -81,7 +88,8 @@ const MenuBurger = ({
               />
             ))}
           </div>
-          <div>
+          <div className={styles.containerAccompaniments}>
+          <p>ACOMPAÑAMIENTOS</p>
             {dataAccompaniments.map((product) => (
               <Item
                 key={product.id}
@@ -100,6 +108,10 @@ const MenuBurger = ({
           <p>Total</p>
           <input type="text" placeholder='Money money'/>
         </div>
+        <FontAwesomeIcon 
+        icon = { faArrowCircleLeft }
+        className={styles.iconProduct}
+        />
     </Fragment>
   );
 };

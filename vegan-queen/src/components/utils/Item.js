@@ -31,35 +31,26 @@ const Item = ({
   deletingProduct,
 }) => {
   return (
-    <div>
-      <div>
-    <img 
-      src={images[product.image]} 
-      className={styles.btnNav} alt="" 
-      onClick={() => addingProductToOrder(product)}/>
+    <div className={styles.containerItem}>
+      <img 
+        src={images[product.image]} 
+        className={styles.btnNav} alt="" 
+        onClick={() => addingProductToOrder(product)}
+      />
       {/* <h5>{product.productName}</h5>
       <h6>${product.cost}</h6> */}
-    </div>
-     <div>
-     <FontAwesomeIcon 
+      <FontAwesomeIcon 
         icon = { faTimesCircle }
-        color='#F5C6C6'
+        className={styles.iconProduct}
         onClick={() => deletingProduct(product.id)}
-        cursor= 'pointer'
+        
       />
-     </div>
-
-    
-    
-       
-
       {/* <button type="button" onClick={() => deletingProduct(product.id)}>
         <FontAwesomeIcon 
         icon = { faTimesCircle }
         color='#F5C6C6'
          />
       </button> */}
-     
     </div>
   );
 };
