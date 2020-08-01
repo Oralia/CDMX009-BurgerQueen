@@ -113,16 +113,16 @@
             "kind": "drinks",
             "image": "te-chai-burger",
             "cost": 60
-        },
+        }
+    ],
+    "accompaniments":[
         {
             "id":16,
             "productName": "Hummus",
             "kind": "accompaniment",
             "image": "hummus",
             "cost": 50
-        }
-    ],
-    "accompaniments":[
+        },
         {
             "id":17,
             "productName": "Papas",
