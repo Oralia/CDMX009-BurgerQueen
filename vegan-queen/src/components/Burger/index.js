@@ -3,13 +3,10 @@ import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import mburger from "../assets/img/02-menu-burger.svg";
 import Item from "../utils/Item";
-// import back from "../assets/img/flecha-atras.svg";
-// import Container from "react-bootstrap/esm/Container";
-// import Row from "react-bootstrap/Row";
 import styles from "./style.module.css";
-import ButtonNext from "../utils/ButtonNext";
+/* import ButtonNext from "../utils/ButtonNext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons' */
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
 
@@ -109,9 +106,6 @@ const MenuBurger = ({
                 ))}
               </div> 
             </div>
-
-            
-            
           </div>
         </section>
         <InfoTotal />

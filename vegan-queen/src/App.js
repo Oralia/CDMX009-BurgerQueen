@@ -88,7 +88,6 @@ function App() {
               dataAccompaniments ={Data.accompaniments}
               addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
-              
             />
           </Route>
           <Route path="/orders">

@@ -20,7 +20,9 @@ const InfoTotal = () => {
                         <input type="text" placeholder='Money money'/>
                     </div>
                     <br/>
-                    <ButtonNext/>
+                    <ButtonNext
+                    /* text='Enviar a cocina' */
+                    />
                 </div>  
             </div>
             

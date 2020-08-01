@@ -1,25 +1,35 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import menucocina from "../assets/img/01-menu-cocina.svg";
-import style from "./style.module.css";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/esm/Container";
+import styles from "./style.module.css";
 import ButtonNext from "../utils/ButtonNext"
 
 const Chef = function ({ date }) {
   return (
-    <Container>
+    <Fragment>
       <Navbar />
-      <Row className="d-flex justify-content-center">
-        <Boton 
-        image={menucocina} 
-        adress="/chef" />
-      </Row>
-      <div>Aqui van pone sus datos el chef</div>
-      <p>Fecha: {date}</p>
-      <ButtonNext />
-    </Container>
+        <div className={styles.containerPrincipal}>
+        
+          <div>
+            <Boton 
+              image={menucocina} 
+              adress="/chef" />
+          </div>
+          
+          <div className={styles.containerEmployee}>
+              <div>
+                <p>Nombre</p>
+                <input type="text" name="" id=""/>
+              </div>
+              <div>
+                <ButtonNext />
+            {/*  <Boton image={next} adress="/Menu" className={styles.arrow} /> */}
+              </div>
+              <p>Fecha: {date}</p>
+            </div>
+        </div>    
+    </Fragment>
   );
 };
 
