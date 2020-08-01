@@ -7,9 +7,9 @@ import Navbar from "../Navbar";
 /* import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container"; */
 import styles from "./style.module.css";
-import ButtonNext from "../utils/ButtonNext"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
+
+import InfoClients from "../utils/InfoClients";
+import InfoTotal from "../utils/InfoTotal";
 
 const MenuBreakfast = ({
   Data,
@@ -26,18 +26,9 @@ const MenuBreakfast = ({
           image={mbreakfast} 
           adress="/menu-breakfast"/>
         </div>
-        <div>
-          <p>Nombre del cliente</p>
-          <input type="text" placeholder='cliente'/>
-        </div>
-        <div>
-          <p>Nümero de mesa</p>
-          <input type="text" placeholder='mesa'/>
-        </div>
-        <div>
-          <p>Presiona el número de veces necesarias para agregar el producto o aumentar la cantidad</p>
-        </div>
-        
+
+        <InfoClients />
+
         <section className={styles.container}>
             
               {Data.map((product) => (
@@ -51,15 +42,7 @@ const MenuBreakfast = ({
                 />
                 ))}
         </section>
-        <ButtonNext />
-        <div>
-          <p>Total</p>
-          <input type="text" placeholder='Money money'/>
-        </div>
-        <FontAwesomeIcon 
-        icon = { faArrowCircleLeft }
-        className={styles.iconProduct}
-        />
+        <InfoTotal />
     </Fragment>
 
 
