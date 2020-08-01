@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Styles
 import "./components/utils/styles.css";
+import Swal from "sweetalert2";
 
 //Components
 import Main from "./components/Main";
@@ -51,6 +52,26 @@ function App() {
 
   const deletingProductToOrder = (product) => {
     let newOrder = [...order];
+
+    // si el producto existe
+    if (newOrder.find((item) => item.name === product.productName)) {
+      // si existe en quantity >1 decrementar quantity
+      newOrder = order.map((i) => {
+        if (i.name === product.productName) {
+          return {
+            ...i,
+            quantity: i.quantity - 1,
+          };
+        } else {
+          // Si existe en quantity 1 se eliminara el producto
+          return i;
+        }
+      });
+    }
+    // si no existe mandar alert"El producto no se encuentra en la orden"
+    else {
+      Swal.fire("El producto no existe en la orden");
+    }
 
     console.log("delete", newOrder);
   };
