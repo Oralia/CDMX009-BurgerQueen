@@ -18,9 +18,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    color:#ffffff;
     cursor: pointer;
-    font-size: 40px;
     opacity: 0.7;
+    width: 50px;
 }
 

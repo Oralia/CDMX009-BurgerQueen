@@ -1,20 +1,16 @@
 import React, { Fragment } from 'react'
 import styles from './style.module.css'
 import ButtonNext from "../ButtonNext"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
-
+import arrow from '../../assets/img/arrow.svg'
 
 const InfoTotal = () => {
     return (
         <Fragment>
             <div className={styles.containerTotal}>
                 <div className={styles.iconProduct}>
-                    <FontAwesomeIcon 
-                    icon = { faArrowCircleLeft }
-                    />
+                    <img src={arrow} alt="" width= '50px'/>
                 </div>
-                <div class={styles.totalData}>
+                <div className={styles.totalData}>
                     <div>
                         <p>Total</p>
                         <input type="text" placeholder='Money money'/>

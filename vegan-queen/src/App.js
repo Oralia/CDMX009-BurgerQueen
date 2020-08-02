@@ -30,7 +30,7 @@ function App() {
     const getOrders = async () => {
       try {
         const db = firebase.firestore ()
-        const data = db.collection('orders').get()
+        const data = await db.collection('orders').get()
         console.log(data.docs)
       } catch (error) {
         console.log(error)
