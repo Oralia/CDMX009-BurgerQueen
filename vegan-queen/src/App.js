@@ -57,14 +57,14 @@ function App() {
     if (newOrder.find((item) => item.name === product.productName)) {
       // si existe en quantity >1 decrementar quantity
       newOrder = order.map((i) => {
-        if (i.name === product.productName) {
+        if (i.name === product.productName && i.quantity > 1) {
           return {
             ...i,
             quantity: i.quantity - 1,
           };
         } else {
-          // Si existe en quantity 1 se eliminara el producto
           return i;
+          //return newOrder;
         }
       });
     }
@@ -72,7 +72,7 @@ function App() {
     else {
       Swal.fire("El producto no existe en la orden");
     }
-
+    setOrder(newOrder);
     console.log("delete", newOrder);
   };
 
