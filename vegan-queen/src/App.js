@@ -15,17 +15,30 @@ import Menu from "./components/Menu";
 import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
-import Order from "./components/Order/Order.js";
+import Order from "./components/Order/Order.js"
 
-//Recordar que usamos arreglos
-//SI ya existe enonces a quantity agrega 1
-//Si NO existe entonces crea uno nuevo
+//firebase
+import { firebase } from  './firebase'
 
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
-//donde va quantity?
 function App() {
+
+  //Firebase
+  React.useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const db = firebase.firestore ()
+        const data = await db.collection('orders').get()
+        console.log(data.docs)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getOrders()
+  },[])
+
   const [order, setOrder] = useState({
     client: "",
     total: 0,
@@ -88,7 +101,6 @@ function App() {
               dataAccompaniments ={Data.accompaniments}
               addingProductToOrder={addingProductToOrder}
               deletingProduct={deletingProduct}
-              
             />
           </Route>
           <Route path="/orders">
