@@ -64,7 +64,6 @@ function App() {
           };
         } else {
           return i;
-          //return newOrder;
         }
       });
     }
