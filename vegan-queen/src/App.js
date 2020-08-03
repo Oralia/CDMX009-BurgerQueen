@@ -17,7 +17,7 @@ import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js"
 
-//firebase
+//firebase data
 import { firebase } from  './firebase'
 
 //JSON
