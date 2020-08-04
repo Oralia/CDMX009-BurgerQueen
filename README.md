@@ -4,4 +4,6 @@ Vegan queen es una aplicación para ipad pensada, diseñada y desarrollada para 
 Adicionalmente, permite tener una base de datos con los registros de las ordenes, permitiendo un mejor manejo tanto de insumos como de las cuentas y saber de forma rápida qué es lo que se vende más o menos.
 
 
-![](vegan-queen/src/components/assets/img/principal.png)
++++
+
+![image.png](src/components/assets/img/principal.png)
