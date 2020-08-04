@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-import Boton from "../utils/Buton";
+import React, { Fragment, useState } from "react";
 import Navbar from "../Navbar";
 import mburger from "../assets/img/02-menu-burger.svg";
 import Item from "../utils/Item";
@@ -10,7 +9,7 @@ import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons' */
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
 import Boton from "../utils/ButtonLink";
-import back from "../assets/img/flecha-atras.svg";
+import back from "../assets/img/arrow.svg";
 import Modal from "react-modal";
 import Order from "../Order/Order.js";
 
@@ -46,8 +45,8 @@ const MenuBurger = ({
                 key={product.id}
                 product={product}
                 /* order={order} */
-                addingProduct={addingProduct}
-                deletingProduct={deletingProduct}
+                addingProductToOrder={addingProductToOrder}
+                deletingProductToOrder={deletingProductToOrder}
               />
             ))}
           </div>
@@ -60,8 +59,8 @@ const MenuBurger = ({
                   key={product.id}
                   product={product}
                   /* order={order} */
-                  addingProduct={addingProduct}
-                  deletingProduct={deletingProduct}
+                  addingProductToOrder={addingProductToOrder}
+                  deletingProductToOrder={deletingProductToOrder}
                 />
               ))}
             </div>
@@ -74,8 +73,8 @@ const MenuBurger = ({
                 key={product.id}
                 product={product}
                 /* order={order} */
-                addingProduct={addingProduct}
-                deletingProduct={deletingProduct}
+                addingProductToOrder={addingProductToOrder}
+                deletingProductToOrder={deletingProductToOrder}
               />
             ))}
           </div>
@@ -90,8 +89,8 @@ const MenuBurger = ({
                   key={product.id}
                   product={product}
                   /* order={order} */
-                  addingProduct={addingProduct}
-                  deletingProduct={deletingProduct}
+                  addingProductToOrder={addingProductToOrder}
+                  ddeletingProductToOrder={deletingProductToOrder}
                 />
               ))}
             </div>
@@ -105,8 +104,8 @@ const MenuBurger = ({
                   key={product.id}
                   product={product}
                   /* order={order} */
-                  addingProduct={addingProduct}
-                  deletingProduct={deletingProduct}
+                  addingProductToOrder={addingProductToOrder}
+                  deletingProductToOrder={deletingProductToOrder}
                 />
               ))}
             </div>

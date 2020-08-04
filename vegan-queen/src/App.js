@@ -76,9 +76,9 @@ function App() {
     }
     setOrder(newOrder);
     console.log("delete", newOrder);
-
-    //Firebase
-    React.useEffect(() => {
+  };
+  //Firebase
+  /* React.useEffect(() => {
       const getOrders = async () => {
         try {
           const db = firebase.firestore();
@@ -89,71 +89,64 @@ function App() {
         }
       };
       getOrders();
-    }, []);
+    }, []);*/
 
-    const [order, setOrder] = useState({
-      client: "",
-      total: 0,
-      items: [],
-    });
-
-    /* const increasingQuantity = () => {
+  /* const increasingQuantity = () => {
 
   }; */
 
-    const dateAndTime = new Date().toLocaleString();
-    const date = new Date().toLocaleDateString();
-    //const time = new Date().toLocaleTimeString()
+  const dateAndTime = new Date().toLocaleString();
+  const date = new Date().toLocaleDateString();
+  //const time = new Date().toLocaleTimeString()
 
-    return (
-      <Router>
-        <div>
-          <Switch>
-            <Route path="/role">
-              <Role />
-            </Route>
-            <Route path="/waiter">
-              <Waiter date={date} />
-            </Route>
-            <Route path="/chef">
-              <Chef date={date} />
-            </Route>
-            <Route path="/menu">
-              <Menu />
-            </Route>
-            <Route path="/menu-breakfast">
-              <MenuBreakfast
-                Data={Data.breakfast}
-                /* order={order} */
-                addingProductToOrder={addingProductToOrder}
-                deletingProductToOrder={deletingProductToOrder}
-              />
-            </Route>
-            <Route path="/menu-burger">
-              <MenuBurger
-                /* Data={Data.burger} */
-                dataHamburger={Data.hamburger}
-                dataIngredients={Data.ingredients}
-                dataExtras={Data.extras}
-                dataDrinks={Data.drinks}
-                dataAccompaniments={Data.accompaniments}
-                addingProductToOrder={addingProductToOrder}
-                ddeletingProductToOrder={deletingProductToOrder}
-              />
-            </Route>
-            <Route path="/order">
-              <Order />
-            </Route>
-            <Route path="/orders">
-              <Orders dateAndTime={dateAndTime} />
-            </Route>
-            <Route path="/">
-              <Main />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    );
-  };
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/role">
+            <Role />
+          </Route>
+          <Route path="/waiter">
+            <Waiter date={date} />
+          </Route>
+          <Route path="/chef">
+            <Chef date={date} />
+          </Route>
+          <Route path="/menu">
+            <Menu />
+          </Route>
+          <Route path="/menu-breakfast">
+            <MenuBreakfast
+              Data={Data.breakfast}
+              /* order={order} */
+              addingProductToOrder={addingProductToOrder}
+              deletingProductToOrder={deletingProductToOrder}
+            />
+          </Route>
+          <Route path="/menu-burger">
+            <MenuBurger
+              /* Data={Data.burger} */
+              dataHamburger={Data.hamburger}
+              dataIngredients={Data.ingredients}
+              dataExtras={Data.extras}
+              dataDrinks={Data.drinks}
+              dataAccompaniments={Data.accompaniments}
+              addingProductToOrder={addingProductToOrder}
+              ddeletingProductToOrder={deletingProductToOrder}
+            />
+          </Route>
+          <Route path="/order">
+            <Order />
+          </Route>
+          <Route path="/orders">
+            <Orders dateAndTime={dateAndTime} />
+          </Route>
+          <Route path="/">
+            <Main />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 export default App;
