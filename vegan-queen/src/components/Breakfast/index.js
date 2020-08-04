@@ -48,7 +48,7 @@ const MenuBreakfast = ({
       </button>
       <Modal className={styles.Modal} isOpen={modalIsOpen}>
         <h2 style={{ color: "white" }}>Confirmar Orden</h2>
-        <Order order={order} />
+        <Order />
 
         <button
           className={styles.buttonCancel}
