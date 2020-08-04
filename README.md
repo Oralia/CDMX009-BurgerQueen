@@ -6,4 +6,4 @@ Adicionalmente, permite tener una base de datos con los registros de las ordenes
 
 +++
 
-![image.png](vegan-queen/src/components/assets/img/principal.png)
+![image.png](src/components/assets/img/principal.png)
