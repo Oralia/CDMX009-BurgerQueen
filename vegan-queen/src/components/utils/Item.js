@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "../utils/Buton/style.module.css";
+import wrongMark from "../assets/img/wrong-mark.svg";
 
 const images = {
   "sandwich-hummus": require("../assets/img/03-sandwich-hummus.svg"),
@@ -11,40 +13,47 @@ const images = {
   soya: require("../assets/img/04b-soya.svg"),
   grains: require("../assets/img/04b-granos.svg"),
   guacamole: require("../assets/img/04c-guacamole.svg"),
-  vaganessa: require("../assets/img/04c-veganesa.svg"),
+  veganessa: require("../assets/img/04c-veganesa.svg"),
+  fries: require("../assets/img/06-papas.svg"),
+  salad: require("../assets/img/06-ensalada.svg"),
+  hummus: require("../assets/img/06-hummus.svg"),
   tapioca: require("../assets/img/05-tapioca.svg"),
   water: require("../assets/img/05-agua-del-dia.svg"),
   "milk-coconut": require("../assets/img/05-leche-coco.svg"),
   "te-chai-burger": require("../assets/img/05-te-chai.svg"),
-  fries: require("../assets/img/06-papas.svg"),
-  salad: require("../assets/img/06-ensalada.svg"),
-  hummus: require("../assets/img/06-hummus.svg"),
 };
 
-const Item = ({
-  product,
-  order,
-  addingProductToOrder,
-  deletingProductToOrder,
-  Data,
-}) => {
+const Item = ({ product, order, addingProductToOrder, deletingProduct }) => {
   return (
-    <div>
-      <img src={images[product.image]} alt="" />
-      <h5>{product.productName}</h5>
+    <div className={styles.containerItem}>
+      <img
+        src={images[product.image]}
+        className={styles.btnNav}
+        alt=""
+        onClick={() => addingProductToOrder(product)}
+      />
 
-      <h6>${product.cost}</h6>
+      <img
+        src={wrongMark}
+        className={styles.iconProduct}
+        onClick={() => deletingProduct(product.id)}
+        alt=""
+      />
 
-      <button type="button" onClick={() => deletingProductToOrder(product)}>
-        -
-      </button>
-      <p>{product.quantity}</p>
-      <button type="button" onClick={() => addingProductToOrder(product)}>
-        +
-      </button>
+      {/* <FontAwesomeIcon 
+        icon = { faTimesCircle }
+        className={styles.iconProduct}
+        onClick={() => deletingProduct(product.id)}
+        
+      /> */}
+      {/* <button type="button" onClick={() => deletingProduct(product.id)}>
+        <FontAwesomeIcon 
+        icon = { faTimesCircle }
+        color='#F5C6C6'
+         />
+      </button> */}
     </div>
   );
 };
 
 export default Item;
-//<h6>{product.kind}</h6>

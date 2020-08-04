@@ -7,8 +7,10 @@ import Container from "react-bootstrap/esm/Container";
 const Order = ({ order }) => {
   return (
     <Container>
-      {order.map((product) => (
-        <Item key={product.id} product={product} />
+      <div className="order">Tu orden</div>
+
+      {order.items.map((product) => (
+        <Item key={product.id} product={product} order={order} />
       ))}
     </Container>
   );
