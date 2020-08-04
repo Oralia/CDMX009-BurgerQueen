@@ -3,12 +3,12 @@ import Navbar from "../Navbar";
 import mburger from "../assets/img/02-menu-burger.svg";
 import Item from "../utils/Item";
 import styles from "./style.module.css";
-/* import ButtonNext from "../utils/ButtonNext";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ButtonNext from "../utils/ButtonNext";
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons' */
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
-import Boton from "../utils/ButtonLink";
+import Boton from "../utils/Buton";
 import back from "../assets/img/arrow.svg";
 import Modal from "react-modal";
 import Order from "../Order/Order.js";
@@ -44,7 +44,7 @@ const MenuBurger = ({
               <Item
                 key={product.id}
                 product={product}
-                /* order={order} */
+                order={order}
                 addingProductToOrder={addingProductToOrder}
                 deletingProductToOrder={deletingProductToOrder}
               />

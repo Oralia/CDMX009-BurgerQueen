@@ -51,6 +51,7 @@ function App() {
     }
 
     setOrder(newOrder);
+    console.log(newOrder);
   };
 
   const deletingProductToOrder = (product) => {
@@ -122,6 +123,7 @@ function App() {
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
+            <Order order={order} />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger

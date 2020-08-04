@@ -23,7 +23,13 @@ const images = {
   "te-chai-burger": require("../assets/img/05-te-chai.svg"),
 };
 
-const Item = ({ product, order, addingProductToOrder, deletingProduct }) => {
+const Item = ({
+  product,
+  order,
+  addingProductToOrder,
+  deletingProductToOrder,
+  Data,
+}) => {
   return (
     <div className={styles.containerItem}>
       <img
@@ -32,21 +38,23 @@ const Item = ({ product, order, addingProductToOrder, deletingProduct }) => {
         alt=""
         onClick={() => addingProductToOrder(product)}
       />
-
+      <p>{product.productName}</p>
+      <h6>${product.cost}</h6>
+      <p>{product.quantity}</p>
       <img
         src={wrongMark}
         className={styles.iconProduct}
-        onClick={() => deletingProduct(product.id)}
+        onClick={() => deletingProductToOrder(product)}
         alt=""
       />
 
       {/* <FontAwesomeIcon 
         icon = { faTimesCircle }
         className={styles.iconProduct}
-        onClick={() => deletingProduct(product.id)}
+        onClick={() => deletingProductToOrder(product)}
         
       /> */}
-      {/* <button type="button" onClick={() => deletingProduct(product.id)}>
+      {/* <button type="button" onClick={() => deletingProductToOrder(product)}>
         <FontAwesomeIcon 
         icon = { faTimesCircle }
         color='#F5C6C6'
@@ -57,3 +65,5 @@ const Item = ({ product, order, addingProductToOrder, deletingProduct }) => {
 };
 
 export default Item;
+
+//<h6>{product.kind}</h6>
