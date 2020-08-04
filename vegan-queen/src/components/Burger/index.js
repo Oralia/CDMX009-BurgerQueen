@@ -90,7 +90,7 @@ const MenuBurger = ({
                   product={product}
                   /* order={order} */
                   addingProductToOrder={addingProductToOrder}
-                  ddeletingProductToOrder={deletingProductToOrder}
+                  deletingProductToOrder={deletingProductToOrder}
                 />
               ))}
             </div>
