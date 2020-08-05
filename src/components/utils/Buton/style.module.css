@@ -16,5 +16,11 @@
 
 .iconProduct{
     cursor: pointer;
-    width: 15px;
+    color:#F5C6C6;
+    font-size: 25px;
+}
+
+.containerIcons{
+    display: flex;
+    justify-content: space-around
 }

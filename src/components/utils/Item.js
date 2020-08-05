@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "../utils/Buton/style.module.css";
-import wrongMark from "../assets/img/wrong-mark.svg";
+//import wrongMark from "../assets/img/wrong-mark.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 const images = {
   "sandwich-hummus": require("../assets/img/03-sandwich-hummus.svg"),
@@ -41,20 +43,31 @@ const Item = ({
       <p>{product.productName}</p>
       <h6>${product.cost}</h6>
       <p>{product.quantity}</p>
-      <img
+      {/* <img
         src={wrongMark}
         className={styles.iconProduct}
         onClick={() => deletingProductToOrder(product)}
         alt=""
-      />
-
-      {/* <FontAwesomeIcon 
-        icon = { faTimesCircle }
-        className={styles.iconProduct}
-        onClick={() => deletingProductToOrder(product)}
-        
       /> */}
-      {/* <button type="button" onClick={() => deletingProductToOrder(product)}>
+      
+      <div className = {styles.containerIcons}>
+        <FontAwesomeIcon 
+          icon = { faPlusCircle }
+          className={styles.iconProduct}
+          onClick={() => addingProductToOrder(product)}
+          />
+          {/* <p>{product.quantity}</p> */}
+          <p> 0 </p>
+        <FontAwesomeIcon 
+          icon = { faMinusCircle }
+          className={styles.iconProduct}
+          onClick={() => deletingProductToOrder(product)}
+          />
+      </div>
+
+      
+
+        {/* <button type="button" onClick={() => deletingProductToOrder(product)}>
         <FontAwesomeIcon 
         icon = { faTimesCircle }
         color='#F5C6C6'
