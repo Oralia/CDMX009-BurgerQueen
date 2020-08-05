@@ -14,6 +14,7 @@ const InfoTotal = () => {
                     <FontAwesomeIcon 
                         icon = { faArrowCircleLeft  }
                         className={styles.iconProduct}
+                        /* <Boton image={mburger} adress="/menu-burger" /> */
                         />
                         
                     {/* {<img src={arrow} alt="" width= '50px'/>} */}

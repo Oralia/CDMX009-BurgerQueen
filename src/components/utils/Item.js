@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../utils/Buton/style.module.css";
-//import wrongMark from "../assets/img/wrong-mark.svg";
+/* import wrongMark from "../assets/img/wrong-mark.svg"; */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -51,17 +51,20 @@ const Item = ({
       /> */}
       
       <div className = {styles.containerIcons}>
-        <FontAwesomeIcon 
-          icon = { faPlusCircle }
-          className={styles.iconProduct}
-          onClick={() => addingProductToOrder(product)}
-          />
-          {/* <p>{product.quantity}</p> */}
-          <p> 0 </p>
+        
+         
+          
         <FontAwesomeIcon 
           icon = { faMinusCircle }
           className={styles.iconProduct}
           onClick={() => deletingProductToOrder(product)}
+          />
+        {/* <p>{product.quantity}</p> */}
+        <p> 0 </p>
+        <FontAwesomeIcon 
+          icon = { faPlusCircle }
+          className={styles.iconProduct}
+          onClick={() => addingProductToOrder(product)}
           />
       </div>
 
