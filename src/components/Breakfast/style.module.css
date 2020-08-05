@@ -7,47 +7,20 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255,255,255,0.3);
   border-radius: 20px;
   padding: 20px;
 }
 
-.logoUp {
+.logoUp{
   display: flex;
   justify-content: center;
 }
 
-.iconProduct {
+.iconProduct{
   color: #ffffff;
   opacity: 0.5;
   cursor: pointer;
   font-size: 50px;
 }
 
-.arrow {
-  width: 80px;
-}
-.button {
-  background-color: #f5c6c6;
-}
-
-.Modal {
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 100px;
-
-  width: 80%;
-  height: 80%;
-  padding: 50px;
-  /*top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;*/
-  background-color: #aadad2;
-}
-.buttonCancel {
-  background-color: #ffc107;
-  color: white;
-}

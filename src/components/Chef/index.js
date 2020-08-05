@@ -3,39 +3,34 @@ import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import menucocina from "../assets/img/01-menu-cocina.svg";
 import styles from "./style.module.css";
-import ButtonNext from "../utils/ButtonNext";
-import UserName from "../utils/UserName/UserName.js";
+import ButtonNext from "../utils/ButtonNext"
 
 const Chef = function ({ date }) {
   return (
     <Fragment>
       <Navbar />
-      <div className={styles.containerPrincipal}>
-        <div>
-          <Boton image={menucocina} adress="/chef" />
-        </div>
-
-        <div className={styles.containerEmployee}>
+        <div className={styles.containerPrincipal}>
+        
           <div>
-            <UserName />
+            <Boton 
+              image={menucocina} 
+              adress="/chef" />
           </div>
-
-          <div>
-            <ButtonNext />
+          
+          <div className={styles.containerEmployee}>
+              <div>
+                <p>Nombre</p>
+                <input type="text" name="" id=""/>
+              </div>
+              <div>
+                <ButtonNext />
             {/*  <Boton image={next} adress="/Menu" className={styles.arrow} /> */}
-          </div>
-          <p>Fecha: {date}</p>
-        </div>
-      </div>
+              </div>
+              <p>Fecha: {date}</p>
+            </div>
+        </div>    
     </Fragment>
   );
 };
 
 export default Chef;
-/* 
-        
-            
-                   
-
-            
-            */
