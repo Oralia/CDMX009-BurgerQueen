@@ -15,37 +15,32 @@ const MenuBreakfast = ({
   Data,
   order,
   addingProductToOrder,
-  deletingProduct,
+  deletingProductToOrder,
   setOrder,
 }) => {
   return (
     <Fragment>
-       <Navbar />
-       <div className={styles.logoUp}>
-         <Boton 
-          image={mbreakfast} 
-          adress="/menu-breakfast"/>
-        </div>
+      <Navbar />
+      <div className={styles.logoUp}>
+        <Boton image={mbreakfast} adress="/menu-breakfast" />
+      </div>
 
-        <InfoClients />
+      <InfoClients />
 
-        <section className={styles.container}>
-            
-              {Data.map((product) => (
-                <Item
-                  key={product.id}
-                  product={product}
-                  order={order}
-                  /* setOrder={setOrder} */
-                  addingProductToOrder={addingProductToOrder}
-                  deletingProduct={deletingProduct}
-                />
-                ))}
-        </section>
-        <InfoTotal />
+      <section className={styles.container}>
+        {Data.map((product) => (
+          <Item
+            key={product.id}
+            product={product}
+            order={order}
+            /* setOrder={setOrder} */
+            addingProductToOrder={addingProductToOrder}
+            deletingProductToOrder={deletingProductToOrder}
+          />
+        ))}
+      </section>
+      <InfoTotal />
     </Fragment>
-
-
   );
 };
 
