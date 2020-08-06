@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Boton from "../utils/Buton";
 import menumesero from "../assets/img/01-menu-mesero.svg";
 import Navbar from "../Navbar";
 import styles from "./style.module.css";
 import ButtonNext from "../utils/ButtonNext";
-import UserName from "../utils/UserName/UserName";
 
 const Waiter = ({ date }) => {
   return (
@@ -14,16 +13,7 @@ const Waiter = ({ date }) => {
         <div>
           <Boton image={menumesero} adress="/waiter" />
         </div>
-        <div className={styles.containerEmployee}>
-          <div>
-            <p>Nombre</p>
-            <UserName />
-          </div>
-          <div>
-            <ButtonNext adress="/Menu" className={styles.arrow} />
-          </div>
-          <p>Fecha: {date}</p>
-        </div>
+        <p>Fecha: {date}</p>
       </div>
     </Fragment>
   );

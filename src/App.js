@@ -17,7 +17,8 @@ import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
-
+import UserName from "./components/utils/UserName/index.js";
+import ShowName from "./components/utils/ShowName/index.js";
 //firebase data
 import { firebase } from "./firebase";
 
@@ -26,6 +27,7 @@ import Data from "./components/utils/Data/Data.json";
 
 function App() {
   const [order, setOrder] = useState([]);
+  const [userName, setUserName] = useState();
 
   const addingProductToOrder = (product) => {
     let newOrder = [...order];
@@ -44,6 +46,7 @@ function App() {
       });
     } else {
       newOrder.push({
+        id: product.id,
         name: product.productName,
         quantity: 1,
         cost: product.cost,
@@ -108,23 +111,27 @@ function App() {
           </Route>
           <Route path="/waiter">
             <Waiter date={date} />
+            <UserName setUserName={setUserName} />
           </Route>
           <Route path="/chef">
             <Chef date={date} />
+            <UserName setUserName={setUserName} />
           </Route>
           <Route path="/menu">
+            <ShowName userName={userName} />
             <Menu />
           </Route>
           <Route path="/menu-breakfast">
+            <ShowName userName={userName} />
             <MenuBreakfast
               Data={Data.breakfast}
-              /* order={order} */
+              order={order}
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
-            <Order order={order} />
           </Route>
           <Route path="/menu-burger">
+            <ShowName userName={userName} />
             <MenuBurger
               /* Data={Data.burger} */
               dataHamburger={Data.hamburger}
@@ -136,6 +143,7 @@ function App() {
               deletingProductToOrder={deletingProductToOrder}
             />
           </Route>
+
           <Route path="/order">
             <Order />
           </Route>

@@ -38,9 +38,9 @@ const Item = ({
         alt=""
         onClick={() => addingProductToOrder(product)}
       />
-      <p>{product.productName}</p>
+      <p>{product.productName || product.name}</p>
       <h6>${product.cost}</h6>
-      <p>{product.quantity}</p>
+      {product.quantity && <p>{product.quantity}</p>}
       <img
         src={wrongMark}
         className={styles.iconProduct}
