@@ -16,13 +16,17 @@ const MenuBreakfast = ({
   order,
   addingProductToOrder,
   deletingProductToOrder,
-  setOrder,
 }) => {
+  const total= order.reduce ((sum, item)=>sum + item.subtotal,0)
+ 
   return (
     <Fragment>
       <Navbar />
       <div className={styles.logoUp}>
-        <Boton image={mbreakfast} adress="/menu-breakfast" />
+        <Boton 
+        image={mbreakfast} 
+        adress="/menu-breakfast"
+        />
       </div>
 
       <InfoClients />
@@ -32,14 +36,16 @@ const MenuBreakfast = ({
           <Item
             key={product.id}
             product={product}
-            order={order}
+           /*  order={order} */
             /* setOrder={setOrder} */
             addingProductToOrder={addingProductToOrder}
             deletingProductToOrder={deletingProductToOrder}
           />
         ))}
       </section>
-      <InfoTotal />
+      <InfoTotal 
+      total={total}
+      />
     </Fragment>
   );
 };

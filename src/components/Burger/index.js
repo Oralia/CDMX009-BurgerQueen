@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import mburger from "../assets/img/02-menu-burger.svg";
@@ -20,6 +20,11 @@ const MenuBurger = ({
   addingProductToOrder,
   deletingProductToOrder,
 }) => {
+  const [confBurger, setConfBurger] = useState({
+    tipo: undefined,
+    ingrediente: undefined,
+    extra: undefined,
+  })
   return (
     <Fragment>
       <Navbar />
@@ -30,50 +35,66 @@ const MenuBurger = ({
       <section className={styles.container}>
         <strong>HAMBURGUESAS</strong>
         <br />
-        <div class={styles.menuBurger}>
+        <div className={styles.menuBurger}>
           <div className={styles.containerHamburguer}>
             <p>1.Tipo</p>
             {dataHamburger.map((product) => (
               <Item
                 key={product.id}
                 product={product}
-                /* order={order} */
-                addingProductToOrder={addingProductToOrder}
+                order={order}
+                addingProductToOrder={(product) => {
+                  setConfBurger({
+                    ...confBurger,
+                    tipo: product,
+                  })
+                  // addingProductToOrder(product)
+                }}
                 deletingProductToOrder={deletingProductToOrder}
               />
             ))}
           </div>
-
-          <div className={styles.genericCont}>
-            <p>2.Ingrediente</p>
-            <div className={styles.containerIngredients}>
-              {dataIngredients.map((product) => (
-                <Item
-                  key={product.id}
-                  product={product}
-                  /* order={order} */
-                  addingProductToOrder={addingProductToOrder}
-                  deletingProductToOrder={deletingProductToOrder}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.containerExtras}>
-            <p>3.Extra</p>
-            {dataExtras.map((product) => (
-              <Item
-                key={product.id}
-                product={product}
-                /* order={order} */
-                addingProductToOrder={addingProductToOrder}
-                deletingProductToOrder={deletingProductToOrder}
-              />
-            ))}
-          </div>
+          
+          {confBurger.tipo && (
+            <>
+              <div className={styles.genericCont}>
+                <p>2.Ingrediente</p>
+                <div className={styles.containerIngredients}>
+                  {dataIngredients.map((product) => (
+                    <Item
+                      key={product.id}
+                      product={product}
+                      order={order}
+                      addingProductToOrder={(product) => {
+                        setConfBurger({
+                          ...confBurger,
+                        ingrediente: product,
+                        })
+                        // addingProductToOrder(product)
+                      }}
+                      deletingProductToOrder={deletingProductToOrder}
+                    />
+                  ))}
+                </div>
+              </div>
+              {confBurger.ingrediente && (
+              <div className={styles.containerExtras}>
+                <p>3.Extra</p>
+                {dataExtras.map((product) => (
+                  <Item
+                    key={product.id}
+                    product={product}
+                    order={order}
+                    addingProductToOrder={addingProductToOrder}
+                    deletingProductToOrder={deletingProductToOrder}
+                  />
+                ))}
+              </div>)}
+            </>
+          )}
         </div>
 
-        <div class={styles.bebidasAccom}>
+        <div className={styles.bebidasAccom}>
           <div className={styles.genericCont}>
             <p>BEBIDAS</p>
             <div className={styles.containerDrinks}>
@@ -81,8 +102,8 @@ const MenuBurger = ({
                 <Item
                   key={product.id}
                   product={product}
-                  /* order={order} */
-                  aaddingProductToOrder={addingProductToOrder}
+                  order={order}
+                  addingProductToOrder={addingProductToOrder}
                   deletingProductToOrder={deletingProductToOrder}
                 />
               ))}
@@ -96,7 +117,7 @@ const MenuBurger = ({
                 <Item
                   key={product.id}
                   product={product}
-                  /* order={order} */
+                  order={order}
                   addingProductToOrder={addingProductToOrder}
                   deletingProductToOrder={deletingProductToOrder}
                 />

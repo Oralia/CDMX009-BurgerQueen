@@ -29,15 +29,19 @@ function App() {
 
   const addingProductToOrder = (product) => {
     let newOrder = [...order];
+    console.log(newOrder)
     // if existe producto en orden
     if (order.find((item) => item.name === product.productName)) {
       // entonces incrementar uno a la cantidad
       newOrder = newOrder.map((i) => {
+        console.log(i)
         if (i.name === product.productName) {
           return {
             ...i,
             quantity: i.quantity + 1,
-          };
+            cost:i.cost ,
+            subtotal:i.cost*(i.quantity + 1)
+             };
         } else {
           return i;
         }
@@ -47,6 +51,7 @@ function App() {
         name: product.productName,
         quantity: 1,
         cost: product.cost,
+        subtotal:product.cost
       });
     }
 
@@ -70,6 +75,8 @@ function App() {
           ? {
               ...item,
               quantity: item.quantity - 1,
+              cost:item.cost ,
+            subtotal:item.cost*(item.quantity - 1),
             }
           : item;
       });
@@ -118,11 +125,13 @@ function App() {
           <Route path="/menu-breakfast">
             <MenuBreakfast
               Data={Data.breakfast}
-              /* order={order} */
+              order={order}
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
-            <Order order={order} />
+            <Order 
+            order={order} 
+            />
           </Route>
           <Route path="/menu-burger">
             <MenuBurger
@@ -135,6 +144,8 @@ function App() {
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
+            <Order 
+            order={order} />
           </Route>
           <Route path="/order">
             <Order />

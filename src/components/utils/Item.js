@@ -27,10 +27,8 @@ const images = {
 
 const Item = ({
   product,
-  order,
   addingProductToOrder,
   deletingProductToOrder,
-  Data,
 }) => {
   return (
     <div className={styles.containerItem}>
