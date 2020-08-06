@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../utils/Buton/style.module.css";
 /* import wrongMark from "../assets/img/wrong-mark.svg"; */
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const images = {
   "sandwich-hummus": require("../assets/img/03-sandwich-hummus.svg"),
@@ -25,11 +25,7 @@ const images = {
   "te-chai-burger": require("../assets/img/05-te-chai.svg"),
 };
 
-const Item = ({
-  product,
-  addingProductToOrder,
-  deletingProductToOrder,
-}) => {
+const Item = ({ product, addingProductToOrder, deletingProductToOrder }) => {
   return (
     <div className={styles.containerItem}>
       <img
@@ -38,37 +34,32 @@ const Item = ({
         alt=""
         onClick={() => addingProductToOrder(product)}
       />
-      <p>{product.productName}</p>
+      <p>{product.productName || product.name}</p>
       <h6>${product.cost}</h6>
-      <p>{product.quantity}</p>
+      {product.quantity && <p>{product.quantity}</p>}
       {/* <img
         src={wrongMark}
         className={styles.iconProduct}
         onClick={() => deletingProductToOrder(product)}
         alt=""
-      /> */}
-      
-      <div className = {styles.containerIcons}>
-        
-         
-          
-        <FontAwesomeIcon 
-          icon = { faMinusCircle }
+      />*/}
+
+      <div className={styles.containerIcons}>
+        <FontAwesomeIcon
+          icon={faMinusCircle}
           className={styles.iconProduct}
           onClick={() => deletingProductToOrder(product)}
-          />
+        />
         {/* <p>{product.quantity}</p> */}
         <p> 0 </p>
-        <FontAwesomeIcon 
-          icon = { faPlusCircle }
+        <FontAwesomeIcon
+          icon={faPlusCircle}
           className={styles.iconProduct}
           onClick={() => addingProductToOrder(product)}
-          />
+        />
       </div>
 
-      
-
-        {/* <button type="button" onClick={() => deletingProductToOrder(product)}>
+      {/* <button type="button" onClick={() => deletingProductToOrder(product)}>
         <FontAwesomeIcon 
         icon = { faTimesCircle }
         color='#F5C6C6'

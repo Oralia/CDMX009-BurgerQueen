@@ -17,7 +17,8 @@ import MenuBreakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
-
+import UserName from "./components/utils/UserName/index.js";
+import ShowName from "./components/utils/ShowName/index.js";
 //firebase data
 import { firebase } from "./firebase";
 
@@ -26,32 +27,34 @@ import Data from "./components/utils/Data/Data.json";
 
 function App() {
   const [order, setOrder] = useState([]);
+  const [userName, setUserName] = useState();
 
   const addingProductToOrder = (product) => {
     let newOrder = [...order];
-    console.log(newOrder)
+    console.log(newOrder);
     // if existe producto en orden
     if (order.find((item) => item.name === product.productName)) {
       // entonces incrementar uno a la cantidad
       newOrder = newOrder.map((i) => {
-        console.log(i)
+        console.log(i);
         if (i.name === product.productName) {
           return {
             ...i,
             quantity: i.quantity + 1,
-            cost:i.cost ,
-            subtotal:i.cost*(i.quantity + 1)
-             };
+            cost: i.cost,
+            subtotal: i.cost * (i.quantity + 1),
+          };
         } else {
           return i;
         }
       });
     } else {
       newOrder.push({
+        id: product.id,
         name: product.productName,
         quantity: 1,
         cost: product.cost,
-        subtotal:product.cost
+        subtotal: product.cost,
       });
     }
 
@@ -75,8 +78,8 @@ function App() {
           ? {
               ...item,
               quantity: item.quantity - 1,
-              cost:item.cost ,
-            subtotal:item.cost*(item.quantity - 1),
+              cost: item.cost,
+              subtotal: item.cost * (item.quantity - 1),
             }
           : item;
       });
@@ -115,25 +118,27 @@ function App() {
           </Route>
           <Route path="/waiter">
             <Waiter date={date} />
+            <UserName setUserName={setUserName} />
           </Route>
           <Route path="/chef">
             <Chef date={date} />
+            <UserName setUserName={setUserName} />
           </Route>
           <Route path="/menu">
+            <ShowName userName={userName} />
             <Menu />
           </Route>
           <Route path="/menu-breakfast">
+            <ShowName userName={userName} />
             <MenuBreakfast
               Data={Data.breakfast}
               order={order}
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
-            <Order 
-            order={order} 
-            />
           </Route>
           <Route path="/menu-burger">
+            <ShowName userName={userName} />
             <MenuBurger
               /* Data={Data.burger} */
               dataHamburger={Data.hamburger}
@@ -144,9 +149,9 @@ function App() {
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
-            <Order 
-            order={order} />
+            <Order order={order} />
           </Route>
+
           <Route path="/order">
             <Order />
           </Route>
