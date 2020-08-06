@@ -146,10 +146,11 @@ function App() {
               dataExtras={Data.extras}
               dataDrinks={Data.drinks}
               dataAccompaniments={Data.accompaniments}
+              order={order}
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
-            <Order order={order} />
+            <ShowName userName={userName} />
           </Route>
 
           <Route path="/order">

@@ -28,12 +28,7 @@ const InfoTotal = ({ total }) => {
                         Total={total}
                         /> */}
             <p>Total: {total}</p>
-            <input type="text" placeholder="Money money" />
           </div>
-          <br />
-          <ButtonNext
-          /* text='Enviar a cocina' */
-          />
         </div>
       </div>
     </Fragment>

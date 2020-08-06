@@ -78,6 +78,11 @@
   color: white;
 }
 
+.contentButtonNext {
+  display: flex;
+  justify-content: center;
+}
+
 .buttonNext {
   color: #ffffff;
   background: #f5c6c6;

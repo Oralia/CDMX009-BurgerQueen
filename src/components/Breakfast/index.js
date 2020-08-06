@@ -20,6 +20,7 @@ const MenuBreakfast = ({
   order,
   addingProductToOrder,
   deletingProductToOrder,
+  setOrder,
 }) => {
   const total = order.reduce((sum, item) => sum + item.subtotal, 0);
 
@@ -47,14 +48,15 @@ const MenuBreakfast = ({
         ))}
       </section>
       <InfoTotal total={total} />
-      <InfoTotal />
+      <div className={styles.contentButtonNext}>
+        <button
+          className={styles.buttonNext}
+          onClick={() => setModalIsOpen(true)}
+        >
+          Enviar pedido a cocina
+        </button>
+      </div>
 
-      <button
-        className={styles.buttonNext}
-        onClick={() => setModalIsOpen(true)}
-      >
-        Enviar pedido a cocina
-      </button>
       <Modal className={styles.Modal} isOpen={modalIsOpen}>
         <h2 style={{ color: "white" }}>Confirmar Orden</h2>
         <Order order={order} />

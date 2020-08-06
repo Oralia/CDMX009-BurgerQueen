@@ -9,6 +9,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons' */
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
+import Modal from "react-modal";
+import Order from "../Order/Order.js";
+
+Modal.setAppElement("#root");
 
 const MenuBurger = ({
   dataHamburger,
@@ -17,6 +21,7 @@ const MenuBurger = ({
   dataDrinks,
   dataAccompaniments,
   order,
+  setOrder,
   addingProductToOrder,
   deletingProductToOrder,
 }) => {
@@ -24,7 +29,12 @@ const MenuBurger = ({
     tipo: undefined,
     ingrediente: undefined,
     extra: undefined,
-  })
+  });
+
+  const total = order.reduce((sum, item) => sum + item.subtotal, 0);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   return (
     <Fragment>
       <Navbar />
@@ -43,18 +53,19 @@ const MenuBurger = ({
                 key={product.id}
                 product={product}
                 order={order}
+                setOrder={setOrder}
                 addingProductToOrder={(product) => {
                   setConfBurger({
                     ...confBurger,
                     tipo: product,
-                  })
+                  });
                   // addingProductToOrder(product)
                 }}
                 deletingProductToOrder={deletingProductToOrder}
               />
             ))}
           </div>
-          
+
           {confBurger.tipo && (
             <>
               <div className={styles.genericCont}>
@@ -65,11 +76,12 @@ const MenuBurger = ({
                       key={product.id}
                       product={product}
                       order={order}
+                      setOrder={setOrder}
                       addingProductToOrder={(product) => {
                         setConfBurger({
                           ...confBurger,
-                        ingrediente: product,
-                        })
+                          ingrediente: product,
+                        });
                         // addingProductToOrder(product)
                       }}
                       deletingProductToOrder={deletingProductToOrder}
@@ -78,18 +90,20 @@ const MenuBurger = ({
                 </div>
               </div>
               {confBurger.ingrediente && (
-              <div className={styles.containerExtras}>
-                <p>3.Extra</p>
-                {dataExtras.map((product) => (
-                  <Item
-                    key={product.id}
-                    product={product}
-                    order={order}
-                    addingProductToOrder={addingProductToOrder}
-                    deletingProductToOrder={deletingProductToOrder}
-                  />
-                ))}
-              </div>)}
+                <div className={styles.containerExtras}>
+                  <p>3.Extra</p>
+                  {dataExtras.map((product) => (
+                    <Item
+                      key={product.id}
+                      product={product}
+                      order={order}
+                      setOrder={setOrder}
+                      addingProductToOrder={addingProductToOrder}
+                      deletingProductToOrder={deletingProductToOrder}
+                    />
+                  ))}
+                </div>
+              )}
             </>
           )}
         </div>
@@ -103,6 +117,7 @@ const MenuBurger = ({
                   key={product.id}
                   product={product}
                   order={order}
+                  setOrder={setOrder}
                   addingProductToOrder={addingProductToOrder}
                   deletingProductToOrder={deletingProductToOrder}
                 />
@@ -118,6 +133,7 @@ const MenuBurger = ({
                   key={product.id}
                   product={product}
                   order={order}
+                  setOrder={setOrder}
                   addingProductToOrder={addingProductToOrder}
                   deletingProductToOrder={deletingProductToOrder}
                 />
@@ -126,7 +142,32 @@ const MenuBurger = ({
           </div>
         </div>
       </section>
-      <InfoTotal />
+      <InfoTotal total={total} />
+      <div className={styles.contentButtonNext}>
+        <button
+          className={styles.buttonNext}
+          onClick={() => setModalIsOpen(true)}
+        >
+          Enviar pedido a cocina
+        </button>
+      </div>
+
+      <Modal className={styles.Modal} isOpen={modalIsOpen}>
+        <h2 style={{ color: "white" }}>Confirmar Orden</h2>
+        <Order order={order} />
+        <button
+          className={styles.buttonCancel}
+          onClick={() => setModalIsOpen(false)}
+        >
+          Cancelar
+        </button>
+        <button
+          className={styles.buttonCancel}
+          onClick={() => setModalIsOpen(false)}
+        >
+          Enviar a Cocina
+        </button>
+      </Modal>
     </Fragment>
   );
 };
