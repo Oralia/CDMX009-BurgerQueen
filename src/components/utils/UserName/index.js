@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Form } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styles from "./style.module.css";
 
 const UserName = ({ setUserName }) => {

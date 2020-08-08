@@ -28,47 +28,31 @@ const images = {
 const Item = ({ product, addingProductToOrder, deletingProductToOrder }) => {
   return (
     <div className={styles.containerItem}>
-      <img
-        src={images[product.image]}
-        className={styles.btnNav}
-        alt=""
-        onClick={() => addingProductToOrder(product)}
-      />
-      <p>{product.productName || product.name}</p>
-      <h6>${product.cost}</h6>
-      {product.quantity && <p>{product.quantity}</p>}
-      {/* <img
-        src={wrongMark}
-        className={styles.iconProduct}
-        onClick={() => deletingProductToOrder(product)}
-        alt=""
-      />*/}
-
+      <p>{product.productName}</p>
+      <p>${product.cost}</p>
+      <p>{product.quantity}</p>
       <div className={styles.containerIcons}>
         <FontAwesomeIcon
           icon={faMinusCircle}
           className={styles.iconProduct}
           onClick={() => deletingProductToOrder(product)}
         />
-        {/* <p>{product.quantity}</p> */}
-        <p> 0 </p>
+        <img
+          src={images[product.image]}
+          className={styles.btnNav}
+          alt=""
+          onClick={() => addingProductToOrder(product)}
+        />
+
         <FontAwesomeIcon
           icon={faPlusCircle}
           className={styles.iconProduct}
           onClick={() => addingProductToOrder(product)}
         />
       </div>
-
-      {/* <button type="button" onClick={() => deletingProductToOrder(product)}>
-        <FontAwesomeIcon 
-        icon = { faTimesCircle }
-        color='#F5C6C6'
-         />
-      </button> */}
+      )
     </div>
   );
 };
 
 export default Item;
-
-//<h6>{product.kind}</h6>

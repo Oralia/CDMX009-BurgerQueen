@@ -2,14 +2,10 @@ import React, { Fragment, useState } from "react";
 import Boton from "../utils/Buton";
 import mbreakfast from "../assets/img/02-menu-desayuno.svg";
 import Item from "../utils/Item";
-//import back from "../assets/img/flecha-atras.svg";
 import Navbar from "../Navbar";
-/* import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/esm/Container"; */
 import styles from "./style.module.css";
 import Modal from "react-modal";
 import Order from "../Order/Order.js";
-
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
 

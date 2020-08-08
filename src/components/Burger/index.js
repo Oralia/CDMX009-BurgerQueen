@@ -59,7 +59,6 @@ const MenuBurger = ({
                     ...confBurger,
                     tipo: product,
                   });
-                  // addingProductToOrder(product)
                 }}
                 deletingProductToOrder={deletingProductToOrder}
               />
@@ -82,7 +81,6 @@ const MenuBurger = ({
                           ...confBurger,
                           ingrediente: product,
                         });
-                        // addingProductToOrder(product)
                       }}
                       deletingProductToOrder={deletingProductToOrder}
                     />

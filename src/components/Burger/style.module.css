@@ -6,25 +6,24 @@
   flex-direction: column;
   /* flex-wrap: wrap; */
   justify-content: space-around;
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 20px;
   text-align: center;
   color: #ffffff;
 }
 
-.containerHamburguer{
+.containerHamburguer {
   display: flex;
   flex-direction: column;
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   box-sizing: border-box;
   padding: 20px;
-  margin: 5px
-
+  margin: 5px;
 }
 
-.containerIngredients{
+.containerIngredients {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
@@ -32,23 +31,23 @@
   margin: 5px;
 }
 
-.genericCont{
+.genericCont {
   border-radius: 20px;
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   margin: 5px;
   padding-top: 20px;
 }
 
-.containerExtras{
+.containerExtras {
   display: flex;
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   flex-direction: column;
   padding: 20px;
-  margin: 5px
+  margin: 5px;
 }
 
-.containerDrinks{
+.containerDrinks {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
@@ -57,7 +56,7 @@
   box-sizing: border-box;
 }
 
-.containerAccompaniments{
+.containerAccompaniments {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
@@ -67,32 +66,69 @@
   box-sizing: border-box;
 }
 
-.logoUp{
+.logoUp {
   display: flex;
   justify-content: center;
 }
 
-.iconProduct{
+.iconProduct {
   color: #ffffff;
   opacity: 0.5;
   cursor: pointer;
   font-size: 50px;
 }
 
-.menuBurger{
+.menuBurger {
   display: flex;
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 20px;
-  margin: 5px
+  margin: 5px;
 }
 
-.bebidasAccom{
+.bebidasAccom {
   display: flex;
 }
 
+.Modal {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 100px;
 
+  width: 80%;
+  height: 80%;
+  padding: 50px;
+  /*top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;*/
+  background-color: #aadad2;
+}
+.buttonCancel {
+  background-color: #ffc107;
+  color: white;
+}
 
+.contentButtonNext {
+  display: flex;
+  justify-content: center;
+}
 
+.buttonNext {
+  color: #ffffff;
+  background: #f5c6c6;
+  /*  #AADAD2 */
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 5px;
+  color: rgb(56, 57, 58);
+  text-decoration: none;
+  width: 180px;
+}
 
-
+.buttonNext:hover {
+  /* prueba */
+  opacity: 0.8;
+}

@@ -1,9 +1,14 @@
-import React, { fragment, Fragment } from "react";
+import React, { Fragment } from "react";
+import styles from "./style.module.css";
 
-const ShowName = ({ userName }) => {
+const ShowName = ({ userName, image }) => {
   return (
     <Fragment>
-      <p>{userName}</p>
+      <div>
+        <img src={image} alt="logo" className={styles.userLogo} />
+
+        <p>{userName}</p>
+      </div>
     </Fragment>
   );
 };
