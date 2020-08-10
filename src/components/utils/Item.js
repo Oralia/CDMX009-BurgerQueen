@@ -28,29 +28,29 @@ const images = {
 const Item = ({ product, addingProductToOrder, deletingProductToOrder }) => {
   return (
     <div className={styles.containerItem}>
+      <img
+        src={images[product.image]}
+        className={styles.btnNav}
+        alt=""
+        onClick={() => addingProductToOrder(product)}
+      />
       <p>{product.productName}</p>
-      <p>${product.cost}</p>
+      <h6>${product.cost}</h6>
       <p>{product.quantity}</p>
+
       <div className={styles.containerIcons}>
         <FontAwesomeIcon
           icon={faMinusCircle}
           className={styles.iconProduct}
           onClick={() => deletingProductToOrder(product)}
         />
-        <img
-          src={images[product.image]}
-          className={styles.btnNav}
-          alt=""
-          onClick={() => addingProductToOrder(product)}
-        />
-
+        <p> 0 </p>
         <FontAwesomeIcon
           icon={faPlusCircle}
           className={styles.iconProduct}
           onClick={() => addingProductToOrder(product)}
         />
       </div>
-      )
     </div>
   );
 };
