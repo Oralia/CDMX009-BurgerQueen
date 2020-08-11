@@ -31,6 +31,9 @@ const ItemCatalogo = ({
 	deletingProductToOrder,
 	order,
 }) => {
+	let accessToOrder = order.find((orden) => orden.id === product.id);
+	//console.log(acsesoAOrder);
+
 	return (
 		<div className={styles.containerItem}>
 			<img
@@ -39,10 +42,10 @@ const ItemCatalogo = ({
 				alt=''
 				onClick={() => addingProductToOrder(product)}
 			/>
-			<p>{product.productName || product.name}</p>
+			{/* <p>{product.productName || product.name}</p> */}
 
-			<h6>${product.cost}</h6>
-			{product.quantity && <p>{product.quantity}</p>}
+			{/* <h6>${product.cost}</h6>
+			{product.quantity && <p>{product.quantity}</p>} */}
 
 			<div className={styles.containerIcons}>
 				<FontAwesomeIcon
@@ -50,12 +53,29 @@ const ItemCatalogo = ({
 					className={styles.iconProduct}
 					onClick={() => deletingProductToOrder(product)}
 				/>
+				<p>
+					{accessToOrder === undefined ? (
+						<span>0</span>
+					) : (
+						<span>{accessToOrder.quantity}</span>
+					)}
+				</p>
 
 				<FontAwesomeIcon
 					icon={faPlusCircle}
 					className={styles.iconProduct}
 					onClick={() => addingProductToOrder(product)}
 				/>
+			</div>
+			<div>
+				<p>
+					$
+					{accessToOrder === undefined ? (
+						<span>0</span>
+					) : (
+						<span>{accessToOrder.subtotal}</span>
+					)}
+				</p>
 			</div>
 		</div>
 	);

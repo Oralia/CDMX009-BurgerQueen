@@ -18,10 +18,7 @@ const Chef = function ({ date }) {
           </div>
           
           <div className={styles.containerEmployee}>
-              <div>
-                <p>Nombre</p>
-                <input type="text" name="" id=""/>
-              </div>
+              {/*   */}
               <div>
                 <ButtonNext />
             {/*  <Boton image={next} adress="/Menu" className={styles.arrow} /> */}
