@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Boton from '../utils/Buton';
 import Navbar from '../Navbar';
 import mburger from '../assets/img/02-menu-burger.svg';
-import Item from '../utils/Item';
+import ItemProductCatalog from '../utils/ItemProductCatalog';
 import styles from './style.module.css';
 /* import ButtonNext from "../utils/ButtonNext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -49,7 +49,7 @@ const Burger = ({
 					<div className={styles.containerHamburguer}>
 						<p>1.Tipo</p>
 						{dataHamburger.map((product) => (
-							<Item
+							<ItemProductCatalog
 								key={product.id}
 								product={product}
 								order={order}
@@ -72,7 +72,7 @@ const Burger = ({
 								<p>2.Ingrediente</p>
 								<div className={styles.containerIngredients}>
 									{dataIngredients.map((product) => (
-										<Item
+										<ItemProductCatalog
 											key={product.id}
 											product={product}
 											order={order}
@@ -93,7 +93,7 @@ const Burger = ({
 								<div className={styles.containerExtras}>
 									<p>3.Extra</p>
 									{dataExtras.map((product) => (
-										<Item
+										<ItemProductCatalog
 											key={product.id}
 											product={product}
 											order={order}
@@ -113,7 +113,7 @@ const Burger = ({
 						<p>BEBIDAS</p>
 						<div className={styles.containerDrinks}>
 							{dataDrinks.map((product) => (
-								<Item
+								<ItemProductCatalog
 									key={product.id}
 									product={product}
 									order={order}
@@ -129,7 +129,7 @@ const Burger = ({
 						<p>ACOMPAÑAMIENTOS</p>
 						<div className={styles.containerAccompaniments}>
 							{dataAccompaniments.map((product) => (
-								<Item
+								<ItemProductCatalog
 									key={product.id}
 									product={product}
 									order={order}

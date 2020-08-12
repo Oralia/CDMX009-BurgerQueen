@@ -1,8 +1,5 @@
 import React from 'react';
-import styles from '../utils/Buton/style.module.css';
-/* import wrongMark from "../assets/img/wrong-mark.svg"; */
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import styles from '../Breakfast/style.module.css';
 
 const images = {
 	'sandwich-hummus': require('../assets/img/03-sandwich-hummus.svg'),
@@ -25,42 +22,19 @@ const images = {
 	'te-chai-burger': require('../assets/img/05-te-chai.svg'),
 };
 
-const ItemCatalogo = ({
-	product,
-	addingProductToOrder,
-	deletingProductToOrder,
-	order,
-}) => {
+const ItemToOrder = ({ product }) => {
 	return (
-		<div className={styles.containerItem}>
-			<img
-				src={images[product.image]}
-				className={styles.btnNav}
-				alt=''
-				onClick={() => addingProductToOrder(product)}
-			/>
-			<p>{product.productName || product.name}</p>
-
-			<h6>${product.cost}</h6>
-			{product.quantity && <p>{product.quantity}</p>}
-
-			<div className={styles.containerIcons}>
-				<FontAwesomeIcon
-					icon={faMinusCircle}
-					className={styles.iconProduct}
-					onClick={() => deletingProductToOrder(product)}
-				/>
-
-				<FontAwesomeIcon
-					icon={faPlusCircle}
-					className={styles.iconProduct}
-					onClick={() => addingProductToOrder(product)}
-				/>
-			</div>
-		</div>
+		<>
+			<ul className={styles.list}>
+				<li> | {product.quantity}</li>
+				<li> | {product.name}</li>
+				<li> | Subtotal: ${product.subtotal}</li>
+			</ul>
+			<div>{/* <img src={images[product.image]} /> */}</div>
+		</>
 	);
 };
 
-export default ItemCatalogo;
+export default ItemToOrder;
 
 //<h6>{product.kind}</h6>

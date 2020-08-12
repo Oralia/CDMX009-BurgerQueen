@@ -1,24 +1,24 @@
 import React from 'react';
 import styles from './style.module.css';
-import Item from '../utils/Item';
+import ItemToOrder from '../utils/ItemToOrder';
 //import Row from "react-bootstrap/Row";
 import Container from 'react-bootstrap/esm/Container';
 
-const Order = ({
-	order,
-	product,
-	//total
-}) => {
+const Order = ({ order }) => {
 	const total = order.reduce((sum, item) => sum + item.subtotal, 0);
 	//console.log(total)
 	return (
 		<Container>
-			<p> Tu orden </p>
+			<h3 style={{ color: 'white' }}>Confirmar Orden</h3>
+			<hr color='white' size='7' />
 			{order.map((product) => (
-				<Item key={product.id} product={product} />
+				<ItemToOrder key={product.id} product={product} />
 			))}
 
-			<p>Total: ${total}</p>
+			<p>
+				<hr color='white' size='7' />
+				<strong>Total: ${total}</strong>
+			</p>
 		</Container>
 	);
 };

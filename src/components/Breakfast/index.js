@@ -54,23 +54,27 @@ const Breakfast = ({
 					Enviar pedido a cocina
 				</button>
 			</div>
-
-			<Modal className={styles.Modal} isOpen={modalIsOpen}>
-				<h2 style={{ color: 'white' }}>Confirmar Orden</h2>
-				<Order order={order} />
-				<button
-					className={styles.buttonCancel}
-					onClick={() => setModalIsOpen(false)}
-				>
-					Cancelar
-				</button>
-				<button
-					className={styles.buttonCancel}
-					onClick={() => setModalIsOpen(false)}
-				>
-					Enviar a Cocina
-				</button>
-			</Modal>
+			<div className={styles.modalContainer}>
+				<Modal className={styles.Modal} isOpen={modalIsOpen}>
+					<div>
+						<Order order={order} />
+					</div>
+					<div className={styles.buttonsContainer}>
+						<button
+							className={styles.buttonNext}
+							onClick={() => setModalIsOpen(false)}
+						>
+							Cancelar
+						</button>
+						<button
+							className={styles.buttonNext}
+							onClick={() => setModalIsOpen(false)}
+						>
+							Enviar a Cocina
+						</button>
+					</div>
+				</Modal>
+			</div>
 		</Fragment>
 	);
 };
