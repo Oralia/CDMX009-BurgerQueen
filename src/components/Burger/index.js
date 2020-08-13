@@ -8,6 +8,7 @@ import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
 import Modal from "react-modal";
 import Order from "../Order/Order.js";
+import ShowWaiterName from "../utils/ShowWaiterName";
 import ShowName from "../utils/ShowName";
 
 Modal.setAppElement("#root");
@@ -35,8 +36,8 @@ const Burger = ({
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const [nameClient, setNameClient] = useState();
   const [userName, setUserName] = useState();
+  const [waiterName, setWaiterName] = useState();
 
   return (
     <Fragment>
@@ -63,6 +64,7 @@ const Burger = ({
             ))}
 
             <button
+              className={styles.buttonNext}
               onClick={(product) => {
                 setConfBurger({
                   ...confBurger,
@@ -91,6 +93,7 @@ const Burger = ({
                 </div>
 
                 <button
+                  className={styles.buttonNext}
                   onClick={(product) => {
                     setConfBurger({
                       ...confBurger,
@@ -166,6 +169,7 @@ const Burger = ({
       <div className={styles.modalContainer}>
         <Modal className={styles.Modal} isOpen={modalIsOpen}>
           <div>
+            <ShowWaiterName waiterName={waiterName} />
             <ShowName userName={userName} />
             <Order order={order} />
           </div>

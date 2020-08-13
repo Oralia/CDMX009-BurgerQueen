@@ -17,8 +17,8 @@ import Breakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
-import UserName from "./components/utils/UserName/index.js";
-import ShowName from "./components/utils/ShowName/index.js";
+import WaiterName from "./components/utils/WaiterName/index.js";
+import ShowWaiterName from "./components/utils/ShowWaiterName/index.js";
 //firebase data
 import { firebase } from "./firebase";
 
@@ -27,7 +27,7 @@ import Data from "./components/utils/Data/Data.json";
 
 function App() {
   const [order, setOrder] = useState([]);
-  const [userName, setUserName] = useState();
+  const [waiterName, setWaiterName] = useState();
 
   const addingProductToOrder = (product) => {
     let newOrder = [...order];
@@ -117,18 +117,18 @@ function App() {
           </Route>
           <Route path="/waiter">
             <Waiter date={date} />
-            <UserName setUserName={setUserName} />
+            <WaiterName setWaiterName={setWaiterName} />
           </Route>
           <Route path="/chef">
             <Chef date={date} />
-            <UserName setUserName={setUserName} />
+            <WaiterName setWaiterName={setWaiterName} />
           </Route>
           <Route path="/menu">
-            <ShowName userName={userName} />
+            <ShowWaiterName waiterName={waiterName} />
             <Menu />
           </Route>
           <Route path="/menu-breakfast">
-            <ShowName userName={userName} />
+            <ShowWaiterName waiterName={waiterName} />
             <Breakfast
               Data={Data.breakfast}
               order={order}
@@ -137,7 +137,7 @@ function App() {
             />
           </Route>
           <Route path="/menu-burger">
-            <ShowName userName={userName} />
+            <ShowWaiterName waiterName={waiterName} />
             <MenuBurger
               dataHamburger={Data.hamburger}
               dataIngredients={Data.ingredients}

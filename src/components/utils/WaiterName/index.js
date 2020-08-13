@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
 import styles from "./style.module.css";
 
-const UserName = ({ setUserName }) => {
+const UserName = ({ setWaiterName }) => {
   const history = useHistory();
 
   const [name, setName] = useState({
@@ -25,7 +25,7 @@ const UserName = ({ setUserName }) => {
     }
 
     setError(false);
-    setUserName(name);
+    setWaiterName(name);
     history.push("/menu");
   };
 
@@ -37,10 +37,10 @@ const UserName = ({ setUserName }) => {
           <p>Nombre</p>
           <input
             type="text"
-            name="userName"
+            name="waiterName"
             id=""
             onChange={handleChange}
-            value={name.userName}
+            value={name.waiterName}
           />
 
           <input

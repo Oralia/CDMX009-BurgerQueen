@@ -27,25 +27,33 @@ const InfoClients = ({ setUserName }) => {
 
   return (
     <Fragment>
-      <Form onSubmit={sendToName}>
-        {error ? Swal.fire("Ingresa tu nombre de usuario") : null}
-        <div className={styles.containerEmployee}>
-          <p>Nombre</p>
-          <input
-            type="text"
-            name="userName"
-            id=""
-            onChange={handleChange}
-            value={name.userName}
-          />
+      <div className={styles.clientData}>
+        <Form onSubmit={sendToName}>
+          {error ? Swal.fire("Ingresa tu nombre de usuario") : null}
+          <div className={styles.containerEmployee}>
+            <p>Nombre</p>
+            <input
+              type="text"
+              name="userName"
+              id=""
+              onChange={handleChange}
+              value={name.userName}
+            />
 
-          <input
-            type="submit"
-            className={styles.buttonNext}
-            value="Siguiente"
-          />
-        </div>
-      </Form>
+            <input
+              type="submit"
+              className={styles.buttonNext}
+              value="Guardar"
+            />
+          </div>
+          <div className={styles.paragraph}>
+            <p>
+              Presiona el número de veces necesarias para agregar productos o
+              aumentar la cantidad
+            </p>
+          </div>
+        </Form>
+      </div>
     </Fragment>
   );
 };

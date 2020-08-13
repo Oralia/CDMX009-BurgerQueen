@@ -111,11 +111,6 @@
   background-color: rgb(122, 122, 122);
 }
 
-/* .buttonCancel {
-	background-color: #ffc107;
-	color: white;
-} */
-
 .contentButtonNext {
   display: flex;
   justify-content: flex-end;
