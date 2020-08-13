@@ -20,7 +20,8 @@ import Order from './components/Order/Order.js';
 import UserName from './components/utils/UserName/index.js';
 import ShowName from './components/utils/ShowName/index.js';
 //firebase data
-import { firebase } from './firebase';
+/* import { firebase } from './firebase'; */
+
 
 //JSON
 import Data from './components/utils/Data/Data.json';
@@ -30,6 +31,7 @@ function App() {
 	const [userName, setUserName] = useState();
 
 	const addingProductToOrder = (product) => {
+		
 		let newOrder = [...order];
 		console.log(newOrder);
 		// if existe producto en orden
@@ -89,21 +91,23 @@ function App() {
 	};
 	//Firebase
 	/* React.useEffect(() => {
-      const getOrders = async () => {
-        try {
-          const db = firebase.firestore();
-          const data = await db.collection("orders").get();
-          console.log(data.docs);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getOrders();
-    }, []);*/
-
-	/* const increasingQuantity = () => {
-
-  }; */
+		const getOrders = async () => {
+			try {
+				const db = firebase.firestore();
+				const data = await db.collection('orders').get();
+				//console.log(data.docs);
+				const arrayData = data.docs.map((doc) => ({
+					id: doc.id,
+					...doc.data(),
+				}));
+				console.log(arrayData);
+				setOrder(arrayData);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		getOrders();
+	}, []); */
 
 	const dateAndTime = new Date().toLocaleString();
 	const date = new Date().toLocaleDateString();
@@ -157,7 +161,11 @@ function App() {
 						<Order />
 					</Route>
 					<Route path='/orders'>
-						<Orders dateAndTime={dateAndTime} />
+						<Orders
+							dateAndTime={dateAndTime}
+							order={order}
+							setOrder={setOrder}
+						/>
 					</Route>
 					<Route path='/'>
 						<Main />

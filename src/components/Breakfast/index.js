@@ -9,6 +9,7 @@ import Order from '../Order/Order.js';
 
 import InfoClients from '../utils/InfoClients';
 import InfoTotal from '../utils/InfoTotal';
+import {db} from '../../firebase'
 
 Modal.setAppElement('#root');
 
@@ -23,7 +24,13 @@ const Breakfast = ({
 	console.log('calculando total', total);
 
 	const [modalIsOpen, setModalIsOpen] = useState(false);
-
+	
+	/* 
+	const sendOrder = async()=>{
+		await db.collection('orders').doc.set()
+	}
+	
+	*/
 	return (
 		<Fragment>
 			<Navbar />
@@ -51,7 +58,7 @@ const Breakfast = ({
 					className={styles.buttonNext}
 					onClick={() => setModalIsOpen(true)}
 				>
-					Enviar pedido a cocina
+					Confirmar orden
 				</button>
 			</div>
 			<div className={styles.modalContainer}>
@@ -66,6 +73,8 @@ const Breakfast = ({
 						>
 							Cancelar
 						</button>
+
+						{/* Este botón tendría que enviar a firebase */}
 						<button
 							className={styles.buttonNext}
 							onClick={() => setModalIsOpen(false)}
