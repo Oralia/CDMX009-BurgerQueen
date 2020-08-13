@@ -25,8 +25,3 @@ const Order = ({ order }) => {
 
 export default Order;
 
-/*{order.length === 0 ? (
-        <p>Aun no hay pedidos</p>
-      ) : (
-        order.map((product) => <Item key={product.id} product={product} />)
-      )} */
