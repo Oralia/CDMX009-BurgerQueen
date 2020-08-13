@@ -6,7 +6,6 @@ import Navbar from "../Navbar";
 import styles from "./style.module.css";
 import Modal from "react-modal";
 import Order from "../Order/Order.js";
-
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
 

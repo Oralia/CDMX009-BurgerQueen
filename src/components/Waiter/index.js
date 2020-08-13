@@ -1,9 +1,8 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import Boton from "../utils/Buton";
 import menumesero from "../assets/img/01-menu-mesero.svg";
 import Navbar from "../Navbar";
 import styles from "./style.module.css";
-import ButtonNext from "../utils/ButtonNext";
 
 const Waiter = ({ date }) => {
   return (
