@@ -40,6 +40,11 @@ const InfoClients = ({ setUserName }) => {
               value={name.userName}
             />
 
+            <div>
+              <p>Número de mesa</p>
+              <input type="text" placeholder="mesa" />
+            </div>
+
             <input
               type="submit"
               className={styles.buttonNext}
