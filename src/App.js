@@ -28,14 +28,10 @@ import ShowChefName from "./components/utils/ShowChefName/index.js";
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
-//Images
-import logowaiter from "./components/assets/img/01-menu-mesero.svg";
-
 function App() {
   const [order, setOrder] = useState([]);
   const [waiterName, setWaiterName] = useState();
   const [chefName, setChefName] = useState();
-  const [numberTable, setNumberTable] = useState();
 
   const addingProductToOrder = (product) => {
     let newOrder = [...order];

@@ -3,7 +3,6 @@ import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import menucocina from "../assets/img/01-menu-cocina.svg";
 import styles from "./style.module.css";
-import ButtonNext from "../utils/ButtonNext";
 
 const Chef = function ({ date }) {
   return (
