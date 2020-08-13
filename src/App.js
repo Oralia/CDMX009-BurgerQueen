@@ -13,24 +13,25 @@ import Role from "./components/Role";
 import Waiter from "./components/Waiter";
 import Chef from "./components/Chef";
 import Menu from "./components/Menu";
-import MenuBreakfast from "./components/Breakfast";
+import Breakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
-import UserName from "./components/utils/UserName/index.js";
-import ShowName from "./components/utils/ShowName/index.js";
+import WaiterName from "./components/utils/WaiterName/index.js";
+import ChefName from "./components/utils/ChefName/index.js";
+import ShowWaiterName from "./components/utils/ShowWaiterName/index.js";
+import ShowChefName from "./components/utils/ShowChefName/index.js";
+
 //firebase data
 //import { firebase } from "./firebase";
 
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
-//Images
-import logowaiter from "./components/assets/img/01-menu-mesero.svg";
-
 function App() {
   const [order, setOrder] = useState([]);
-  const [userName, setUserName] = useState();
+  const [waiterName, setWaiterName] = useState();
+  const [chefName, setChefName] = useState();
 
   const addingProductToOrder = (product) => {
     let newOrder = [...order];
@@ -114,7 +115,6 @@ function App() {
 
   const dateAndTime = new Date().toLocaleString();
   const date = new Date().toLocaleDateString();
-  //const time = new Date().toLocaleTimeString()
 
   return (
     <Router>
@@ -125,19 +125,19 @@ function App() {
           </Route>
           <Route path="/waiter">
             <Waiter date={date} />
-            <UserName setUserName={setUserName} />
+            <WaiterName setWaiterName={setWaiterName} />
           </Route>
           <Route path="/chef">
             <Chef date={date} />
-            <UserName setUserName={setUserName} />
+            <ChefName setChefName={setChefName} />
           </Route>
           <Route path="/menu">
-            <ShowName userName={userName} image={logowaiter} />
+            <ShowWaiterName waiterName={waiterName} />
             <Menu />
           </Route>
           <Route path="/menu-breakfast">
-            <ShowName userName={userName} image={logowaiter} />
-            <MenuBreakfast
+            <ShowWaiterName waiterName={waiterName} />
+            <Breakfast
               Data={Data.breakfast}
               order={order}
               addingProductToOrder={addingProductToOrder}
@@ -145,7 +145,7 @@ function App() {
             />
           </Route>
           <Route path="/menu-burger">
-            <ShowName userName={userName} image={logowaiter} />
+            <ShowWaiterName waiterName={waiterName} />
             <MenuBurger
               dataHamburger={Data.hamburger}
               dataIngredients={Data.ingredients}
@@ -162,6 +162,7 @@ function App() {
             <Order />
           </Route>
           <Route path="/orders">
+            <ShowChefName chefName={chefName} />
             <Orders dateAndTime={dateAndTime} />
           </Route>
           <Route path="/">

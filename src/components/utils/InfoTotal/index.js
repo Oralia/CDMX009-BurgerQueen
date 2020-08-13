@@ -18,7 +18,10 @@ const InfoTotal = ({ total }) => {
         </div>
         <div className={styles.totalData}>
           <div>
-            <p>Total: {total}</p>
+            {/* <Order 
+                        Total={total}
+                        /> */}
+            <p>Total:${total}</p>
           </div>
         </div>
       </div>

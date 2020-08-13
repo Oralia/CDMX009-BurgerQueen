@@ -78,7 +78,7 @@
   font-size: 50px;
 }
 
-.menuBurger {
+.Burger {
   display: flex;
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
@@ -91,29 +91,30 @@
 }
 
 .Modal {
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
 
-  width: 80%;
-  height: 80%;
+  border-radius: 30px;
+  border: none;
+
+  margin-top: 120px;
+  margin-left: 150px;
+  margin-right: 150px;
+
+  /* 	width: 70%;
+	height: 70%; */
   padding: 50px;
   /*top: 40px;
   left: 40px;
   right: 40px;
   bottom: 40px;*/
-  background-color: #aadad2;
-}
-.buttonCancel {
-  background-color: #ffc107;
-  color: white;
+  background-color: rgb(122, 122, 122);
 }
 
 .contentButtonNext {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-right: 70px;
 }
 
 .buttonNext {
@@ -131,4 +132,18 @@
 .buttonNext:hover {
   /* prueba */
   opacity: 0.8;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.list li {
+  color: #ffffff;
+  display: inline;
+  padding-left: 0;
+}
+.list {
+  padding-left: 20px;
 }
