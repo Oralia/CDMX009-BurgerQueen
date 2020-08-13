@@ -10,6 +10,9 @@ import Order from "../Order/Order.js";
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
 
+import ShowWaiterName from "../utils/ShowWaiterName";
+import ShowName from "../utils/ShowName";
+
 Modal.setAppElement("#root");
 
 const Breakfast = ({
@@ -23,6 +26,9 @@ const Breakfast = ({
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const [userName, setUserName] = useState();
+  const [waiterName, setWaiterName] = useState();
+
   return (
     <Fragment>
       <Navbar />
@@ -30,7 +36,7 @@ const Breakfast = ({
         <Boton image={mbreakfast} adress="/menu-breakfast" />
       </div>
 
-      <InfoClients />
+      <InfoClients setUserName={setUserName} />
 
       <section className={styles.container}>
         {Data.map((product) => (
@@ -56,6 +62,8 @@ const Breakfast = ({
       <div className={styles.modalContainer}>
         <Modal className={styles.Modal} isOpen={modalIsOpen}>
           <div>
+            <ShowWaiterName waiterName={waiterName} />
+            <ShowName userName={userName} />
             <Order order={order} />
           </div>
           <div className={styles.buttonsContainer}>

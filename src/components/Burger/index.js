@@ -32,8 +32,6 @@ const Burger = ({
 
   const total = order.reduce((sum, item) => sum + item.subtotal, 0);
 
-  console.log("calculando total", total);
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const [userName, setUserName] = useState();
