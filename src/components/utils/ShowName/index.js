@@ -1,16 +1,11 @@
 import React, { Fragment } from "react";
-import styles from "./style.module.css";
 
-const ShowName = ({ userName, image }) => {
+const ShowWaiterName = ({ userName }) => {
   return (
     <Fragment>
-      <div>
-        <img src={image} alt="logo" className={styles.userLogo} />
-
-        <p>{userName}</p>
-      </div>
+      <p>Cliente: {userName}</p>
     </Fragment>
   );
 };
 
-export default ShowName;
+export default ShowWaiterName;

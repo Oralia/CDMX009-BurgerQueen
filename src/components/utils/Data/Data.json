@@ -50,19 +50,22 @@
       "id": 7,
       "productName": "Ingrediente portobello",
       "kind": "ingredient",
-      "image": "portobello"
+      "image": "portobello",
+      "cost": 0
     },
     {
       "id": 8,
       "productName": "Ingrediente soya",
       "kind": "ingredient",
-      "image": "soya"
+      "image": "soya",
+      "cost": 0
     },
     {
       "id": 9,
       "productName": "Ingrediente granos",
       "kind": "ingredient",
-      "image": "grains"
+      "image": "grains",
+      "cost": 0
     }
   ],
   "extras": [

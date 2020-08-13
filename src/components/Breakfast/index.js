@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Boton from "../utils/Buton";
 import mbreakfast from "../assets/img/02-menu-desayuno.svg";
-import Item from "../utils/Item";
+import ItemProductCatalog from "../utils/ItemProductCatalog";
 import Navbar from "../Navbar";
 import styles from "./style.module.css";
 import Modal from "react-modal";
@@ -9,9 +9,12 @@ import Order from "../Order/Order.js";
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
 
+import ShowWaiterName from "../utils/ShowWaiterName";
+import ShowName from "../utils/ShowName";
+
 Modal.setAppElement("#root");
 
-const MenuBreakfast = ({
+const Breakfast = ({
   Data,
   order,
   addingProductToOrder,
@@ -22,6 +25,9 @@ const MenuBreakfast = ({
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const [userName, setUserName] = useState();
+  const [waiterName, setWaiterName] = useState();
+
   return (
     <Fragment>
       <Navbar />
@@ -29,11 +35,11 @@ const MenuBreakfast = ({
         <Boton image={mbreakfast} adress="/menu-breakfast" />
       </div>
 
-      <InfoClients />
+      <InfoClients setUserName={setUserName} />
 
       <section className={styles.container}>
         {Data.map((product) => (
-          <Item
+          <ItemProductCatalog
             key={product.id}
             product={product}
             order={order}
@@ -52,27 +58,31 @@ const MenuBreakfast = ({
           Enviar pedido a cocina
         </button>
       </div>
-
-      <Modal className={styles.Modal} isOpen={modalIsOpen}>
-        <h2 style={{ color: "white" }}>Confirmar Orden</h2>
-        <Order order={order} />
-        <button
-          className={styles.buttonCancel}
-          onClick={() => setModalIsOpen(false)}
-        >
-          Cancelar
-        </button>
-        <button
-          className={styles.buttonCancel}
-          onClick={() => setModalIsOpen(false)}
-        >
-          Enviar a Cocina
-        </button>
-      </Modal>
+      <div className={styles.modalContainer}>
+        <Modal className={styles.Modal} isOpen={modalIsOpen}>
+          <div>
+            <ShowWaiterName waiterName={waiterName} />
+            <ShowName userName={userName} />
+            <Order order={order} />
+          </div>
+          <div className={styles.buttonsContainer}>
+            <button
+              className={styles.buttonNext}
+              onClick={() => setModalIsOpen(false)}
+            >
+              Cancelar
+            </button>
+            <button
+              className={styles.buttonNext}
+              onClick={() => setModalIsOpen(false)}
+            >
+              Enviar a Cocina
+            </button>
+          </div>
+        </Modal>
+      </div>
     </Fragment>
   );
 };
 
-export default MenuBreakfast;
-
-/*<Order order={order} />*/
+export default Breakfast;
