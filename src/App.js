@@ -20,7 +20,7 @@ import Order from "./components/Order/Order.js";
 import UserName from "./components/utils/UserName/index.js";
 import ShowName from "./components/utils/ShowName/index.js";
 //firebase data
-import { db } from "./firebase";
+//import { db } from "./firebase";
 
 //JSON
 import Data from "./components/utils/Data/Data.json";
@@ -87,13 +87,13 @@ function App() {
 
     setOrder(newOrder);
   };
+
   //Firebase
-  useEffect(() => {
+  /*   useEffect(() => {
     const getOrders = async () => {
       try {
-        /* const db = firebase.firestore(); */
         const data = await db.collection("orders").get();
-        //console.log(data.docs);
+        console.log(data.docs);
         const arrayData = data.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -105,7 +105,7 @@ function App() {
       }
     };
     getOrders();
-  }, []);
+  }, []); */
 
   const dateAndTime = new Date().toLocaleString();
   const date = new Date().toLocaleDateString();
