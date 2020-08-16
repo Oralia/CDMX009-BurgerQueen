@@ -1,88 +1,137 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Boton from "../utils/Buton";
 import Navbar from "../Navbar";
 import mburger from "../assets/img/02-menu-burger.svg";
-import Item from "../utils/Item";
+import ItemProductCatalog from "../utils/ItemProductCatalog";
 import styles from "./style.module.css";
-/* import ButtonNext from "../utils/ButtonNext";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons' */
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
+import Modal from "react-modal";
+import Order from "../Order/Order.js";
+import ShowWaiterName from "../utils/ShowWaiterName";
+import ShowName from "../utils/ShowName";
 
-const MenuBurger = ({
+Modal.setAppElement("#root");
+
+const Burger = ({
   dataHamburger,
   dataIngredients,
   dataExtras,
   dataDrinks,
   dataAccompaniments,
   order,
+  setOrder,
   addingProductToOrder,
   deletingProductToOrder,
 }) => {
+  const [confBurger, setConfBurger] = useState({
+    tipo: undefined,
+    ingrediente: undefined,
+    extra: undefined,
+  });
+
+  const total = order.reduce((sum, item) => sum + item.subtotal, 0);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const [userName, setUserName] = useState();
+  const [waiterName, setWaiterName] = useState();
+
   return (
     <Fragment>
       <Navbar />
       <div className={styles.logoUp}>
         <Boton image={mburger} adress="/menu-burger" />
       </div>
-      <InfoClients />
+      <InfoClients setUserName={setUserName} />
       <section className={styles.container}>
         <strong>HAMBURGUESAS</strong>
         <br />
-        <div class={styles.menuBurger}>
+        <div className={styles.Burger}>
           <div className={styles.containerHamburguer}>
             <p>1.Tipo</p>
             {dataHamburger.map((product) => (
-              <Item
+              <ItemProductCatalog
                 key={product.id}
                 product={product}
-                /* order={order} */
+                order={order}
+                setOrder={setOrder}
                 addingProductToOrder={addingProductToOrder}
                 deletingProductToOrder={deletingProductToOrder}
               />
             ))}
-          </div>
 
-          <div className={styles.genericCont}>
-            <p>2.Ingrediente</p>
-            <div className={styles.containerIngredients}>
-              {dataIngredients.map((product) => (
-                <Item
-                  key={product.id}
-                  product={product}
-                  /* order={order} */
-                  addingProductToOrder={addingProductToOrder}
-                  deletingProductToOrder={deletingProductToOrder}
-                />
-              ))}
-            </div>
+            <button
+              className={styles.buttonNext}
+              onClick={(product) => {
+                setConfBurger({
+                  ...confBurger,
+                  tipo: product,
+                });
+              }}
+            >
+              seleccionar ingrediente
+            </button>
           </div>
+          {confBurger.tipo && (
+            <>
+              <div className={styles.genericCont}>
+                <p>2.Ingrediente</p>
+                <div className={styles.containerIngredients}>
+                  {dataIngredients.map((product) => (
+                    <ItemProductCatalog
+                      key={product.id}
+                      product={product}
+                      order={order}
+                      setOrder={setOrder}
+                      addingProductToOrder={addingProductToOrder}
+                      deletingProductToOrder={deletingProductToOrder}
+                    />
+                  ))}
+                </div>
 
-          <div className={styles.containerExtras}>
-            <p>3.Extra</p>
-            {dataExtras.map((product) => (
-              <Item
-                key={product.id}
-                product={product}
-                /* order={order} */
-                addingProductToOrder={addingProductToOrder}
-                deletingProductToOrder={deletingProductToOrder}
-              />
-            ))}
-          </div>
+                <button
+                  className={styles.buttonNext}
+                  onClick={(product) => {
+                    setConfBurger({
+                      ...confBurger,
+                      ingrediente: product,
+                    });
+                  }}
+                >
+                  seleccionar extra
+                </button>
+              </div>
+              {confBurger.ingrediente && (
+                <div className={styles.containerExtras}>
+                  <p>3.Extra</p>
+                  {dataExtras.map((product) => (
+                    <ItemProductCatalog
+                      key={product.id}
+                      product={product}
+                      order={order}
+                      setOrder={setOrder}
+                      addingProductToOrder={addingProductToOrder}
+                      deletingProductToOrder={deletingProductToOrder}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
+          )}
         </div>
 
-        <div class={styles.bebidasAccom}>
+        <div className={styles.bebidasAccom}>
           <div className={styles.genericCont}>
             <p>BEBIDAS</p>
             <div className={styles.containerDrinks}>
               {dataDrinks.map((product) => (
-                <Item
+                <ItemProductCatalog
                   key={product.id}
                   product={product}
-                  /* order={order} */
-                  aaddingProductToOrder={addingProductToOrder}
+                  order={order}
+                  setOrder={setOrder}
+                  addingProductToOrder={addingProductToOrder}
                   deletingProductToOrder={deletingProductToOrder}
                 />
               ))}
@@ -93,10 +142,11 @@ const MenuBurger = ({
             <p>ACOMPAÑAMIENTOS</p>
             <div className={styles.containerAccompaniments}>
               {dataAccompaniments.map((product) => (
-                <Item
+                <ItemProductCatalog
                   key={product.id}
                   product={product}
-                  /* order={order} */
+                  order={order}
+                  setOrder={setOrder}
                   addingProductToOrder={addingProductToOrder}
                   deletingProductToOrder={deletingProductToOrder}
                 />
@@ -105,9 +155,41 @@ const MenuBurger = ({
           </div>
         </div>
       </section>
-      <InfoTotal />
+      <InfoTotal total={total} />
+      <div className={styles.contentButtonNext}>
+        <button
+          className={styles.buttonNext}
+          onClick={() => setModalIsOpen(true)}
+        >
+          Enviar pedido a cocina
+        </button>
+      </div>
+      <div className={styles.modalContainer}>
+        <Modal className={styles.Modal} isOpen={modalIsOpen}>
+          <div>
+            <ShowWaiterName waiterName={waiterName} />
+            <ShowName userName={userName} />
+            <Order order={order} />
+          </div>
+
+          <div className={styles.buttonsContainer}>
+            <button
+              className={styles.buttonNext}
+              onClick={() => setModalIsOpen(false)}
+            >
+              Cancelar
+            </button>
+            <button
+              className={styles.buttonNext}
+              onClick={() => setModalIsOpen(false)}
+            >
+              Enviar a Cocina
+            </button>
+          </div>
+        </Modal>
+      </div>
     </Fragment>
   );
 };
 
-export default MenuBurger;
+export default Burger;

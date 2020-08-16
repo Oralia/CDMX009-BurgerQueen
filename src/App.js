@@ -13,30 +13,40 @@ import Role from "./components/Role";
 import Waiter from "./components/Waiter";
 import Chef from "./components/Chef";
 import Menu from "./components/Menu";
-import MenuBreakfast from "./components/Breakfast";
+import Breakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
+import WaiterName from "./components/utils/WaiterName/index.js";
+import ChefName from "./components/utils/ChefName/index.js";
+import ShowWaiterName from "./components/utils/ShowWaiterName/index.js";
+import ShowChefName from "./components/utils/ShowChefName/index.js";
 
 //firebase data
-import { firebase } from "./firebase";
+//import { firebase } from "./firebase";
 
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
 function App() {
   const [order, setOrder] = useState([]);
+  const [waiterName, setWaiterName] = useState();
+  const [chefName, setChefName] = useState();
 
   const addingProductToOrder = (product) => {
     let newOrder = [...order];
+    console.log(newOrder);
     // if existe producto en orden
-    if (order.find((item) => item.name === product.productName)) {
+    if (order.find((item) => item.productName === product.productName)) {
       // entonces incrementar uno a la cantidad
       newOrder = newOrder.map((i) => {
-        if (i.name === product.productName) {
+        console.log(i);
+        if (i.productName === product.productName) {
           return {
             ...i,
             quantity: i.quantity + 1,
+            cost: i.cost,
+            subtotal: i.cost * (i.quantity + 1),
           };
         } else {
           return i;
@@ -44,9 +54,11 @@ function App() {
       });
     } else {
       newOrder.push({
-        name: product.productName,
+        id: product.id,
+        productName: product.productName,
         quantity: 1,
         cost: product.cost,
+        subtotal: product.cost,
       });
     }
 
@@ -56,20 +68,26 @@ function App() {
 
   const deletingProductToOrder = (product) => {
     let newOrder = [];
-    const foundItem = order.find((item) => item.name === product.productName);
+    const foundItem = order.find(
+      (item) => item.productName === product.productName
+    );
 
     if (!foundItem) {
       return Swal.fire("El producto no existe en la orden");
     }
 
     if (foundItem.quantity === 1) {
-      newOrder = order.filter((item) => item.name !== foundItem.name);
+      newOrder = order.filter(
+        (item) => item.productName !== foundItem.productName
+      );
     } else {
       newOrder = order.map((item) => {
-        return item.name === product.productName
+        return item.productName === product.productName
           ? {
               ...item,
               quantity: item.quantity - 1,
+              cost: item.cost,
+              subtotal: item.cost * (item.quantity - 1),
             }
           : item;
       });
@@ -97,7 +115,6 @@ function App() {
 
   const dateAndTime = new Date().toLocaleString();
   const date = new Date().toLocaleDateString();
-  //const time = new Date().toLocaleTimeString()
 
   return (
     <Router>
@@ -108,38 +125,44 @@ function App() {
           </Route>
           <Route path="/waiter">
             <Waiter date={date} />
+            <WaiterName setWaiterName={setWaiterName} />
           </Route>
           <Route path="/chef">
             <Chef date={date} />
+            <ChefName setChefName={setChefName} />
           </Route>
           <Route path="/menu">
+            <ShowWaiterName waiterName={waiterName} />
             <Menu />
           </Route>
           <Route path="/menu-breakfast">
-            <MenuBreakfast
+            <ShowWaiterName waiterName={waiterName} />
+            <Breakfast
               Data={Data.breakfast}
-              /* order={order} */
+              order={order}
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
-            <Order order={order} />
           </Route>
           <Route path="/menu-burger">
+            <ShowWaiterName waiterName={waiterName} />
             <MenuBurger
-              /* Data={Data.burger} */
               dataHamburger={Data.hamburger}
               dataIngredients={Data.ingredients}
               dataExtras={Data.extras}
               dataDrinks={Data.drinks}
               dataAccompaniments={Data.accompaniments}
+              order={order}
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
           </Route>
+
           <Route path="/order">
             <Order />
           </Route>
           <Route path="/orders">
+            <ShowChefName chefName={chefName} />
             <Orders dateAndTime={dateAndTime} />
           </Route>
           <Route path="/">
