@@ -17,27 +17,31 @@ import Breakfast from "./components/Breakfast";
 import MenuBurger from "./components/Burger";
 import Orders from "./components/Orders";
 import Order from "./components/Order/Order.js";
-import UserName from "./components/utils/UserName/index.js";
-import ShowName from "./components/utils/ShowName/index.js";
+import WaiterName from "./components/utils/WaiterName/index.js";
+import ChefName from "./components/utils/ChefName/index.js";
+import ShowWaiterName from "./components/utils/ShowWaiterName/index.js";
+import ShowChefName from "./components/utils/ShowChefName/index.js";
+
 //firebase data
-//import { db } from "./firebase";
+//import { firebase } from "./firebase";
 
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
 function App() {
   const [order, setOrder] = useState([]);
-  const [userName, setUserName] = useState();
+  const [waiterName, setWaiterName] = useState();
+  const [chefName, setChefName] = useState();
 
   const addingProductToOrder = (product) => {
     let newOrder = [...order];
     console.log(newOrder);
     // if existe producto en orden
-    if (order.find((item) => item.name === product.productName)) {
+    if (order.find((item) => item.productName === product.productName)) {
       // entonces incrementar uno a la cantidad
       newOrder = newOrder.map((i) => {
         console.log(i);
-        if (i.name === product.productName) {
+        if (i.productName === product.productName) {
           return {
             ...i,
             quantity: i.quantity + 1,
@@ -51,7 +55,7 @@ function App() {
     } else {
       newOrder.push({
         id: product.id,
-        name: product.productName,
+        productName: product.productName,
         quantity: 1,
         cost: product.cost,
         subtotal: product.cost,
@@ -64,17 +68,21 @@ function App() {
 
   const deletingProductToOrder = (product) => {
     let newOrder = [];
-    const foundItem = order.find((item) => item.name === product.productName);
+    const foundItem = order.find(
+      (item) => item.productName === product.productName
+    );
 
     if (!foundItem) {
       return Swal.fire("El producto no existe en la orden");
     }
 
     if (foundItem.quantity === 1) {
-      newOrder = order.filter((item) => item.name !== foundItem.name);
+      newOrder = order.filter(
+        (item) => item.productName !== foundItem.productName
+      );
     } else {
       newOrder = order.map((item) => {
-        return item.name === product.productName
+        return item.productName === product.productName
           ? {
               ...item,
               quantity: item.quantity - 1,
@@ -87,29 +95,26 @@ function App() {
 
     setOrder(newOrder);
   };
-
   //Firebase
-  /*   useEffect(() => {
-    const getOrders = async () => {
-      try {
-        const data = await db.collection("orders").get();
-        console.log(data.docs);
-        const arrayData = data.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        console.log(arrayData);
-        setOrder(arrayData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getOrders();
-  }, []); */
+  /* React.useEffect(() => {
+      const getOrders = async () => {
+        try {
+          const db = firebase.firestore();
+          const data = await db.collection("orders").get();
+          console.log(data.docs);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getOrders();
+    }, []);*/
+
+  /* const increasingQuantity = () => {
+
+  }; */
 
   const dateAndTime = new Date().toLocaleString();
   const date = new Date().toLocaleDateString();
-  //const time = new Date().toLocaleTimeString()
 
   return (
     <Router>
@@ -120,18 +125,18 @@ function App() {
           </Route>
           <Route path='/waiter'>
             <Waiter date={date} />
-            <UserName setUserName={setUserName} />
+            <WaiterName setWaiterName={setWaiterName} />
           </Route>
           <Route path='/chef'>
             <Chef date={date} />
-            <UserName setUserName={setUserName} />
+            <ChefName setChefName={setChefName} />
           </Route>
           <Route path='/menu'>
-            <ShowName userName={userName} />
+            <ShowWaiterName waiterName={waiterName} />
             <Menu />
           </Route>
           <Route path='/menu-breakfast'>
-            <ShowName userName={userName} />
+            <ShowWaiterName waiterName={waiterName} />
             <Breakfast
               Data={Data.breakfast}
               order={order}
@@ -140,9 +145,8 @@ function App() {
             />
           </Route>
           <Route path='/menu-burger'>
-            <ShowName userName={userName} />
+            <ShowWaiterName waiterName={waiterName} />
             <MenuBurger
-              /* Data={Data.burger} */
               dataHamburger={Data.hamburger}
               dataIngredients={Data.ingredients}
               dataExtras={Data.extras}
@@ -152,18 +156,14 @@ function App() {
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
             />
-            <ShowName userName={userName} />
           </Route>
 
           <Route path='/order'>
             <Order />
           </Route>
           <Route path='/orders'>
-            <Orders
-              dateAndTime={dateAndTime}
-              order={order}
-              setOrder={setOrder}
-            />
+            <ShowChefName chefName={chefName} />
+            <Orders dateAndTime={dateAndTime} />
           </Route>
           <Route path='/'>
             <Main />

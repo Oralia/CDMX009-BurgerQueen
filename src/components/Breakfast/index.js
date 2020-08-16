@@ -6,10 +6,12 @@ import Navbar from "../Navbar";
 import styles from "./style.module.css";
 import Modal from "react-modal";
 import Order from "../Order/Order.js";
-
+import { db } from "../../firebase";
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
-import { db } from "../../firebase";
+
+import ShowWaiterName from "../utils/ShowWaiterName";
+import ShowName from "../utils/ShowName";
 
 Modal.setAppElement("#root");
 
@@ -24,6 +26,8 @@ const Breakfast = ({
   console.log("calculando total", total);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [userName, setUserName] = useState();
+  const [waiterName, setWaiterName] = useState();
 
   const sendOrder = async () => {
     try {
@@ -50,7 +54,7 @@ const Breakfast = ({
         <Boton image={mbreakfast} adress='/menu-breakfast' />
       </div>
 
-      <InfoClients />
+      <InfoClients setUserName={setUserName} />
 
       <section className={styles.container}>
         {Data.map((product) => (
@@ -76,6 +80,8 @@ const Breakfast = ({
       <div className={styles.modalContainer}>
         <Modal className={styles.Modal} isOpen={modalIsOpen}>
           <div>
+            <ShowWaiterName waiterName={waiterName} />
+            <ShowName userName={userName} />
             <Order order={order} />
           </div>
           <div className={styles.buttonsContainer}>
@@ -98,5 +104,3 @@ const Breakfast = ({
 };
 
 export default Breakfast;
-
-/*<Order order={order} />*/

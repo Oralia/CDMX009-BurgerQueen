@@ -1,11 +1,11 @@
-import React, { fragment, Fragment } from "react";
+import React, { Fragment } from "react";
 
-const ShowName = ({ userName }) => {
+const ShowWaiterName = ({ userName }) => {
   return (
     <Fragment>
-      <p>{userName}</p>
+      <p>Cliente: {userName}</p>
     </Fragment>
   );
 };
 
-export default ShowName;
+export default ShowWaiterName;

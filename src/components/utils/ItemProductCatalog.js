@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../utils/Buton/style.module.css";
-/* import wrongMark from "../assets/img/wrong-mark.svg"; */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 

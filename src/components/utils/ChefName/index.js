@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { Form } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styles from "./style.module.css";
 
-const UserName = ({ setUserName }) => {
+const ChefName = ({ setChefName }) => {
   const history = useHistory();
 
   const [name, setName] = useState({
@@ -25,8 +25,8 @@ const UserName = ({ setUserName }) => {
     }
 
     setError(false);
-    setUserName(name);
-    history.push("/menu");
+    setChefName(name);
+    history.push("/orders");
   };
 
   return (
@@ -37,11 +37,10 @@ const UserName = ({ setUserName }) => {
           <p>Nombre</p>
           <input
             type="text"
-            name="userName"
+            name="waiterName"
             id=""
             onChange={handleChange}
-            //onChange={(e)=>setName(e.target.value)
-            value={name.userName}
+            value={name.waiterName}
           />
 
           <input
@@ -55,4 +54,4 @@ const UserName = ({ setUserName }) => {
   );
 };
 
-export default UserName;
+export default ChefName;
