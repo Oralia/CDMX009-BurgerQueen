@@ -54,7 +54,7 @@ const Breakfast = ({
         <Boton image={mbreakfast} adress='/menu-breakfast' />
       </div>
 
-      <InfoClients setUserName={setUserName} />
+      <InfoClients setUserName={setUserName} setWaiterName />
 
       <section className={styles.container}>
         {Data.map((product) => (

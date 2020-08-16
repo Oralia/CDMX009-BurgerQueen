@@ -10,6 +10,7 @@ import Modal from "react-modal";
 import Order from "../Order/Order.js";
 import ShowWaiterName from "../utils/ShowWaiterName";
 import ShowName from "../utils/ShowName";
+import { db } from "../../firebase";
 
 Modal.setAppElement("#root");
 
@@ -37,11 +38,22 @@ const Burger = ({
   const [userName, setUserName] = useState();
   const [waiterName, setWaiterName] = useState();
 
+  const sendOrder = async () => {
+    try {
+      const convertToObject = { ...order };
+      await db.collection("orders").doc().set(convertToObject);
+      console.log("ya se envío data a firebase D:");
+      setModalIsOpen(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Fragment>
       <Navbar />
       <div className={styles.logoUp}>
-        <Boton image={mburger} adress="/menu-burger" />
+        <Boton image={mburger} adress='/menu-burger' />
       </div>
       <InfoClients setUserName={setUserName} />
       <section className={styles.container}>
@@ -179,10 +191,7 @@ const Burger = ({
             >
               Cancelar
             </button>
-            <button
-              className={styles.buttonNext}
-              onClick={() => setModalIsOpen(false)}
-            >
+            <button className={styles.buttonNext} onClick={sendOrder}>
               Enviar a Cocina
             </button>
           </div>

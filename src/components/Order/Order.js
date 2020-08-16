@@ -7,14 +7,16 @@ const Order = ({ order }) => {
   return (
     <Container>
       <h3 style={{ color: "white" }}>Confirmar Orden</h3>
-      <hr color="white" size="7" />
+      <hr color='white' size='7' />
       {order.map((product) => (
         <ItemToOrder key={product.id} product={product} />
       ))}
 
+      <hr color='white' size='7' />
       <div>
-        <hr color="white" size="7" />
-        <strong>Total: ${total}</strong>
+        <p>
+          <strong>Total: ${total}</strong>
+        </p>
       </div>
     </Container>
   );
