@@ -21,6 +21,7 @@ import WaiterName from "./components/utils/WaiterName/index.js";
 import ChefName from "./components/utils/ChefName/index.js";
 import ShowWaiterName from "./components/utils/ShowWaiterName/index.js";
 import ShowChefName from "./components/utils/ShowChefName/index.js";
+import { db } from "./firebase";
 
 //firebase data
 //import { firebase } from "./firebase";
@@ -96,18 +97,18 @@ function App() {
     setOrder(newOrder);
   };
   //Firebase
-  /* React.useEffect(() => {
-      const getOrders = async () => {
-        try {
-          const db = firebase.firestore();
-          const data = await db.collection("orders").get();
-          console.log(data.docs);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getOrders();
-    }, []);*/
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        //const db = firebase.firestore();
+        const data = await db.collection("orders").get();
+        console.log(data.docs);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getOrders();
+  }, []);
 
   /* const increasingQuantity = () => {
 
