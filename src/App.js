@@ -73,14 +73,13 @@ function App() {
     }
 
     setOrder({ ...order, items });
-    console.log(items);
+    /* setOrder({ ...order, items, total: calculateTotal(items) });
+    console.log(items); */
   };
 
   const deletingProductToOrder = (product) => {
     let items = [];
-    /* const calculateTotal = order.items.reduce(
-			(sum, item) => sum + item.subtotal,0);
-		console.log('calculando total', calculateTotal); */
+
     const foundItem = order.items.find(
       (item) => item.productName === product.productName
     );

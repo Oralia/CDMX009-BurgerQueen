@@ -15,6 +15,9 @@ import ShowName from "../utils/ShowName";
 
 Modal.setAppElement("#root");
 
+const calcTotal = (order) =>
+  order.items.reduce((sum, item) => sum + item.subtotal, 0);
+
 const Breakfast = ({
   Data,
   order,
@@ -23,7 +26,7 @@ const Breakfast = ({
   setOrder,
   reset,
 }) => {
-  const total = order.items.reduce((sum, item) => sum + item.subtotal, 0);
+  const total = calcTotal(order);
   console.log("calculando total", total);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -35,7 +38,13 @@ const Breakfast = ({
       await db
         .collection("orders")
         .doc()
-        .set({ ...order, placedAt: new Date() });
+        .set({
+          ...order,
+          placedAt: new Date(),
+          total,
+          /*  waiterName,
+          userName, */
+        });
       console.log("ya se envío data a firebase D:");
       reset();
       setModalIsOpen(false);
