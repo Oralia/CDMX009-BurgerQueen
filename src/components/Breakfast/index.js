@@ -21,8 +21,9 @@ const Breakfast = ({
   addingProductToOrder,
   deletingProductToOrder,
   setOrder,
+  reset,
 }) => {
-  const total = order.reduce((sum, item) => sum + item.subtotal, 0);
+  const total = order.items.reduce((sum, item) => sum + item.subtotal, 0);
   console.log("calculando total", total);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -31,9 +32,12 @@ const Breakfast = ({
 
   const sendOrder = async () => {
     try {
-      const convertToObject = { ...order };
-      await db.collection("orders").doc().set(convertToObject);
+      await db
+        .collection("orders")
+        .doc()
+        .set({ ...order, placedAt: new Date() });
       console.log("ya se envío data a firebase D:");
+      reset();
       setModalIsOpen(false);
     } catch (error) {
       console.log(error);
@@ -51,7 +55,7 @@ const Breakfast = ({
     <Fragment>
       <Navbar />
       <div className={styles.logoUp}>
-        <Boton image={mbreakfast} adress='/menu-breakfast' />
+        <Boton image={mbreakfast} adress="/menu-breakfast" />
       </div>
 
       <InfoClients setUserName={setUserName} setWaiterName />
@@ -93,7 +97,12 @@ const Breakfast = ({
             </button>
 
             {/* Este botón tendría que enviar a firebase */}
-            <button className={styles.buttonNext} onClick={sendOrder}>
+            <button
+              className={styles.buttonNext}
+              onClick={() => {
+                sendOrder();
+              }}
+            >
               Enviar a Cocina
             </button>
           </div>

@@ -29,19 +29,28 @@ import { db } from "./firebase";
 //JSON
 import Data from "./components/utils/Data/Data.json";
 
+const dateAndTime = new Date().toLocaleString();
+const date = new Date().toLocaleDateString();
+
+const initialOrderState = {
+  waiterName: "",
+  chefName: "",
+  items: [],
+  total: 0,
+};
 function App() {
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState(initialOrderState);
   const [waiterName, setWaiterName] = useState();
   const [chefName, setChefName] = useState();
 
+  const reset = () => setOrder(initialOrderState);
+
   const addingProductToOrder = (product) => {
-    let newOrder = [...order];
-    console.log(newOrder);
+    let items = [...order.items];
     // if existe producto en orden
-    if (order.find((item) => item.productName === product.productName)) {
+    if (order.items.find((item) => item.productName === product.productName)) {
       // entonces incrementar uno a la cantidad
-      newOrder = newOrder.map((i) => {
-        console.log(i);
+      items = order.items.map((i) => {
         if (i.productName === product.productName) {
           return {
             ...i,
@@ -54,7 +63,7 @@ function App() {
         }
       });
     } else {
-      newOrder.push({
+      items.push({
         id: product.id,
         productName: product.productName,
         quantity: 1,
@@ -63,13 +72,16 @@ function App() {
       });
     }
 
-    setOrder(newOrder);
-    console.log(newOrder);
+    setOrder({ ...order, items });
+    console.log(items);
   };
 
   const deletingProductToOrder = (product) => {
-    let newOrder = [];
-    const foundItem = order.find(
+    let items = [];
+    /* const calculateTotal = order.items.reduce(
+			(sum, item) => sum + item.subtotal,0);
+		console.log('calculando total', calculateTotal); */
+    const foundItem = order.items.find(
       (item) => item.productName === product.productName
     );
 
@@ -78,11 +90,11 @@ function App() {
     }
 
     if (foundItem.quantity === 1) {
-      newOrder = order.filter(
+      items = order.items.filter(
         (item) => item.productName !== foundItem.productName
       );
     } else {
-      newOrder = order.map((item) => {
+      items = order.items.map((item) => {
         return item.productName === product.productName
           ? {
               ...item,
@@ -94,58 +106,41 @@ function App() {
       });
     }
 
-    setOrder(newOrder);
+    setOrder({ ...order, items });
+    /* setOrder({ ...order, items, total: calculateTotal(items) }); */
   };
-  //Firebase
-  useEffect(() => {
-    const getOrders = async () => {
-      try {
-        //const db = firebase.firestore();
-        const data = await db.collection("orders").get();
-        console.log(data.docs);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getOrders();
-  }, []);
-
-  /* const increasingQuantity = () => {
-
-  }; */
-
-  const dateAndTime = new Date().toLocaleString();
-  const date = new Date().toLocaleDateString();
 
   return (
     <Router>
       <div>
         <Switch>
-          <Route path='/role'>
+          <Route path="/role">
             <Role />
           </Route>
-          <Route path='/waiter'>
+          <Route path="/waiter">
             <Waiter date={date} />
             <WaiterName setWaiterName={setWaiterName} />
           </Route>
-          <Route path='/chef'>
+          <Route path="/chef">
             <Chef date={date} />
             <ChefName setChefName={setChefName} />
           </Route>
-          <Route path='/menu'>
+          <Route path="/menu">
             <ShowWaiterName waiterName={waiterName} />
             <Menu />
           </Route>
-          <Route path='/menu-breakfast'>
+          <Route path="/menu-breakfast">
             <ShowWaiterName waiterName={waiterName} />
             <Breakfast
               Data={Data.breakfast}
               order={order}
+              setOrder={setOrder}
               addingProductToOrder={addingProductToOrder}
               deletingProductToOrder={deletingProductToOrder}
+              reset={reset}
             />
           </Route>
-          <Route path='/menu-burger'>
+          <Route path="/menu-burger">
             <ShowWaiterName waiterName={waiterName} />
             <MenuBurger
               dataHamburger={Data.hamburger}
@@ -159,14 +154,14 @@ function App() {
             />
           </Route>
 
-          <Route path='/order'>
+          <Route path="/order">
             <Order />
           </Route>
-          <Route path='/orders'>
+          <Route path="/orders">
             <ShowChefName chefName={chefName} />
             <Orders dateAndTime={dateAndTime} />
           </Route>
-          <Route path='/'>
+          <Route path="/">
             <Main />
           </Route>
         </Switch>
