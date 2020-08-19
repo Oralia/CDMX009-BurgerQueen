@@ -35,16 +35,21 @@ const Orders = ({ dateAndTime }) => {
       </Row>
       <div>Aqui van las Órdenes</div>
 
-      <ul>
-        {orders.map((order) => (
-          <li key={order.id}>
-            {/* {order.placedAt} */}
-            {order.items[0].quantity}
-            {order.items[0].productName}${order.total}
-            {order.waiterName}
-          </li>
-        ))}
-      </ul>
+      {orders.map((order) => (
+        <div className="order-container" key={order.id}>
+          <p>{order.waiterName}</p>
+          <div className="order-items-container">
+            {order.items.map((item, index) => (
+              <li key={`order-item-${index}`}>
+                {/* {order.placedAt} */}
+                {item.quantity}
+                {item.productName}
+              </li>
+            ))}
+          </div>
+          <p>${order.total}</p>
+        </div>
+      ))}
     </Container>
   );
 };
