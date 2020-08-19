@@ -38,8 +38,9 @@ const Orders = ({ dateAndTime }) => {
       <ul>
         {orders.map((order) => (
           <li key={order.id}>
-            {order.items.length}
-            {order.total}
+            {/* {order.placedAt} */}
+            {order.items[0].quantity}
+            {order.items[0].productName}${order.total}
             {order.waiterName}
           </li>
         ))}
