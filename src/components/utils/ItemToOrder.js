@@ -6,8 +6,8 @@ const ItemToOrder = ({ product }) => {
     <>
       <ul className={styles.list}>
         <li> | {product.quantity}</li>
-        <li> | {product.name}</li>
-        <li> | Subtotal: ${product.subtotal}</li>
+        <li> | {product.productName}</li>
+        <li> | Subtotal: ${product.subtotal} </li>
       </ul>
     </>
   );
