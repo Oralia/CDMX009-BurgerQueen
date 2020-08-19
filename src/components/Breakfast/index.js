@@ -6,6 +6,7 @@ import Navbar from "../Navbar";
 import styles from "./style.module.css";
 import Modal from "react-modal";
 import Order from "../Order/Order.js";
+import { db } from "../../firebase";
 import InfoClients from "../utils/InfoClients";
 import InfoTotal from "../utils/InfoTotal";
 
@@ -14,19 +15,50 @@ import ShowName from "../utils/ShowName";
 
 Modal.setAppElement("#root");
 
+const calcTotal = (order) =>
+  order.items.reduce((sum, item) => sum + item.subtotal, 0);
+
 const Breakfast = ({
   Data,
   order,
   addingProductToOrder,
   deletingProductToOrder,
   setOrder,
+  reset,
 }) => {
-  const total = order.reduce((sum, item) => sum + item.subtotal, 0);
+  const total = calcTotal(order);
+  console.log("calculando total", total);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
   const [userName, setUserName] = useState();
   const [waiterName, setWaiterName] = useState();
+
+  const sendOrder = async () => {
+    try {
+      await db
+        .collection("orders")
+        .doc()
+        .set({
+          ...order,
+          placedAt: new Date(),
+          total,
+          /*  waiterName,
+          userName, */
+        });
+      console.log("ya se envío data a firebase D:");
+      reset();
+      setModalIsOpen(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /* const resetOrder = () => {
+    setModalIsOpen(false);
+    setOrder([]);
+  }; */
+
+  /* Cómo le paso el total? */
 
   return (
     <Fragment>
@@ -35,7 +67,7 @@ const Breakfast = ({
         <Boton image={mbreakfast} adress="/menu-breakfast" />
       </div>
 
-      <InfoClients setUserName={setUserName} />
+      <InfoClients setUserName={setUserName} setWaiterName />
 
       <section className={styles.container}>
         {Data.map((product) => (
@@ -55,7 +87,7 @@ const Breakfast = ({
           className={styles.buttonNext}
           onClick={() => setModalIsOpen(true)}
         >
-          Enviar pedido a cocina
+          Confirmar orden
         </button>
       </div>
       <div className={styles.modalContainer}>
@@ -72,9 +104,13 @@ const Breakfast = ({
             >
               Cancelar
             </button>
+
+            {/* Este botón tendría que enviar a firebase */}
             <button
               className={styles.buttonNext}
-              onClick={() => setModalIsOpen(false)}
+              onClick={() => {
+                sendOrder();
+              }}
             >
               Enviar a Cocina
             </button>
